@@ -181,7 +181,6 @@
             <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
-                        <!-- โลโก้ผสมผสานเขียว Sage และน้ำตาลครีม -->
                         <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#9bb3a0] via-[#d0dcd4] to-[#f0eae1] p-1 shadow-md flex items-center justify-center animate-float">
                             <div class="w-full h-full rounded-full bg-[#ffffff] flex items-center justify-center overflow-hidden border-2 border-[#e2e8e3]">
                                 <span class="text-3xl">🧸</span>
@@ -279,27 +278,27 @@
                             </span>
                             <h2 class="text-sm font-bold text-[#4e584f] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
                         </div>
-                        <span class="text-[10px] text-[#7b8780] font-medium flex items-center gap-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Smooth Scroll
-                        </span>
+                        <!-- ปุ่มกดเพื่อเปิดฟอร์มเขียนรีวิว -->
+                        <button onclick="openModal('add-review')" class="px-3 py-1 bg-[#9fb3a0] hover:bg-[#87998a] text-white rounded-full text-[11px] font-bold font-mitr shadow-sm transition-all flex items-center gap-1">
+                            <i data-lucide="plus" class="w-3 h-3"></i> เขียนรีวิว
+                        </button>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3 mb-4">
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
+                            <span id="stat-total" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
                             <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิวทั้งหมด</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">5.0</span>
+                            <span id="stat-avg" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">5.0</span>
                             <span class="text-[11px] text-[#787a70] font-prompt font-semibold">คะแนนเฉลี่ย</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
+                            <span id="stat-fives" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
                             <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิว 5 ดาว</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">0</span>
+                            <span id="stat-ones" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">0</span>
                             <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิว 1 ดาว</span>
                         </div>
                     </div>
@@ -331,7 +330,6 @@
                     <span class="text-[10px] font-extrabold text-[#4e584f] mt-1 font-mitr tracking-wide">Home</span>
                 </button>
 
-                <!-- ปุ่ม Contact เปลี่ยนให้เด้งไปลิงก์ภายนอกโดยตรงทันที -->
                 <a href="https://wannapachingamy-max.github.io/Contactsummer/" target="_blank" class="flex flex-col items-center group pb-0.5">
                     <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4e584f] group-hover:bg-[#d0dcd4] shadow-sm border border-[#d0dcd4] transition-all">
                         <i data-lucide="contact" class="w-4 h-4"></i>
@@ -343,6 +341,7 @@
 
     </div>
 
+    <!-- Modal พื้นสารพัดประโยชน์ -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f5f4f0] border-2 border-[#d0dcd4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0dcd4] flex items-center justify-center text-[#4e584f]">
@@ -355,12 +354,26 @@
     <script>
         lucide.createIcons();
 
-        const sampleReviews = [
+        // โหลดรีวิวจาก localStorage หรือใช้ค่าเริ่มต้น
+        let sampleReviews = JSON.parse(localStorage.getItem('summer_store_reviews')) || [
             { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#9fb3a0]" },
             { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#87998a]" },
             { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#78887b]" },
             { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#8c7b6d]" }
         ];
+
+        function updateStats() {
+            const total = sampleReviews.length;
+            const sumRating = sampleReviews.reduce((acc, curr) => acc + curr.rating, 0);
+            const avg = total > 0 ? (sumRating / total).toFixed(1) : "5.0";
+            const fives = sampleReviews.filter(r => r.rating === 5).length;
+            const ones = sampleReviews.filter(r => r.rating === 1).length;
+
+            document.getElementById('stat-total').innerText = total;
+            document.getElementById('stat-avg').innerText = avg;
+            document.getElementById('stat-fives').innerText = fives;
+            document.getElementById('stat-ones').innerText = ones;
+        }
 
         function renderVerticalMarquee() {
             const track = document.getElementById('vertical-track-content');
@@ -392,6 +405,7 @@
                 `;
                 track.appendChild(card);
             });
+            updateStats();
         }
 
         renderVerticalMarquee();
@@ -400,6 +414,7 @@
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
             let html = '';
+            
             if (type === 'rov') {
                 html = `
                     <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
@@ -428,9 +443,57 @@
                         <div class="text-xs font-bold text-[#686b62] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
                     </div>
                 `;
+            } else if (type === 'add-review') {
+                html = `
+                    <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">✍️ เขียนรีวิวความประทับใจ</h3>
+                    <form onsubmit="handleReviewSubmit(event)" class="space-y-3">
+                        <div>
+                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ชื่อของคุณ / นามแฝง</label>
+                            <input type="text" id="review-name" required placeholder="เช่น คุณเอ, น้องบี" class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ให้คะแนนความพึงพอใจ</label>
+                            <select id="review-rating" class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]">
+                                <option value="5">★★★★★ (5 ดาว - ดีมาก)</option>
+                                <option value="4">★★★★☆ (4 ดาว - ดี)</option>
+                                <option value="3">★★★☆☆ (3 ดาว - ปานกลาง)</option>
+                                <option value="2">★★☆☆☆ (2 ดาว - พอใช้)</option>
+                                <option value="1">★☆☆☆☆ (1 ดาว - ควรปรับปรุง)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ข้อความรีวิว</label>
+                            <textarea id="review-text" required rows="3" placeholder="พิมพ์รีวิวบริการหรือสินค้าที่นี่ได้เลยค่ะ..." class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-2.5 bg-[#9fb3a0] hover:bg-[#87998a] text-white font-bold rounded-xl text-xs shadow-sm transition-all font-mitr">
+                            ส่งรีวิวทันที ✨
+                        </button>
+                    </form>
+                `;
             }
             content.innerHTML = html;
             overlay.classList.remove('hidden');
+        }
+
+        function handleReviewSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('review-name').value;
+            const rating = parseInt(document.getElementById('review-rating').value);
+            const text = document.getElementById('review-text').value;
+
+            const newReview = {
+                name: name,
+                rating: rating,
+                text: text,
+                time: "เมื่อสักครู่นี้",
+                bg: "bg-[#9fb3a0]"
+            };
+
+            sampleReviews.unshift(newReview);
+            localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
+
+            renderVerticalMarquee();
+            closeModal();
         }
 
         function closeModal() {
