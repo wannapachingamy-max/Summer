@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -126,6 +129,17 @@
             box-shadow: 0 4px 12px rgba(27, 94, 32, 0.08);
         }
 
+        /* UX/UI สไตล์การแจ้งเตือน iPad (Notification Banner) */
+        .ipad-notification {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1.5px solid rgba(129, 199, 132, 0.5);
+            box-shadow: 0 10px 30px rgba(11, 31, 20, 0.22);
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         /* แถบเมนูด้านล่างทรงแคปซูล */
         .bottom-nav-capsule {
             background: rgba(255, 255, 255, 0.94);
@@ -142,14 +156,11 @@
         .animate-float {
             animation: floatSlow 4s ease-in-out infinite;
         }
-
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #e8f5e9; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #81c784; border-radius: 10px; }
     </style>
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#a5d6a7] relative">
 
+    <!-- ใบไม้ร่วงธรรมชาติ -->
     <div class="leaf-container">
         <span class="leaf">🌿</span>
         <span class="leaf">🍃</span>
@@ -162,6 +173,7 @@
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
+            <!-- Header ใหญ่ชัดเจน -->
             <header class="flex items-center justify-between mb-7 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
@@ -181,6 +193,7 @@
                     </div>
                 </div>
 
+                <!-- ไฟสถานะร้านค้า -->
                 <div class="px-3.5 py-1.5 rounded-full bg-white/95 border-2 border-[#81c784] backdrop-blur-md shadow-md flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -190,6 +203,7 @@
                 </div>
             </header>
 
+            <!-- คำโปรย -->
             <div class="capsule-card px-6 py-4 mb-5 text-xs text-[#1b5e20] leading-relaxed relative overflow-hidden flex items-center gap-3">
                 <span class="text-lg flex-shrink-0 animate-bounce">🎀</span>
                 <p class="text-xs leading-snug font-medium">
@@ -197,12 +211,15 @@
                 </p>
             </div>
 
+            <!-- รายการเมนูหลัก -->
             <main class="space-y-4">
                 
+                <!-- ช่องใส่รูป GIF 1 รูป: อยู่ด้านบนช่องงานป้าย Rov -->
                 <div class="w-full rounded-3xl overflow-hidden shadow-lg border-2 border-[#81c784] bg-white/60 backdrop-blur-md p-1.5 mb-2">
                     <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
 
+                <!-- ปุ่ม 1: งานป้าย Rov -->
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] flex items-center justify-center text-[#2e7d32] flex-shrink-0 shadow-sm">
@@ -216,6 +233,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#2e7d32]"></i>
                 </button>
 
+                <!-- ปุ่ม 2: เช็คคิว -->
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e8f5e9] to-[#a5d6a7] flex items-center justify-center text-[#1b5e20] flex-shrink-0 shadow-sm">
@@ -229,6 +247,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#2e7d32]"></i>
                 </button>
 
+                <!-- ปุ่ม 3: ไอดีที่ยังเหลืออยู่ -->
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#fef3c7] to-[#fde68a] flex items-center justify-center text-[#b45309] flex-shrink-0 shadow-sm">
@@ -242,6 +261,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#2e7d32]"></i>
                 </button>
 
+                <!-- ช่องใส่รูป GIF 2 รูป เรียงแถวเดียวกัน ทรงสี่เหลี่ยมสวยๆ -->
                 <div class="grid grid-cols-2 gap-3 my-2">
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#81c784] bg-white/60 backdrop-blur-md p-1">
                         <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
@@ -251,54 +271,55 @@
                     </div>
                 </div>
 
-                <section id="review-section" class="pt-2">
-                    <div class="capsule-box p-5">
-                        
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-2">
-                                <span class="w-8 h-8 rounded-full bg-[#e8f5e9] flex items-center justify-center text-[#2e7d32]">
-                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                </span>
-                                <h2 class="text-lg font-bold text-[#1b5e20] font-mitr">Review</h2>
-                            </div>
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-[#e8f5e9] text-[#1b5e20] flex items-center gap-1.5 border border-[#81c784]">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#2e7d32] animate-pulse"></span>
-                                Live Feedback
+                <!-- ส่วนรีวิว : เปลี่ยนเป็นสไตล์ iPad Notification Center (หลุดจากกรอบ และมีระบบสไลด์เลื่อนแจ้งเตือน) -->
+                <section id="review-section" class="pt-4 pb-2">
+                    
+                    <!-- หัวข้อหมวดหมู่การแจ้งเตือนสไตล์ iPad -->
+                    <div class="flex items-center justify-between mb-3 px-1">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-full bg-[#2e7d32] text-white flex items-center justify-center shadow-sm">
+                                <i data-lucide="bell" class="w-3.5 h-3.5"></i>
                             </span>
+                            <h2 class="text-sm font-bold text-[#c8e6c9] font-mitr tracking-wide">ศูนย์การแจ้งเตือนรีวิว (Live)</h2>
                         </div>
-
-                        <div class="grid grid-cols-2 gap-3 mb-5">
-                            
-                            <div class="stat-card py-5 px-3 flex flex-col items-center justify-center text-center">
-                                <span class="text-3xl font-serif-num text-[#1b5e20] mb-1 font-bold">4</span>
-                                <span class="text-xs text-[#2e7d32] font-prompt font-semibold">รีวิวทั้งหมด</span>
-                            </div>
-
-                            <div class="stat-card py-5 px-3 flex flex-col items-center justify-center text-center">
-                                <span class="text-3xl font-serif-num text-[#1b5e20] mb-1 font-bold">5.0</span>
-                                <span class="text-xs text-[#2e7d32] font-prompt font-semibold">คะแนนเฉลี่ย</span>
-                            </div>
-
-                            <div class="stat-card py-5 px-3 flex flex-col items-center justify-center text-center">
-                                <span class="text-3xl font-serif-num text-[#1b5e20] mb-1 font-bold">4</span>
-                                <span class="text-xs text-[#2e7d32] font-prompt font-semibold">รีวิว 5 ดาว</span>
-                            </div>
-
-                            <div class="stat-card py-5 px-3 flex flex-col items-center justify-center text-center">
-                                <span class="text-3xl font-serif-num text-[#1b5e20] mb-1 font-bold">0</span>
-                                <span class="text-xs text-[#2e7d32] font-prompt font-semibold">รีวิว 1 ดาว</span>
-                            </div>
-
-                        </div>
-
-                        <div id="review-list" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-1">
-                        </div>
-
+                        <span class="text-[10px] text-[#81c784] font-medium flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            iPad OS Style
+                        </span>
                     </div>
+
+                    <!-- การ์ดสถิติ 4 ช่อง (วางแยกอิสระ) -->
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
+                            <span class="text-2xl font-serif-num text-[#1b5e20] mb-0.5 font-bold">4</span>
+                            <span class="text-[11px] text-[#2e7d32] font-prompt font-semibold">รีวิวทั้งหมด</span>
+                        </div>
+                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
+                            <span class="text-2xl font-serif-num text-[#1b5e20] mb-0.5 font-bold">5.0</span>
+                            <span class="text-[11px] text-[#2e7d32] font-prompt font-semibold">คะแนนเฉลี่ย</span>
+                        </div>
+                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
+                            <span class="text-2xl font-serif-num text-[#1b5e20] mb-0.5 font-bold">4</span>
+                            <span class="text-[11px] text-[#2e7d32] font-prompt font-semibold">รีวิว 5 ดาว</span>
+                        </div>
+                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
+                            <span class="text-2xl font-serif-num text-[#1b5e20] mb-0.5 font-bold">0</span>
+                            <span class="text-[11px] text-[#2e7d32] font-prompt font-semibold">รีวิว 1 ดาว</span>
+                        </div>
+                    </div>
+
+                    <!-- พื้นที่แสดงแจ้งเตือนแบบ iPad ซ้อนกันและเลื่อนได้ -->
+                    <div class="relative space-y-3">
+                        <div id="ipad-notification-stack" class="space-y-3">
+                            <!-- จะถูกเรนเดอร์ด้วย JavaScript เพื่อจำลอง Notification ลอยแบบ iPad -->
+                        </div>
+                    </div>
+
                 </section>
             </main>
         </div>
 
+        <!-- แถบเมนูด้านล่าง ทรงแคปซูล -->
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
@@ -308,6 +329,7 @@
                     </div>
                 </button>
 
+                <!-- ปุ่ม Home -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#2e7d32] via-[#4caf50] to-[#d4af37] text-white flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-105 transition-all">
                         <i data-lucide="home" class="w-5 h-5 fill-white/20"></i>
@@ -326,6 +348,7 @@
 
     </div>
 
+    <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f1f8e9] border-2 border-[#81c784] rounded-3xl max-w-sm w-full p-5 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#c8e6c9] flex items-center justify-center text-[#1b5e20]">
@@ -345,33 +368,40 @@
             { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#8e24aa]" }
         ];
 
-        function renderReviews() {
-            const list = document.getElementById('review-list');
-            list.innerHTML = '';
-            sampleReviews.forEach(rev => {
+        function renderIpadNotifications() {
+            const stackContainer = document.getElementById('ipad-notification-stack');
+            stackContainer.innerHTML = '';
+            
+            sampleReviews.forEach((rev, index) => {
                 const initial = rev.name.charAt(0);
                 const starsHtml = '★'.repeat(rev.rating);
                 
-                const item = document.createElement('div');
-                item.className = "px-4 py-3 rounded-2xl bg-white border border-[#c8e6c9] transition-all shadow-sm";
-                item.innerHTML = `
-                    <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center gap-2">
-                            <div class="w-7 h-7 rounded-full ${rev.bg || 'bg-[#2e7d32]'} text-white font-bold flex items-center justify-center text-[10px] shadow-sm">
+                const card = document.createElement('div');
+                card.className = "ipad-notification p-4 relative overflow-hidden transform transition-all duration-300 hover:scale-[1.01]";
+                
+                card.innerHTML = `
+                    <div class="flex items-start justify-between mb-1.5">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-full ${rev.bg || 'bg-[#2e7d32]'} text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
                                 ${initial}
                             </div>
-                            <span class="font-bold text-xs text-[#1b5e20] font-mitr">${rev.name}</span>
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="font-bold text-xs text-[#1b5e20] font-mitr">${rev.name}</span>
+                                    <span class="text-[9px] bg-emerald-100 text-[#2e7d32] px-1.5 py-0.2 rounded-full font-semibold">รีวิวร้าน</span>
+                                </div>
+                                <div class="text-amber-500 text-[10px] tracking-wider mt-0.5">${starsHtml}</div>
+                            </div>
                         </div>
-                        <span class="text-[10px] text-[#2e7d32] font-medium">${rev.time}</span>
+                        <span class="text-[10px] text-[#2e7d32]/70 font-medium">${rev.time}</span>
                     </div>
-                    <div class="text-amber-500 text-[10px] mb-1 tracking-wider">${starsHtml}</div>
-                    <p class="text-[#1b382b] text-xs leading-relaxed font-normal">${rev.text}</p>
+                    <p class="text-[#1b382b] text-xs leading-relaxed pl-10 font-normal">${rev.text}</p>
                 `;
-                list.appendChild(item);
+                stackContainer.appendChild(card);
             });
         }
 
-        renderReviews();
+        renderIpadNotifications();
 
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
