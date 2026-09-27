@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -107,15 +104,14 @@
             box-shadow: 0 12px 30px -4px rgba(160, 140, 130, 0.2);
         }
 
-        /* การ์ดรีวิวทรงแคปซูลพาสเทล */
+        /* การ์ดรีวิวทรงแคปซูลพาสเทลสำหรับรันขึ้น */
         .review-capsule-item {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
             border: 1.5px solid rgba(230, 218, 210, 0.9);
             box-shadow: 0 6px 20px rgba(160, 140, 130, 0.1);
             border-radius: 9999px !important;
-            flex: 0 0 auto;
-            width: 310px;
+            width: 100%;
         }
 
         /* การ์ดสถิติ 4 ช่อง โทนละมุน */
@@ -143,34 +139,35 @@
             animation: floatSlow 4s ease-in-out infinite;
         }
 
-        /* ระบบเลื่อนรันต่อเนื่อง (Infinite Marquee) */
-        .marquee-container {
+        /* ระบบรันขึ้นแนวตั้ง (Vertical Infinite Marquee) */
+        .vertical-marquee-container {
+            height: 85px;
             overflow: hidden;
-            width: 100%;
             position: relative;
-            display: flex;
+            width: 100%;
         }
 
-        .marquee-track {
+        .vertical-marquee-track {
+            position: absolute;
+            width: 100%;
             display: flex;
-            gap: 16px;
-            width: max-content;
-            animation: scrollMarquee 25s linear infinite;
+            flex-direction: column;
+            gap: 12px;
+            animation: scrollVertical 12s linear infinite;
         }
 
-        .marquee-container:hover .marquee-track {
+        .vertical-marquee-container:hover .vertical-marquee-track {
             animation-play-state: paused;
         }
 
-        @keyframes scrollMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 8px)); }
+        @keyframes scrollVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
         }
     </style>
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#e2d6ce] relative">
 
-    <!-- ใบไม้/ไอคอนร่วงเบาๆ -->
     <div class="leaf-container">
         <span class="leaf">🧸</span>
         <span class="leaf">✨</span>
@@ -182,8 +179,7 @@
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
-            <!-- Header โทนละมุน -->
-            <header class="flex items-center justify-between mb-7 pt-3 pl-1 relative">
+            <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
                         <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#d4b5a0] via-[#e6d0c4] to-[#f4e4dc] p-1 shadow-md flex items-center justify-center animate-float">
@@ -202,7 +198,6 @@
                     </div>
                 </div>
 
-                <!-- สถานะร้านค้า -->
                 <div class="px-3.5 py-1.5 rounded-full bg-white/90 border-2 border-[#e6d0c4] backdrop-blur-md shadow-sm flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -212,23 +207,19 @@
                 </div>
             </header>
 
-            <!-- คำโปรย -->
-            <div class="capsule-card px-6 py-4 mb-5 text-xs text-[#6b5b52] leading-relaxed relative overflow-hidden flex items-center gap-3">
-                <span class="text-lg flex-shrink-0 animate-bounce">🎀</span>
-                <p class="text-xs leading-snug font-medium">
+            <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#7c6a5e] leading-relaxed">
+                <span class="text-sm flex-shrink-0 mt-0.5">🎀</span>
+                <p class="font-normal">
                     รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
                 </p>
             </div>
 
-            <!-- รายการเมนูหลัก -->
             <main class="space-y-4">
                 
-                <!-- ช่องใส่รูป GIF 1 -->
                 <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1.5 mb-2">
                     <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
 
-                <!-- ปุ่ม 1 -->
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#e6d0c4] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
@@ -242,7 +233,6 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
-                <!-- ปุ่ม 2 -->
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#faedcd] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
@@ -256,7 +246,6 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
-                <!-- ปุ่ม 3 -->
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#faedcd] to-[#fefae0] flex items-center justify-center text-[#9a7b54] flex-shrink-0 shadow-sm">
@@ -270,7 +259,6 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
-                <!-- ช่องใส่รูป GIF 2 รูป -->
                 <div class="grid grid-cols-2 gap-3 my-2">
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1">
                         <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
@@ -280,7 +268,6 @@
                     </div>
                 </div>
 
-                <!-- ส่วนรีวิว : "รีวิวจากคุณลูกค้า" แบบรันต่อเนื่องวนลูป (Continuous Marquee) -->
                 <section id="review-section" class="pt-4 pb-2">
                     
                     <div class="flex items-center justify-between mb-3 px-1">
@@ -292,11 +279,10 @@
                         </div>
                         <span class="text-[10px] text-[#9c8578] font-medium flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                            Continuous Feed
+                            Vertical Scroll
                         </span>
                     </div>
 
-                    <!-- การ์ดสถิติ 4 ช่อง -->
                     <div class="grid grid-cols-2 gap-3 mb-4">
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
                             <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">4</span>
@@ -316,18 +302,15 @@
                         </div>
                     </div>
 
-                    <!-- พื้นที่รันแถวรีวิวต่อเนื่อง -->
-                    <div class="marquee-container py-2">
-                        <div class="marquee-track" id="marquee-track-content">
-                            <!-- ถูกเติมอัตโนมัติด้วย JavaScript และทำซ้ำเพื่อลูปเนียนตา -->
-                        </div>
+                    <div class="vertical-marquee-container">
+                        <div class="vertical-marquee-track" id="vertical-track-content">
+                            </div>
                     </div>
 
                 </section>
             </main>
         </div>
 
-        <!-- แถบเมนูด้านล่าง ทรงแคปซูล -->
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
@@ -337,7 +320,6 @@
                     </div>
                 </button>
 
-                <!-- ปุ่ม Home -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#d4b5a0] via-[#e6d0c4] to-[#f4e4dc] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
                         <i data-lucide="home" class="w-5 h-5 text-[#5c4a42]"></i>
@@ -356,7 +338,6 @@
 
     </div>
 
-    <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#fcf8f5] border-2 border-[#e6d0c4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#e6d0c4] flex items-center justify-center text-[#5c4a42]">
@@ -376,31 +357,31 @@
             { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#b08968]" }
         ];
 
-        function renderMarqueeReviews() {
-            const track = document.getElementById('marquee-track-content');
+        function renderVerticalMarquee() {
+            const track = document.getElementById('vertical-track-content');
             track.innerHTML = '';
 
-            // ทำซ้ำ 2 ชุดเพื่อให้การรันวนลูปต่อกันแบบไร้รอยต่อ (Infinite Loop)
-            const listToRender = [...sampleReviews, ...sampleReviews, ...sampleReviews];
+            // ทำซ้ำ 2 ชุดเพื่อให้การรันขึ้นวนลูปต่อกันแบบไร้รอยต่อ
+            const listToRender = [...sampleReviews, ...sampleReviews];
 
             listToRender.forEach((rev) => {
                 const initial = rev.name.charAt(0);
                 const starsHtml = '★'.repeat(rev.rating);
                 
                 const card = document.createElement('div');
-                card.className = "review-capsule-item px-4 py-3.5";
+                card.className = "review-capsule-item px-5 py-3 flex-shrink-0";
                 
                 card.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2.5">
                             <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
                                 ${initial}
                             </div>
-                            <span class="font-bold text-xs text-[#5c4a42] font-mitr truncate max-w-[130px]">${rev.name}</span>
+                            <span class="font-bold text-xs text-[#5c4a42] font-mitr">${rev.name}</span>
                         </div>
                         <span class="text-[9px] text-[#9c8578] font-medium">${rev.time}</span>
                     </div>
-                    <div class="flex items-start justify-between pl-8 gap-1">
+                    <div class="flex items-center justify-between pl-8 gap-2">
                         <p class="text-[#4a403a] text-xs leading-snug font-normal line-clamp-1">${rev.text}</p>
                         <span class="text-amber-500 text-[10px] tracking-wider flex-shrink-0">${starsHtml}</span>
                     </div>
@@ -409,7 +390,7 @@
             });
         }
 
-        renderMarqueeReviews();
+        renderVerticalMarquee();
 
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
