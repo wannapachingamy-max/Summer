@@ -278,10 +278,7 @@
                             </span>
                             <h2 class="text-sm font-bold text-[#4e584f] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
                         </div>
-                        <!-- ปุ่มกดเพื่อเปิดฟอร์มเขียนรีวิว -->
-                        <button onclick="openModal('add-review')" class="px-3 py-1 bg-[#9fb3a0] hover:bg-[#87998a] text-white rounded-full text-[11px] font-bold font-mitr shadow-sm transition-all flex items-center gap-1">
-                            <i data-lucide="plus" class="w-3 h-3"></i> เขียนรีวิว
-                        </button>
+                        <span class="text-[11px] text-[#787a70]">กดปุ่มรีวิวที่แถบล่างสุดได้เลย ✨</span>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3 mb-4">
@@ -317,7 +314,8 @@
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
-                <button onclick="scrollToReviews()" class="flex flex-col items-center group pb-0.5">
+                <!-- ปุ่มรีวิว (เปิดฟอร์มเขียนรีวิวตามที่ขอ) -->
+                <button onclick="openModal('add-review')" class="flex flex-col items-center group pb-0.5">
                     <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4e584f] group-hover:bg-[#d0dcd4] shadow-sm border border-[#d0dcd4] transition-all">
                         <i data-lucide="message-square" class="w-4 h-4"></i>
                     </div>
@@ -498,10 +496,6 @@
 
         function closeModal() {
             document.getElementById('modal-overlay').classList.add('hidden');
-        }
-
-        function scrollToReviews() {
-            document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
