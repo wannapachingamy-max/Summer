@@ -9,7 +9,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -29,19 +29,10 @@
     </script>
 
     <style>
-        * {
-            font-family: 'Prompt', sans-serif !important;
-        }
-        
-        .font-mitr, .font-mitr * {
-            font-family: 'Mitr', sans-serif !important;
-        }
+        * { font-family: 'Prompt', sans-serif !important; }
+        .font-mitr, .font-mitr * { font-family: 'Mitr', sans-serif !important; }
+        .font-serif-num { font-family: 'Cormorant Garamond', serif !important; }
 
-        .font-serif-num {
-            font-family: 'Cormorant Garamond', serif !important;
-        }
-
-        /* ผสมผสานโทนสีเขียวละมุนและน้ำตาลครีมอุ่นๆ ให้บาลานซ์และเข้ากันอย่างลงตัว */
         body {
             background-color: #f3f4f0;
             background-image: 
@@ -53,37 +44,20 @@
             overflow-x: hidden;
         }
 
-        .text-header-title {
-            color: #4e584f;
-            letter-spacing: 0.05em;
-        }
+        .text-header-title { color: #4e584f; letter-spacing: 0.05em; }
 
         .leaf-container {
-            position: fixed;
-            top: -10%;
-            left: 0;
-            width: 100%;
-            height: 120vh;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            position: fixed; top: -10%; left: 0; width: 100%; height: 120vh; pointer-events: none; z-index: 0; overflow: hidden;
         }
-
         .leaf {
-            position: absolute;
-            top: -20px;
-            font-size: 1.2rem;
-            opacity: 0.6;
-            animation: fall linear infinite;
+            position: absolute; top: -20px; font-size: 1.2rem; opacity: 0.6; animation: fall linear infinite;
         }
-
         @keyframes fall {
             0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
             10% { opacity: 0.7; }
             90% { opacity: 0.5; }
             100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
         }
-
         .leaf:nth-child(1) { left: 8%; animation-duration: 10s; animation-delay: 0s; }
         .leaf:nth-child(2) { left: 25%; animation-duration: 13s; animation-delay: 2s; }
         .leaf:nth-child(3) { left: 45%; animation-duration: 9s; animation-delay: 4s; }
@@ -98,7 +72,6 @@
             border-radius: 9999px !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .capsule-card:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.98);
@@ -133,32 +106,18 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-5px) rotate(2deg); }
         }
-        .animate-float {
-            animation: floatSlow 4s ease-in-out infinite;
-        }
+        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
 
         .vertical-marquee-container {
-            height: 140px;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
+            height: 140px; overflow: hidden; position: relative; width: 100%;
             mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
             -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
         }
-
         .vertical-marquee-track {
-            position: absolute;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            position: absolute; width: 100%; display: flex; flex-direction: column; gap: 12px;
             animation: scrollVertical 16s linear infinite;
         }
-
-        .vertical-marquee-container:hover .vertical-marquee-track {
-            animation-play-state: paused;
-        }
-
+        .vertical-marquee-container:hover .vertical-marquee-track { animation-play-state: paused; }
         @keyframes scrollVertical {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); }
@@ -168,15 +127,10 @@
 <body class="min-h-screen pb-32 selection:bg-[#d4ded0] relative">
 
     <div class="leaf-container">
-        <span class="leaf">🧸</span>
-        <span class="leaf">✨</span>
-        <span class="leaf">🤍</span>
-        <span class="leaf">🌿</span>
-        <span class="leaf">🧸</span>
+        <span class="leaf">🧸</span><span class="leaf">✨</span><span class="leaf">🤍</span><span class="leaf">🌿</span><span class="leaf">🧸</span>
     </div>
 
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
-        
         <div>
             <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
@@ -187,11 +141,9 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="text-left">
                         <h1 class="text-3xl font-extrabold tracking-wide text-header-title flex items-center gap-2 font-mitr leading-none">
-                            SUMMER
-                            <span class="text-sm text-[#8c7b6d] font-normal">. ♡ ˚</span>
+                            SUMMER <span class="text-sm text-[#8c7b6d] font-normal">. ♡ ˚</span>
                         </h1>
                         <p class="text-xs text-[#787a70] tracking-tight mt-1.5 font-medium">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
                     </div>
@@ -206,7 +158,6 @@
                 </div>
             </header>
 
-            <!-- คำโปรย -->
             <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#686b62] leading-relaxed">
                 <span class="text-sm flex-shrink-0 mt-0.5">🌿</span>
                 <p class="font-normal">
@@ -215,7 +166,6 @@
             </div>
 
             <main class="space-y-4">
-                
                 <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#d0dcd4] bg-white/60 backdrop-blur-md p-1.5 mb-2">
                     <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
@@ -233,7 +183,8 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#787a70]"></i>
                 </button>
 
-                <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
+                <!-- ปุ่มเช็คคิว เปลี่ยนเป็นลิงก์เปิดเว็บเช็คคิวของคุณทันที -->
+                <a href="https://wannapachingamy-max.github.io/Qaummer/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#ecdcd4] to-[#d4dcd0] flex items-center justify-center text-[#525a51] flex-shrink-0 shadow-sm">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
@@ -243,8 +194,8 @@
                             <span class="text-[11px] text-[#787a70]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#787a70]"></i>
-                </button>
+                    <i data-lucide="external-link" class="w-5 h-5 text-[#787a70]"></i>
+                </a>
 
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
@@ -268,9 +219,8 @@
                     </div>
                 </div>
 
-                <!-- ส่วนรีวิว -->
+                <!-- ส่วนแสดงผลรีวิว -->
                 <section id="review-section" class="pt-4 pb-2">
-                    
                     <div class="flex items-center justify-between mb-3 px-1">
                         <div class="flex items-center gap-2">
                             <span class="w-7 h-7 rounded-full bg-[#9fb3a0] text-white flex items-center justify-center shadow-sm">
@@ -278,7 +228,9 @@
                             </span>
                             <h2 class="text-sm font-bold text-[#4e584f] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
                         </div>
-                        <span class="text-[11px] text-[#787a70]">กดปุ่มรีวิวที่แถบล่างสุดได้เลย ✨</span>
+                        <a href="review.html" class="text-[11px] text-[#9fb3a0] font-bold hover:underline font-mitr flex items-center gap-1">
+                            เขียนรีวิว <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3 mb-4">
@@ -300,26 +252,20 @@
                         </div>
                     </div>
 
-                    <!-- พื้นที่รันแนวตั้งพร้อม Fade Mask เนียนตา -->
                     <div class="vertical-marquee-container">
-                        <div class="vertical-marquee-track" id="vertical-track-content">
-                            <!-- เรนเดอร์ด้วย JavaScript -->
-                        </div>
+                        <div class="vertical-marquee-track" id="vertical-track-content"></div>
                     </div>
-
                 </section>
             </main>
         </div>
 
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
-                
-                <!-- ปุ่มรีวิว (เปิดฟอร์มเขียนรีวิวตามที่ขอ) -->
-                <button onclick="openModal('add-review')" class="flex flex-col items-center group pb-0.5">
+                <a href="review.html" class="flex flex-col items-center group pb-0.5">
                     <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4e584f] group-hover:bg-[#d0dcd4] shadow-sm border border-[#d0dcd4] transition-all">
                         <i data-lucide="message-square" class="w-4 h-4"></i>
                     </div>
-                </button>
+                </a>
 
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#9bb3a0] via-[#d0dcd4] to-[#f0eae1] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
@@ -333,13 +279,11 @@
                         <i data-lucide="contact" class="w-4 h-4"></i>
                     </div>
                 </a>
-
             </nav>
         </footer>
-
     </div>
 
-    <!-- Modal พื้นสารพัดประโยชน์ -->
+    <!-- Modal ข้อมูลร้าน (สำหรับปุ่มอื่นๆ เช่น งานป้าย หรือ ไอดีที่เหลือ) -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f5f4f0] border-2 border-[#d0dcd4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0dcd4] flex items-center justify-center text-[#4e584f]">
@@ -352,7 +296,6 @@
     <script>
         lucide.createIcons();
 
-        // โหลดรีวิวจาก localStorage หรือใช้ค่าเริ่มต้น
         let sampleReviews = JSON.parse(localStorage.getItem('summer_store_reviews')) || [
             { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#9fb3a0]" },
             { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#87998a]" },
@@ -375,23 +318,19 @@
 
         function renderVerticalMarquee() {
             const track = document.getElementById('vertical-track-content');
+            if(!track) return;
             track.innerHTML = '';
-
             const listToRender = [...sampleReviews, ...sampleReviews];
 
             listToRender.forEach((rev) => {
                 const initial = rev.name.charAt(0);
                 const starsHtml = '★'.repeat(rev.rating);
-                
                 const card = document.createElement('div');
                 card.className = "review-capsule-item px-5 py-3 flex-shrink-0";
-                
                 card.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
                         <div class="flex items-center gap-2.5">
-                            <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
-                                ${initial}
-                            </div>
+                            <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">${initial}</div>
                             <span class="font-bold text-xs text-[#4e584f] font-mitr">${rev.name}</span>
                         </div>
                         <span class="text-[9px] text-[#7b8780] font-medium">${rev.time}</span>
@@ -412,91 +351,15 @@
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
             let html = '';
-            
             if (type === 'rov') {
-                html = `
-                    <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
-                    <p class="text-[#686b62] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
-                    <div class="bg-white p-3 rounded-2xl border border-[#d0dcd4] space-y-1">
-                        <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-bold text-[#686b62]">50 - 150 ฿</span></div>
-                        <div class="flex justify-between"><span>ป้ายคู่ / ทีม:</span> <span class="font-bold text-[#686b62]">180 - 350 ฿</span></div>
-                    </div>
-                `;
-            } else if (type === 'queue') {
-                html = `
-                    <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">⟢ สถานะเช็คคิว</h3>
-                    <div class="space-y-2">
-                        <div class="p-2.5 bg-white rounded-full flex justify-between items-center border border-[#d0dcd4] px-4">
-                            <span>คิวที่ 1: คุณ Mild</span>
-                            <span class="text-[10px] bg-[#9fb3a0] text-white px-2.5 py-0.5 rounded-full font-bold">กำลังทำ</span>
-                        </div>
-                    </div>
-                `;
+                html = `<h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3><p class="text-[#686b62] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต สไตล์สวยหวานน่ารัก</p>`;
             } else if (type === 'stock') {
-                html = `
-                    <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3>
-                    <div class="p-3 bg-white rounded-2xl border border-[#d0dcd4]">
-                        <div class="font-bold text-[#4e584f] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
-                        <div class="text-[10px] text-[#686b62]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
-                        <div class="text-xs font-bold text-[#686b62] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
-                    </div>
-                `;
-            } else if (type === 'add-review') {
-                html = `
-                    <h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">✍️ เขียนรีวิวความประทับใจ</h3>
-                    <form onsubmit="handleReviewSubmit(event)" class="space-y-3">
-                        <div>
-                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ชื่อของคุณ / นามแฝง</label>
-                            <input type="text" id="review-name" required placeholder="เช่น คุณเอ, น้องบี" class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]">
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ให้คะแนนความพึงพอใจ</label>
-                            <select id="review-rating" class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]">
-                                <option value="5">★★★★★ (5 ดาว - ดีมาก)</option>
-                                <option value="4">★★★★☆ (4 ดาว - ดี)</option>
-                                <option value="3">★★★☆☆ (3 ดาว - ปานกลาง)</option>
-                                <option value="2">★★☆☆☆ (2 ดาว - พอใช้)</option>
-                                <option value="1">★☆☆☆☆ (1 ดาว - ควรปรับปรุง)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-[#4e584f] mb-1">ข้อความรีวิว</label>
-                            <textarea id="review-text" required rows="3" placeholder="พิมพ์รีวิวบริการหรือสินค้าที่นี่ได้เลยค่ะ..." class="w-full px-3 py-2 bg-white rounded-xl border border-[#d0dcd4] text-xs focus:outline-none focus:ring-1 focus:ring-[#9fb3a0]"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-2.5 bg-[#9fb3a0] hover:bg-[#87998a] text-white font-bold rounded-xl text-xs shadow-sm transition-all font-mitr">
-                            ส่งรีวิวทันที ✨
-                        </button>
-                    </form>
-                `;
+                html = `<h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3><div class="p-3 bg-white rounded-2xl border border-[#d0dcd4]"><div class="font-bold text-[#4e584f] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div><div class="text-xs font-bold text-[#686b62] mt-1">ราคา 1,290 ฿</div></div>`;
             }
             content.innerHTML = html;
             overlay.classList.remove('hidden');
         }
-
-        function handleReviewSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('review-name').value;
-            const rating = parseInt(document.getElementById('review-rating').value);
-            const text = document.getElementById('review-text').value;
-
-            const newReview = {
-                name: name,
-                rating: rating,
-                text: text,
-                time: "เมื่อสักครู่นี้",
-                bg: "bg-[#9fb3a0]"
-            };
-
-            sampleReviews.unshift(newReview);
-            localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
-
-            renderVerticalMarquee();
-            closeModal();
-        }
-
-        function closeModal() {
-            document.getElementById('modal-overlay').classList.add('hidden');
-        }
+        function closeModal() { document.getElementById('modal-overlay').classList.add('hidden'); }
     </script>
 </body>
 </html>
