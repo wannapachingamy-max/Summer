@@ -8,12 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts: Kanit & Itim -->
+    
+    <!-- Google Fonts: Kanit & Itim (ดึงแบบรองรับภาษาไทย) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
     
-    <!-- ตั้งค่า Tailwind Font Family -->
+    <!-- Config Tailwind ให้รู้จักฟอนต์ Itim และ Kanit -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,16 +29,22 @@
     </script>
 
     <style>
+        /* บังคับใช้ฟอนต์ Kanit เป็นฟอนต์หลักทั้งหน้าเว็บ */
+        * {
+            font-family: 'Kanit', sans-serif !important;
+        }
+        
+        /* คลาสสำหรับส่วนที่ต้องการใช้ฟอนต์น่ารัก (Itim) */
+        .font-cute, .font-cute * {
+            font-family: 'Itim', cursive, sans-serif !important;
+        }
+
         body {
-            font-family: 'Kanit', sans-serif;
             background: linear-gradient(180deg, #fbf7f4 0%, #f5ece5 50%, #efe4db 100%);
             color: #6b584c;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        .font-cute {
-            font-family: 'Itim', cursive, sans-serif;
-        }
+        
         .soft-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
@@ -94,7 +101,7 @@
                     <span class="absolute -bottom-1 -right-1 text-sm">✨</span>
                 </div>
                 
-                <!-- ชื่อร้าน -->
+                <!-- ชื่อร้าน (ใช้ฟอนต์ Itim น่ารัก) -->
                 <div>
                     <h1 class="text-3xl font-bold tracking-wider text-[#5c4a3e] flex items-center gap-1.5 font-cute">
                         SUMMER
@@ -158,7 +165,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
-                <!-- ส่วนอัพเดทเรียลไทม์ (Review Section แบบขยายใหญ่ + ฟอร์มตามรูป) -->
+                <!-- ส่วนอัพเดทเรียลไทม์ (Review Section) -->
                 <section id="review-section" class="pt-3">
                     <div class="soft-card rounded-3xl p-5 border border-[#ebdcd0] shadow-sm">
                         
@@ -202,7 +209,7 @@
                             <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ หรือรีวิวมุมมองต่าง..." class="w-full bg-[#fdfbf9] text-xs p-3 rounded-xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
 
                             <!-- ปุ่มส่งรีวิว -->
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition-all font-cute text-sm">
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl font-medium flex items-center justify-center gap-2 transition-all font-cute text-sm">
                                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                                 <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
