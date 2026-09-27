@@ -113,12 +113,21 @@
             box-shadow: 0 12px 30px -4px rgba(46, 125, 50, 0.45);
         }
 
-        .capsule-box {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(76, 175, 80, 0.45);
-            box-shadow: 0 12px 32px -6px rgba(11, 31, 20, 0.35);
-            border-radius: 2.2rem;
+        /* การ์ดแจ้งเตือนทรงแคปซูลสไตล์ iPad แบบเลื่อนได้ */
+        .ipad-notification-capsule {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1.5px solid rgba(129, 199, 132, 0.5);
+            box-shadow: 0 8px 24px rgba(11, 31, 20, 0.2);
+            border-radius: 9999px !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .ipad-notification-capsule:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.99);
+            box-shadow: 0 12px 30px rgba(46, 125, 50, 0.3);
         }
 
         /* การ์ดสถิติ 4 ช่อง */
@@ -127,17 +136,6 @@
             border: 1px solid rgba(76, 175, 80, 0.4);
             border-radius: 1.25rem;
             box-shadow: 0 4px 12px rgba(27, 94, 32, 0.08);
-        }
-
-        /* UX/UI สไตล์การแจ้งเตือน iPad (Notification Banner) */
-        .ipad-notification {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1.5px solid rgba(129, 199, 132, 0.5);
-            box-shadow: 0 10px 30px rgba(11, 31, 20, 0.22);
-            border-radius: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* แถบเมนูด้านล่างทรงแคปซูล */
@@ -155,6 +153,15 @@
         }
         .animate-float {
             animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        /* ซ่อน Scrollbar ของกล่องเลื่อนให้ดูสะอาดตาแบบ iPad */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -271,10 +278,9 @@
                     </div>
                 </div>
 
-                <!-- ส่วนรีวิว : เปลี่ยนเป็นสไตล์ iPad Notification Center (หลุดจากกรอบ และมีระบบสไลด์เลื่อนแจ้งเตือน) -->
+                <!-- ส่วนรีวิว : ศูนย์การแจ้งเตือนทรงแคปซูล เลื่อนได้แบบ iPad[span_1](start_span)[span_1](end_span) -->
                 <section id="review-section" class="pt-4 pb-2">
                     
-                    <!-- หัวข้อหมวดหมู่การแจ้งเตือนสไตล์ iPad -->
                     <div class="flex items-center justify-between mb-3 px-1">
                         <div class="flex items-center gap-2">
                             <span class="w-7 h-7 rounded-full bg-[#2e7d32] text-white flex items-center justify-center shadow-sm">
@@ -284,11 +290,11 @@
                         </div>
                         <span class="text-[10px] text-[#81c784] font-medium flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                            iPad OS Style
+                            iPad Scroll Style[span_2](start_span)[span_2](end_span)
                         </span>
                     </div>
 
-                    <!-- การ์ดสถิติ 4 ช่อง (วางแยกอิสระ) -->
+                    <!-- การ์ดสถิติ 4 ช่อง -->
                     <div class="grid grid-cols-2 gap-3 mb-4">
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
                             <span class="text-2xl font-serif-num text-[#1b5e20] mb-0.5 font-bold">4</span>
@@ -308,11 +314,9 @@
                         </div>
                     </div>
 
-                    <!-- พื้นที่แสดงแจ้งเตือนแบบ iPad ซ้อนกันและเลื่อนได้ -->
-                    <div class="relative space-y-3">
-                        <div id="ipad-notification-stack" class="space-y-3">
-                            <!-- จะถูกเรนเดอร์ด้วย JavaScript เพื่อจำลอง Notification ลอยแบบ iPad -->
-                        </div>
+                    <!-- พื้นที่เลื่อนแจ้งเตือนทรงแคปซูล (สไตล์ Notification Center บน iPad)[span_3](start_span)[span_3](end_span) -->
+                    <div class="max-h-[340px] overflow-y-auto hide-scrollbar space-y-3 pr-1 py-1" id="ipad-notification-stack">
+                        <!-- ถูกเรนเดอร์ด้วย JavaScript เป็นทรงแคปซูล -->
                     </div>
 
                 </section>
@@ -372,30 +376,27 @@
             const stackContainer = document.getElementById('ipad-notification-stack');
             stackContainer.innerHTML = '';
             
-            sampleReviews.forEach((rev, index) => {
+            sampleReviews.forEach((rev) => {
                 const initial = rev.name.charAt(0);
                 const starsHtml = '★'.repeat(rev.rating);
                 
                 const card = document.createElement('div');
-                card.className = "ipad-notification p-4 relative overflow-hidden transform transition-all duration-300 hover:scale-[1.01]";
+                card.className = "ipad-notification-capsule px-5 py-4 relative";
                 
                 card.innerHTML = `
-                    <div class="flex items-start justify-between mb-1.5">
+                    <div class="flex items-center justify-between mb-1">
                         <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-full ${rev.bg || 'bg-[#2e7d32]'} text-white font-bold flex items-center justify-center text-xs shadow-sm flex-shrink-0">
+                            <div class="w-7 h-7 rounded-full ${rev.bg || 'bg-[#2e7d32]'} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
                                 ${initial}
                             </div>
-                            <div>
-                                <div class="flex items-center gap-1.5">
-                                    <span class="font-bold text-xs text-[#1b5e20] font-mitr">${rev.name}</span>
-                                    <span class="text-[9px] bg-emerald-100 text-[#2e7d32] px-1.5 py-0.2 rounded-full font-semibold">รีวิวร้าน</span>
-                                </div>
-                                <div class="text-amber-500 text-[10px] tracking-wider mt-0.5">${starsHtml}</div>
-                            </div>
+                            <span class="font-bold text-xs text-[#1b5e20] font-mitr">${rev.name}</span>
                         </div>
                         <span class="text-[10px] text-[#2e7d32]/70 font-medium">${rev.time}</span>
                     </div>
-                    <p class="text-[#1b382b] text-xs leading-relaxed pl-10 font-normal">${rev.text}</p>
+                    <div class="flex items-center justify-between pl-9">
+                        <p class="text-[#1b382b] text-xs leading-snug font-normal line-clamp-2">${rev.text}</p>
+                        <span class="text-amber-500 text-[10px] tracking-wider ml-2 flex-shrink-0">${starsHtml}</span>
+                    </div>
                 `;
                 stackContainer.appendChild(card);
             });
