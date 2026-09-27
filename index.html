@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -151,6 +154,7 @@
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#bbf7d0] relative">
 
+    <!-- ดอกไม้และใบไม้ร่วงสไตล์เทพนิยาย -->
     <div class="leaf-container">
         <span class="leaf">🌸</span>
         <span class="leaf">🌿</span>
@@ -163,6 +167,7 @@
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
+            <!-- Header ใหญ่ชัดเจน -->
             <header class="flex items-center justify-between mb-7 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
@@ -182,6 +187,7 @@
                     </div>
                 </div>
 
+                <!-- ไฟสถานะร้านค้า -->
                 <div class="px-3.5 py-1.5 rounded-full bg-white/95 border-2 border-[#86efac] backdrop-blur-md shadow-md flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -191,6 +197,7 @@
                 </div>
             </header>
 
+            <!-- คำโปรย -->
             <div class="capsule-card px-6 py-4 mb-5 text-xs text-[#14532d] leading-relaxed relative overflow-hidden flex items-center gap-3">
                 <span class="text-lg flex-shrink-0 animate-bounce">🎀</span>
                 <p class="text-xs leading-snug font-medium">
@@ -198,12 +205,10 @@
                 </p>
             </div>
 
+            <!-- รายการเมนูหลัก -->
             <main class="space-y-4">
                 
-                <div class="w-full rounded-3xl overflow-hidden shadow-lg border-2 border-[#86efac] bg-white/50 backdrop-blur-md p-1.5 mb-2">
-                    <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="ตกแต่ง GIF" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
-                </div>
-
+                <!-- ปุ่ม 1: งานป้าย Rov -->
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e0f2fe] to-[#bae6fd] flex items-center justify-center text-[#0369a1] flex-shrink-0 shadow-sm">
@@ -217,6 +222,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#22c55e]"></i>
                 </button>
 
+                <!-- ปุ่ม 2: เช็คคิว -->
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#dcfce7] to-[#86efac] flex items-center justify-center text-[#15803d] flex-shrink-0 shadow-sm">
@@ -230,6 +236,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#22c55e]"></i>
                 </button>
 
+                <!-- ปุ่ม 3: ไอดีที่ยังเหลืออยู่ -->
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#fce7f3] to-[#fbcfe8] flex items-center justify-center text-[#be185d] flex-shrink-0 shadow-sm">
@@ -243,6 +250,17 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#22c55e]"></i>
                 </button>
 
+                <!-- ช่องใส่รูป GIF 2 รูป เรียงแถวเดียวกัน ทรงสี่เหลี่ยมสวยๆ (อยู่ใต้ช่องไอดีที่ยังเหลืออยู่) -->
+                <div class="grid grid-cols-2 gap-3 my-2">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#86efac] bg-white/50 backdrop-blur-md p-1">
+                        <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
+                    </div>
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-lg border-2 border-[#86efac] bg-white/50 backdrop-blur-md p-1">
+                        <img src="EE699540-D77C-4585-B36E-402392D54160.gif" alt="GIF ตกแต่ง 2" class="w-full h-full object-cover rounded-2xl block">
+                    </div>
+                </div>
+
+                <!-- ส่วนรีวิว : การ์ดสถิติ 4 กล่อง (2x2) -->
                 <section id="review-section" class="pt-2">
                     <div class="capsule-box p-5">
                         
@@ -259,6 +277,7 @@
                             </span>
                         </div>
 
+                        <!-- ตารางสถิติ 4 กล่อง (2x2) -->
                         <div class="grid grid-cols-2 gap-3 mb-5">
                             
                             <div class="stat-card py-5 px-3 flex flex-col items-center justify-center text-center">
@@ -283,6 +302,7 @@
 
                         </div>
 
+                        <!-- รายการรีวิวลูกค้า -->
                         <div id="review-list" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-1">
                         </div>
 
@@ -291,6 +311,7 @@
             </main>
         </div>
 
+        <!-- แถบเมนูด้านล่าง ทรงแคปซูล -->
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
@@ -300,6 +321,7 @@
                     </div>
                 </button>
 
+                <!-- ปุ่ม Home สีสดใสแฟนตาซี -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#22c55e] via-[#38bdf8] to-[#ec4899] text-white flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-105 transition-all">
                         <i data-lucide="home" class="w-5 h-5 fill-white/20"></i>
@@ -318,6 +340,7 @@
 
     </div>
 
+    <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f0fdf4] border-2 border-[#86efac] rounded-3xl max-w-sm w-full p-5 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#bbf7d0] flex items-center justify-center text-[#14532d]">
