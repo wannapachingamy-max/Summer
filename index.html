@@ -38,19 +38,81 @@
             font-family: 'Mitr', sans-serif !important;
         }
 
+        /* พื้นหลังลายธรรมชาติผสมลำธารละมุน */
         body {
-            background: linear-gradient(180deg, #fbf7f4 0%, #f5ece5 50%, #efe4db 100%);
+            background-color: #fbf7f4;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(203, 213, 192, 0.3) 0px, transparent 50%),
+                radial-gradient(at 100% 30%, rgba(240, 149, 135, 0.15) 0px, transparent 50%),
+                radial-gradient(at 20% 80%, rgba(212, 195, 183, 0.3) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, rgba(203, 213, 192, 0.35) 0px, transparent 50%);
+            background-attachment: fixed;
             color: #6b584c;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
+
+        /* เอฟเฟกต์แอนิเมชันใบไม้ร่วง (Falling Leaves) */
+        .leaf-container {
+            position: fixed;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 120vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .leaf {
+            position: absolute;
+            top: -20px;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        /* สุ่มระยะเวลาและพิกัดการร่วงของใบไม้ */
+        .leaf:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; font-size: 1rem; }
+        .leaf:nth-child(2) { left: 22%; animation-duration: 12s; animation-delay: 2s; font-size: 1.4rem; }
+        .leaf:nth-child(3) { left: 38%; animation-duration: 8s; animation-delay: 4s; font-size: 0.9rem; }
+        .leaf:nth-child(4) { left: 55%; animation-duration: 11s; animation-delay: 1s; font-size: 1.3rem; }
+        .leaf:nth-child(5) { left: 72%; animation-duration: 10s; animation-delay: 5s; font-size: 1.1rem; }
+        .leaf:nth-child(6) { left: 88%; animation-duration: 13s; animation-delay: 3s; font-size: 1rem; }
+        .leaf:nth-child(7) { left: 15%; animation-duration: 14s; animation-delay: 6s; font-size: 1.2rem; }
+        .leaf:nth-child(8) { left: 80%; animation-duration: 9s; animation-delay: 7s; font-size: 0.8rem; }
         
         /* บล็อกทรงแคปซูล (Pill / Capsule Shape) */
         .capsule-card {
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(230, 215, 205, 0.9);
             box-shadow: 0 4px 16px -2px rgba(168, 142, 128, 0.12);
-            border-radius: 9999px !important; /* ทรงแคปซูล */
+            border-radius: 9999px !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .capsule-card:hover {
+            transform: translateY(-3px) scale(1.01);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 20px -2px rgba(168, 142, 128, 0.2);
         }
 
         .capsule-box {
@@ -70,6 +132,16 @@
             background: linear-gradient(135deg, #e88677 0%, #d96e62 100%);
             transform: translateY(-1px);
         }
+
+        /* Float Animation สำหรับหมี */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(3deg); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
         .custom-scrollbar::-webkit-scrollbar {
             width: 5px;
         }
@@ -83,35 +155,58 @@
         }
     </style>
 </head>
-<body class="min-h-screen pb-28 selection:bg-[#e6d7cd]">
+<body class="min-h-screen pb-28 selection:bg-[#e6d7cd] relative">
 
-    <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative">
+    <!-- เอฟเฟกต์ใบไม้ร่วงเรียวเนียน (Falling Leaves Container) -->
+    <div class="leaf-container">
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍂</span>
+        <span class="leaf">🌿</span>
+        <span class="leaf">🍁</span>
+        <span class="leaf">🍃</span>
+        <span class="leaf">🍂</span>
+        <span class="leaf">🌿</span>
+        <span class="leaf">🍁</span>
+    </div>
+
+    <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
-            <!-- ส่วนหัว (Header) : ชิดซ้ายแบบในรูป โลโก้วงกลม + ชื่อร้าน SUMMER ข้างๆ -->
-            <header class="flex items-center justify-start gap-3.5 mb-6 pt-2 pl-1">
-                <!-- โลโก้ทรงกลมซ้ายสุด -->
-                <div class="relative group flex-shrink-0">
-                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center">
-                        <div class="w-full h-full rounded-full bg-[#fbf7f4] flex items-center justify-center overflow-hidden border border-[#eddcd0]">
-                            <span class="text-2xl">🧸</span>
+            <!-- ส่วนหัว (Header) : ชิดซ้ายแบบในรูป โลโก้วงกลม + ชื่อร้าน SUMMER ข้างๆ + ไฟสถานะร้าน -->
+            <header class="flex items-center justify-between mb-6 pt-2 pl-1">
+                <div class="flex items-center gap-3.5">
+                    <!-- โลโก้ทรงกลมซ้ายสุด ขยับลอยนุ่มนวล -->
+                    <div class="relative group flex-shrink-0">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center animate-float">
+                            <div class="w-full h-full rounded-full bg-[#fbf7f4] flex items-center justify-center overflow-hidden border border-[#eddcd0]">
+                                <span class="text-2xl">🧸</span>
+                            </div>
                         </div>
                     </div>
+                    
+                    <!-- ชื่อร้าน SUMMER ต่อข้างๆ -->
+                    <div class="text-left">
+                        <h1 class="text-2xl font-bold tracking-wide text-[#5c4a3e] flex items-center gap-1.5 font-mitr leading-none">
+                            SUMMER
+                            <span class="text-xs text-[#a38f83] font-normal">. ♡ ˚</span>
+                        </h1>
+                        <p class="text-[11px] text-[#9c8678] tracking-tight mt-1">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
+                    </div>
                 </div>
-                
-                <!-- ชื่อร้าน SUMMER ต่อข้างๆ -->
-                <div class="text-left">
-                    <h1 class="text-2xl font-bold tracking-wide text-[#5c4a3e] flex items-center gap-1.5 font-mitr leading-none">
-                        SUMMER
-                        <span class="text-xs text-[#a38f83] font-normal">. ♡ ˚</span>
-                    </h1>
-                    <p class="text-[11px] text-[#9c8678] tracking-tight mt-1">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
+
+                <!-- ไฟสถานะร้านค้า (Live Status Indicator) -->
+                <div class="px-3 py-1.5 rounded-full bg-white/80 border border-[#e3eae0] backdrop-blur-md shadow-sm flex items-center gap-2">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-[10px] font-medium text-[#4a5442] font-mitr">ร้านเปิดบริการ</span>
                 </div>
             </header>
 
             <!-- คำโปรยอธิบาย บล็อกทรงแคปซูล -->
             <div class="capsule-card px-6 py-3.5 mb-5 text-xs text-[#786455] leading-relaxed relative overflow-hidden flex items-center gap-3">
-                <span class="text-base flex-shrink-0">🎀</span>
+                <span class="text-base flex-shrink-0 animate-bounce">🎀</span>
                 <p class="text-xs leading-snug">
                     รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกด ช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
                 </p>
@@ -121,9 +216,9 @@
             <main class="space-y-3.5">
                 
                 <!-- 1. งานป้าย Rov -->
-                <button onclick="openModal('rov')" class="w-full capsule-card hover:bg-white/95 px-5 py-3.5 flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -131,13 +226,13 @@
                             <span class="text-[11px] text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
                 <!-- 2. เช็คคิว -->
-                <button onclick="openModal('queue')" class="w-full capsule-card hover:bg-white/95 px-5 py-3.5 flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -145,13 +240,13 @@
                             <span class="text-[11px] text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
                 <!-- 3. ไอดีที่ยังเหลืออยู่ -->
-                <button onclick="openModal('stock')" class="w-full capsule-card hover:bg-white/95 px-5 py-3.5 flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:scale-105 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -159,7 +254,7 @@
                             <span class="text-[11px] text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
                 <!-- ส่วนรีวิว (Review Section) -->
@@ -180,17 +275,15 @@
                             </span>
                         </div>
 
-                        <!-- ฟอร์มฝากรีวิว (ทรงแคปซูลย่อย) -->
+                        <!-- ฟอร์มฝากรีวิว -->
                         <div class="bg-white/90 rounded-3xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
                             <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
                                 <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
                                 <span>ฝากรีวิวให้ร้าน SUMMER</span>
                             </div>
 
-                            <!-- Input ชื่อ ทรงแคปซูล -->
                             <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-full border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-2.5 transition-colors">
 
-                            <!-- ให้คะแนนร้าน -->
                             <div class="flex items-center justify-between mb-2.5 px-2">
                                 <span class="text-xs text-[#8c786c]">ให้คะแนนร้าน:</span>
                                 <div id="star-rating" class="flex gap-1 text-amber-400 text-base cursor-pointer">
@@ -202,11 +295,9 @@
                                 </div>
                             </div>
 
-                            <!-- Input ข้อความรีวิว -->
                             <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-2xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
 
-                            <!-- ปุ่มส่งรีวิว ทรงแคปซูล -->
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 transition-all font-mitr text-xs">
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 transition-all font-mitr text-xs active:scale-95">
                                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                                 <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
@@ -245,7 +336,7 @@
 
     <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
+        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl transform transition-all duration-300">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#eee1d8] flex items-center justify-center text-[#6e5a4d]">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
@@ -286,7 +377,7 @@
                 const starsHtml = '★'.repeat(rev.rating);
                 
                 const item = document.createElement('div');
-                item.className = "px-4 py-3 rounded-2xl bg-white/95 border border-[#f0e3d9] transition-all shadow-sm";
+                item.className = "px-4 py-3 rounded-2xl bg-white/95 border border-[#f0e3d9] transition-all shadow-sm transform hover:-translate-y-0.5";
                 item.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
                         <div class="flex items-center gap-2">
