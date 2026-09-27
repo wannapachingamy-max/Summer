@@ -28,17 +28,14 @@
     </script>
 
     <style>
-        /* บังคับใช้ Prompt เป็นฟอนต์หลักทั้งเว็บ */
         * {
             font-family: 'Prompt', sans-serif !important;
         }
         
-        /* บังคับใช้ Mitr เฉพาะส่วนหัวข้อ/ชื่อร้าน */
         .font-mitr, .font-mitr * {
             font-family: 'Mitr', sans-serif !important;
         }
 
-        /* พื้นหลังลายธรรมชาติผสมลำธารละมุน */
         body {
             background-color: #fbf7f4;
             background-image: 
@@ -52,7 +49,7 @@
             overflow-x: hidden;
         }
 
-        /* เอฟเฟกต์แอนิเมชันใบไม้ร่วง (Falling Leaves) */
+        /* ใบไม้ร่วง */
         .leaf-container {
             position: fixed;
             top: -10%;
@@ -77,31 +74,23 @@
                 transform: translateY(0) rotate(0deg) translateX(0);
                 opacity: 0;
             }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.5;
-            }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.5; }
             100% {
                 transform: translateY(110vh) rotate(360deg) translateX(50px);
                 opacity: 0;
             }
         }
 
-        /* สุ่มระยะเวลาและพิกัดการร่วงของใบไม้ */
-        .leaf:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; font-size: 1rem; }
-        .leaf:nth-child(2) { left: 22%; animation-duration: 12s; animation-delay: 2s; font-size: 1.4rem; }
-        .leaf:nth-child(3) { left: 38%; animation-duration: 8s; animation-delay: 4s; font-size: 0.9rem; }
-        .leaf:nth-child(4) { left: 55%; animation-duration: 11s; animation-delay: 1s; font-size: 1.3rem; }
-        .leaf:nth-child(5) { left: 72%; animation-duration: 10s; animation-delay: 5s; font-size: 1.1rem; }
-        .leaf:nth-child(6) { left: 88%; animation-duration: 13s; animation-delay: 3s; font-size: 1rem; }
-        .leaf:nth-child(7) { left: 15%; animation-duration: 14s; animation-delay: 6s; font-size: 1.2rem; }
-        .leaf:nth-child(8) { left: 80%; animation-duration: 9s; animation-delay: 7s; font-size: 0.8rem; }
-        
-        /* บล็อกทรงแคปซูล (Pill / Capsule Shape) */
+        .leaf:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; }
+        .leaf:nth-child(2) { left: 22%; animation-duration: 12s; animation-delay: 2s; }
+        .leaf:nth-child(3) { left: 38%; animation-duration: 8s; animation-delay: 4s; }
+        .leaf:nth-child(4) { left: 55%; animation-duration: 11s; animation-delay: 1s; }
+        .leaf:nth-child(5) { left: 72%; animation-duration: 10s; animation-delay: 5s; }
+        .leaf:nth-child(6) { left: 88%; animation-duration: 13s; animation-delay: 3s; }
+
         .capsule-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(230, 215, 205, 0.9);
             box-shadow: 0 4px 16px -2px rgba(168, 142, 128, 0.12);
@@ -110,17 +99,25 @@
         }
 
         .capsule-card:hover {
-            transform: translateY(-3px) scale(1.01);
+            transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 8px 20px -2px rgba(168, 142, 128, 0.2);
         }
 
         .capsule-box {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(230, 215, 205, 0.9);
             box-shadow: 0 8px 24px -6px rgba(168, 142, 128, 0.12);
             border-radius: 2rem;
+        }
+
+        /* กรอบแคปซูลของแถบด้านล่าง */
+        .bottom-nav-capsule {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(225, 210, 200, 0.8);
+            box-shadow: 0 8px 32px rgba(135, 110, 95, 0.15);
+            border-radius: 9999px !important;
         }
 
         .btn-gradient {
@@ -128,36 +125,22 @@
             color: white;
             box-shadow: 0 4px 12px rgba(230, 125, 113, 0.3);
         }
-        .btn-gradient:hover {
-            background: linear-gradient(135deg, #e88677 0%, #d96e62 100%);
-            transform: translateY(-1px);
-        }
 
-        /* Float Animation สำหรับหมี */
         @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(3deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
         }
         .animate-float {
             animation: floatSlow 4s ease-in-out infinite;
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 5px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1e9e3;
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #d4c3b7;
-            border-radius: 10px;
-        }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1e9e3; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d4c3b7; border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen pb-28 selection:bg-[#e6d7cd] relative">
+<body class="min-h-screen pb-32 selection:bg-[#e6d7cd] relative">
 
-    <!-- เอฟเฟกต์ใบไม้ร่วงเรียวเนียน (Falling Leaves Container) -->
     <div class="leaf-container">
         <span class="leaf">🍃</span>
         <span class="leaf">🍂</span>
@@ -165,17 +148,14 @@
         <span class="leaf">🍁</span>
         <span class="leaf">🍃</span>
         <span class="leaf">🍂</span>
-        <span class="leaf">🌿</span>
-        <span class="leaf">🍁</span>
     </div>
 
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
-            <!-- ส่วนหัว (Header) : ชิดซ้ายแบบในรูป โลโก้วงกลม + ชื่อร้าน SUMMER ข้างๆ + ไฟสถานะร้าน -->
+            <!-- Header ชิดซ้าย -->
             <header class="flex items-center justify-between mb-6 pt-2 pl-1">
                 <div class="flex items-center gap-3.5">
-                    <!-- โลโก้ทรงกลมซ้ายสุด ขยับลอยนุ่มนวล -->
                     <div class="relative group flex-shrink-0">
                         <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center animate-float">
                             <div class="w-full h-full rounded-full bg-[#fbf7f4] flex items-center justify-center overflow-hidden border border-[#eddcd0]">
@@ -184,7 +164,6 @@
                         </div>
                     </div>
                     
-                    <!-- ชื่อร้าน SUMMER ต่อข้างๆ -->
                     <div class="text-left">
                         <h1 class="text-2xl font-bold tracking-wide text-[#5c4a3e] flex items-center gap-1.5 font-mitr leading-none">
                             SUMMER
@@ -194,7 +173,6 @@
                     </div>
                 </div>
 
-                <!-- ไฟสถานะร้านค้า (Live Status Indicator) -->
                 <div class="px-3 py-1.5 rounded-full bg-white/80 border border-[#e3eae0] backdrop-blur-md shadow-sm flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -204,7 +182,7 @@
                 </div>
             </header>
 
-            <!-- คำโปรยอธิบาย บล็อกทรงแคปซูล -->
+            <!-- คำโปรย -->
             <div class="capsule-card px-6 py-3.5 mb-5 text-xs text-[#786455] leading-relaxed relative overflow-hidden flex items-center gap-3">
                 <span class="text-base flex-shrink-0 animate-bounce">🎀</span>
                 <p class="text-xs leading-snug">
@@ -212,13 +190,11 @@
                 </p>
             </div>
 
-            <!-- บล็อกเมนูรายการต่างๆ (ทรงแคปซูล) -->
+            <!-- รายการเมนูแคปซูล -->
             <main class="space-y-3.5">
-                
-                <!-- 1. งานป้าย Rov -->
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] flex-shrink-0">
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -226,13 +202,12 @@
                             <span class="text-[11px] text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
                 </button>
 
-                <!-- 2. เช็คคิว -->
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] flex-shrink-0">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -240,13 +215,12 @@
                             <span class="text-[11px] text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
                 </button>
 
-                <!-- 3. ไอดีที่ยังเหลืออยู่ -->
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
                     <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:scale-110 group-hover:rotate-6 transition-transform flex-shrink-0">
+                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] flex-shrink-0">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
@@ -254,14 +228,12 @@
                             <span class="text-[11px] text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
                 </button>
 
-                <!-- ส่วนรีวิว (Review Section) -->
+                <!-- รีวิว -->
                 <section id="review-section" class="pt-2">
                     <div class="capsule-box p-5 border border-[#ebdcd0] shadow-sm">
-                        
-                        <!-- Review Header -->
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-2">
                                 <span class="w-7 h-7 rounded-full bg-[#fceee9] flex items-center justify-center text-[#e67d71]">
@@ -275,14 +247,13 @@
                             </span>
                         </div>
 
-                        <!-- ฟอร์มฝากรีวิว -->
                         <div class="bg-white/90 rounded-3xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
                             <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
                                 <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
                                 <span>ฝากรีวิวให้ร้าน SUMMER</span>
                             </div>
 
-                            <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-full border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-2.5 transition-colors">
+                            <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-full border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-2.5">
 
                             <div class="flex items-center justify-between mb-2.5 px-2">
                                 <span class="text-xs text-[#8c786c]">ให้คะแนนร้าน:</span>
@@ -295,40 +266,47 @@
                                 </div>
                             </div>
 
-                            <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-2xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
+                            <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-2xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none"></textarea>
 
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 transition-all font-mitr text-xs active:scale-95">
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 font-mitr text-xs">
                                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                                 <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
                         </div>
 
-                        <!-- รายการรีวิวทรงแคปซูล -->
                         <div id="review-list" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-1">
                         </div>
-
                     </div>
                 </section>
             </main>
         </div>
 
-        <!-- แถบเมนูด้านล่าง ทรงแคปซูล -->
-        <footer class="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-lg z-40">
-            <nav class="capsule-card p-1.5 flex items-center justify-around border border-[#e6d6cc] shadow-xl">
-                <button onclick="scrollToReviews()" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
-                    <i data-lucide="message-square-heart" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-mitr">Review</span>
+        <!-- แถบเมนูด้านล่าง กรอบแคปซูลมน ตามรูปภาพเป๊ะๆ -->
+        <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
+            <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
+                
+                <!-- ปุ่มซ้าย: กล่องข้อความรีวิว -->
+                <button onclick="scrollToReviews()" class="flex flex-col items-center group pb-0.5">
+                    <div class="w-9 h-9 rounded-full bg-white/70 flex items-center justify-center text-[#806c5f] group-hover:bg-white shadow-sm border border-[#f0e3d9] transition-all">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                    </div>
                 </button>
 
-                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex-1 py-1.5 flex flex-col items-center text-[#4a5442] bg-[#cbd5c0] rounded-full shadow-sm transition-all">
-                    <i data-lucide="home" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-mitr">HOME</span>
+                <!-- ปุ่มกลาง: Home วงกลมม่วง + ข้อความ Home ด้านล่าง -->
+                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#8c78c2] to-[#a38fe3] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
+                        <i data-lucide="home" class="w-5 h-5 fill-white/20"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#6b584c] mt-1 font-mitr tracking-wide">Home</span>
                 </button>
 
-                <button onclick="openModal('contact')" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
-                    <i data-lucide="contact-2" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-mitr">Contact</span>
+                <!-- ปุ่มขวา: บัตรประจำตัว/คอนแทค -->
+                <button onclick="openModal('contact')" class="flex flex-col items-center group pb-0.5">
+                    <div class="w-9 h-9 rounded-full bg-white/70 flex items-center justify-center text-[#806c5f] group-hover:bg-white shadow-sm border border-[#f0e3d9] transition-all">
+                        <i data-lucide="contact" class="w-4 h-4"></i>
+                    </div>
                 </button>
+
             </nav>
         </footer>
 
@@ -336,13 +314,11 @@
 
     <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl transform transition-all duration-300">
+        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#eee1d8] flex items-center justify-center text-[#6e5a4d]">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
-            
-            <div id="modal-content" class="text-xs space-y-3">
-            </div>
+            <div id="modal-content" class="text-xs space-y-3"></div>
         </div>
     </div>
 
@@ -361,11 +337,8 @@
             currentRating = rating;
             const stars = document.querySelectorAll('#star-rating span');
             stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.remove('opacity-30');
-                } else {
-                    star.classList.add('opacity-30');
-                }
+                if (index < rating) star.classList.remove('opacity-30');
+                else star.classList.add('opacity-30');
             });
         }
 
@@ -377,7 +350,7 @@
                 const starsHtml = '★'.repeat(rev.rating);
                 
                 const item = document.createElement('div');
-                item.className = "px-4 py-3 rounded-2xl bg-white/95 border border-[#f0e3d9] transition-all shadow-sm transform hover:-translate-y-0.5";
+                item.className = "px-4 py-3 rounded-2xl bg-white/95 border border-[#f0e3d9] transition-all shadow-sm";
                 item.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
                         <div class="flex items-center gap-2">
@@ -398,19 +371,11 @@
         function addReview() {
             const nameInput = document.getElementById('user-name-input');
             const textInput = document.getElementById('user-text-input');
-            
             const name = nameInput.value.trim() || "คุณลูกค้า ♡";
             const text = textInput.value.trim();
 
             if (text) {
-                sampleReviews.unshift({
-                    name: name,
-                    rating: currentRating,
-                    text: text,
-                    time: "เมื่อกี้",
-                    bg: "bg-[#e67d71]"
-                });
-                
+                sampleReviews.unshift({ name: name, rating: currentRating, text: text, time: "เมื่อกี้", bg: "bg-[#e67d71]" });
                 nameInput.value = '';
                 textInput.value = '';
                 setRating(5);
@@ -418,42 +383,16 @@
             }
         }
 
-        const randomTexts = [
-            "โอนไว โอนจริง ดันๆให้ร้าน SUMMER ครับ ⭐",
-            "ได้ไอดีเรียบร้อยครับ ปลอดภัย 100% เลิฟเลย 💗",
-            "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨",
-            "แม่ค้าตอบเร็วมาก ใส่ใจสุดๆ สั่งอีกแน่นอนครับ!"
-        ];
-        const randomNames = ["น้องไอซ์ สายหวาน", "พลอย_RoV", "แบงค์_ตัวจริง", "คุณพีร์"];
-        const colors = ["bg-[#e67d71]", "bg-[#829e75]", "bg-[#f59e0b]", "bg-[#8b72be]"];
-
-        setInterval(() => {
-            const randName = randomNames[Math.floor(Math.random() * randomNames.length)];
-            const randText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
-            const randBg = colors[Math.floor(Math.random() * colors.length)];
-            
-            sampleReviews.unshift({
-                name: randName,
-                rating: 5,
-                text: randText,
-                time: "เมื่อกี้",
-                bg: randBg
-            });
-            if (sampleReviews.length > 8) sampleReviews.pop();
-            renderReviews();
-        }, 9000);
-
         renderReviews();
         setRating(5);
 
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
-            
             let html = '';
             if (type === 'rov') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">౨ৎ งานป้าย RoV</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
                     <p class="text-[#786455] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
                     <div class="bg-white/80 p-3 rounded-2xl border border-[#ede0d4] space-y-1">
                         <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-medium text-[#4a5442]">50 - 150 ฿</span></div>
@@ -462,40 +401,32 @@
                 `;
             } else if (type === 'queue') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">⟢ สถานะเช็คคิว</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">⟢ สถานะเช็คคิว</h3>
                     <div class="space-y-2">
                         <div class="p-2.5 bg-white/80 rounded-full flex justify-between items-center border border-[#e3eae0] px-4">
                             <span>คิวที่ 1: คุณ Mild</span>
                             <span class="text-[10px] bg-[#cbd5c0] text-[#4a5442] px-2.5 py-0.5 rounded-full font-medium">กำลังทำ</span>
                         </div>
-                        <div class="p-2.5 bg-white/80 rounded-full flex justify-between items-center border border-[#eee1d8] px-4">
-                            <span>คิวที่ 2: คุณ Oat</span>
-                            <span class="text-[10px] bg-[#e8ded5] text-[#7a6759] px-2.5 py-0.5 rounded-full font-medium">รอคิว</span>
-                        </div>
                     </div>
                 `;
             } else if (type === 'stock') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">🪽 ไอดีที่ยังเหลืออยู่</h3>
-                    <div class="space-y-2">
-                        <div class="p-3 bg-white/80 rounded-2xl border border-[#ebdcd0]">
-                            <div class="font-medium text-[#5c4a3e] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
-                            <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
-                            <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
-                        </div>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3>
+                    <div class="p-3 bg-white/80 rounded-2xl border border-[#ebdcd0]">
+                        <div class="font-medium text-[#5c4a3e] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
+                        <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
+                        <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
                     </div>
                 `;
             } else if (type === 'contact') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">📮 ช่องทางการติดต่อ</h3>
-                    <p class="text-[#786455] mb-3">กดเลือกช่องทางเพื่อสอบถามหรือสั่งซื้อได้เลยค่ะ</p>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">📮 ช่องทางการติดต่อ</h3>
                     <div class="space-y-2">
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Line Official: @SUMMER_SHOP</a>
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Facebook Page: SUMMER ไอดีเกม</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc]">Line Official: @SUMMER_SHOP</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc]">Facebook Page: SUMMER ไอดีเกม</a>
                     </div>
                 `;
             }
-
             content.innerHTML = html;
             overlay.classList.remove('hidden');
         }
