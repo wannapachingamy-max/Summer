@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -56,7 +59,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* ใบไม้/หัวใจร่วงธรรมชาติ */
+        /* ใบไม้/ไอคอนร่วงธรรมชาติ */
         .leaf-container {
             position: fixed;
             top: -10%;
@@ -106,12 +109,13 @@
 
         /* การ์ดรีวิวทรงแคปซูลพาสเทล */
         .review-capsule-item {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
             border: 1.5px solid rgba(230, 218, 210, 0.9);
             box-shadow: 0 6px 20px rgba(160, 140, 130, 0.1);
             border-radius: 9999px !important;
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            flex: 0 0 auto;
+            width: 310px;
         }
 
         /* การ์ดสถิติ 4 ช่อง โทนละมุน */
@@ -139,21 +143,34 @@
             animation: floatSlow 4s ease-in-out infinite;
         }
 
-        /* เอฟเฟกต์เฟดเปลี่ยนข้อความรีวิวแบบนุ่มนวล */
-        .fade-slide {
-            animation: fadeInOut 4.5s ease-in-out infinite;
+        /* ระบบเลื่อนรันต่อเนื่อง (Infinite Marquee) */
+        .marquee-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            display: flex;
         }
 
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(8px); }
-            15% { opacity: 1; transform: translateY(0); }
-            85% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-8px); }
+        .marquee-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: scrollMarquee 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 8px)); }
         }
     </style>
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#e2d6ce] relative">
 
+    <!-- ใบไม้/ไอคอนร่วงเบาๆ -->
     <div class="leaf-container">
         <span class="leaf">🧸</span>
         <span class="leaf">✨</span>
@@ -165,6 +182,7 @@
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         
         <div>
+            <!-- Header โทนละมุน -->
             <header class="flex items-center justify-between mb-7 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
@@ -184,6 +202,7 @@
                     </div>
                 </div>
 
+                <!-- สถานะร้านค้า -->
                 <div class="px-3.5 py-1.5 rounded-full bg-white/90 border-2 border-[#e6d0c4] backdrop-blur-md shadow-sm flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -193,6 +212,7 @@
                 </div>
             </header>
 
+            <!-- คำโปรย -->
             <div class="capsule-card px-6 py-4 mb-5 text-xs text-[#6b5b52] leading-relaxed relative overflow-hidden flex items-center gap-3">
                 <span class="text-lg flex-shrink-0 animate-bounce">🎀</span>
                 <p class="text-xs leading-snug font-medium">
@@ -200,12 +220,15 @@
                 </p>
             </div>
 
+            <!-- รายการเมนูหลัก -->
             <main class="space-y-4">
                 
+                <!-- ช่องใส่รูป GIF 1 -->
                 <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1.5 mb-2">
                     <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
 
+                <!-- ปุ่ม 1 -->
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#e6d0c4] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
@@ -219,6 +242,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
+                <!-- ปุ่ม 2 -->
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#faedcd] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
@@ -232,6 +256,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
+                <!-- ปุ่ม 3 -->
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#faedcd] to-[#fefae0] flex items-center justify-center text-[#9a7b54] flex-shrink-0 shadow-sm">
@@ -245,6 +270,7 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
                 </button>
 
+                <!-- ช่องใส่รูป GIF 2 รูป -->
                 <div class="grid grid-cols-2 gap-3 my-2">
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1">
                         <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
@@ -254,6 +280,7 @@
                     </div>
                 </div>
 
+                <!-- ส่วนรีวิว : "รีวิวจากคุณลูกค้า" แบบรันต่อเนื่องวนลูป (Continuous Marquee) -->
                 <section id="review-section" class="pt-4 pb-2">
                     
                     <div class="flex items-center justify-between mb-3 px-1">
@@ -265,10 +292,11 @@
                         </div>
                         <span class="text-[10px] text-[#9c8578] font-medium flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                            Live Loop Ticker
+                            Continuous Feed
                         </span>
                     </div>
 
+                    <!-- การ์ดสถิติ 4 ช่อง -->
                     <div class="grid grid-cols-2 gap-3 mb-4">
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
                             <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">4</span>
@@ -288,13 +316,18 @@
                         </div>
                     </div>
 
-                    <div id="review-ticker-container" class="min-h-[95px] flex items-center">
+                    <!-- พื้นที่รันแถวรีวิวต่อเนื่อง -->
+                    <div class="marquee-container py-2">
+                        <div class="marquee-track" id="marquee-track-content">
+                            <!-- ถูกเติมอัตโนมัติด้วย JavaScript และทำซ้ำเพื่อลูปเนียนตา -->
                         </div>
+                    </div>
 
                 </section>
             </main>
         </div>
 
+        <!-- แถบเมนูด้านล่าง ทรงแคปซูล -->
         <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
@@ -304,6 +337,7 @@
                     </div>
                 </button>
 
+                <!-- ปุ่ม Home -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#d4b5a0] via-[#e6d0c4] to-[#f4e4dc] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
                         <i data-lucide="home" class="w-5 h-5 text-[#5c4a42]"></i>
@@ -322,6 +356,7 @@
 
     </div>
 
+    <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#fcf8f5] border-2 border-[#e6d0c4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#e6d0c4] flex items-center justify-center text-[#5c4a42]">
@@ -341,39 +376,40 @@
             { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#b08968]" }
         ];
 
-        let currentReviewIndex = 0;
+        function renderMarqueeReviews() {
+            const track = document.getElementById('marquee-track-content');
+            track.innerHTML = '';
 
-        function updateReviewTicker() {
-            const container = document.getElementById('review-ticker-container');
-            const rev = sampleReviews[currentReviewIndex];
-            const initial = rev.name.charAt(0);
-            const starsHtml = '★'.repeat(rev.rating);
+            // ทำซ้ำ 2 ชุดเพื่อให้การรันวนลูปต่อกันแบบไร้รอยต่อ (Infinite Loop)
+            const listToRender = [...sampleReviews, ...sampleReviews, ...sampleReviews];
 
-            container.innerHTML = `
-                <div class="review-capsule-item px-5 py-3.5 w-full fade-slide">
+            listToRender.forEach((rev) => {
+                const initial = rev.name.charAt(0);
+                const starsHtml = '★'.repeat(rev.rating);
+                
+                const card = document.createElement('div');
+                card.className = "review-capsule-item px-4 py-3.5";
+                
+                card.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center gap-2.5">
+                        <div class="flex items-center gap-2">
                             <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
                                 ${initial}
                             </div>
-                            <span class="font-bold text-xs text-[#5c4a42] font-mitr">${rev.name}</span>
+                            <span class="font-bold text-xs text-[#5c4a42] font-mitr truncate max-w-[130px]">${rev.name}</span>
                         </div>
-                        <span class="text-[10px] text-[#9c8578] font-medium">${rev.time}</span>
+                        <span class="text-[9px] text-[#9c8578] font-medium">${rev.time}</span>
                     </div>
-                    <div class="flex items-center justify-between pl-8">
+                    <div class="flex items-start justify-between pl-8 gap-1">
                         <p class="text-[#4a403a] text-xs leading-snug font-normal line-clamp-1">${rev.text}</p>
-                        <span class="text-amber-500 text-[10px] tracking-wider ml-2 flex-shrink-0">${starsHtml}</span>
+                        <span class="text-amber-500 text-[10px] tracking-wider flex-shrink-0">${starsHtml}</span>
                     </div>
-                </div>
-            `;
-
-            // เลื่อนไปรีวิวถัดไปแบบวนลูปช้าๆ สวยงาม (เปลี่ยนทุก 4.5 วินาที)
-            currentReviewIndex = (currentReviewIndex + 1) % sampleReviews.length;
+                `;
+                track.appendChild(card);
+            });
         }
 
-        // เริ่มต้นรันและตั้งเวลาวนลูป
-        updateReviewTicker();
-        setInterval(updateReviewTicker, 4500);
+        renderMarqueeReviews();
 
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
