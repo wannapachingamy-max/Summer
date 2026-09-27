@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Google Fonts: Prompt, Mitr & Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -38,7 +41,6 @@
             font-family: 'Cormorant Garamond', serif !important;
         }
 
-        /* โทนสีพาสเทลละมุนตาตามเรฟอ้างอิง */
         body {
             background-color: #f6f0ec;
             background-image: 
@@ -50,13 +52,11 @@
             overflow-x: hidden;
         }
 
-        /* ส่วนหัวชื่อร้าน */
         .text-header-title {
             color: #5c4a42;
             letter-spacing: 0.05em;
         }
 
-        /* ใบไม้/ไอคอนร่วงธรรมชาติ */
         .leaf-container {
             position: fixed;
             top: -10%;
@@ -104,7 +104,6 @@
             box-shadow: 0 12px 30px -4px rgba(160, 140, 130, 0.2);
         }
 
-        /* การ์ดรีวิวทรงแคปซูลพาสเทลสำหรับรันขึ้น */
         .review-capsule-item {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
@@ -114,7 +113,6 @@
             width: 100%;
         }
 
-        /* การ์ดสถิติ 4 ช่อง โทนละมุน */
         .stat-card {
             background: rgba(255, 255, 255, 0.85);
             border: 1px solid rgba(230, 218, 210, 0.9);
@@ -122,7 +120,6 @@
             box-shadow: 0 4px 15px rgba(160, 140, 130, 0.06);
         }
 
-        /* แถบเมนูด้านล่างทรงแคปซูล */
         .bottom-nav-capsule {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
@@ -139,12 +136,14 @@
             animation: floatSlow 4s ease-in-out infinite;
         }
 
-        /* ระบบรันขึ้นแนวตั้ง (Vertical Infinite Marquee) */
+        /* ปรับปรุงระบบรันขึ้นแนวตั้งให้เนียน สมูท ไม่สะดุด และใส่ Fade Mask ด้านบน/ล่าง */
         .vertical-marquee-container {
-            height: 85px;
+            height: 140px;
             overflow: hidden;
             position: relative;
             width: 100%;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
         }
 
         .vertical-marquee-track {
@@ -153,7 +152,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            animation: scrollVertical 12s linear infinite;
+            animation: scrollVertical 16s linear infinite;
         }
 
         .vertical-marquee-container:hover .vertical-marquee-track {
@@ -207,6 +206,7 @@
                 </div>
             </header>
 
+            <!-- คำโปรย: แบบข้อความคำอธิบายธรรมดา ไม่มีกรอบ -->
             <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#7c6a5e] leading-relaxed">
                 <span class="text-sm flex-shrink-0 mt-0.5">🎀</span>
                 <p class="font-normal">
@@ -268,6 +268,7 @@
                     </div>
                 </div>
 
+                <!-- ส่วนรีวิว -->
                 <section id="review-section" class="pt-4 pb-2">
                     
                     <div class="flex items-center justify-between mb-3 px-1">
@@ -279,7 +280,7 @@
                         </div>
                         <span class="text-[10px] text-[#9c8578] font-medium flex items-center gap-1">
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                            Vertical Scroll
+                            Smooth Scroll
                         </span>
                     </div>
 
@@ -302,9 +303,11 @@
                         </div>
                     </div>
 
+                    <!-- พื้นที่รันแนวตั้งพร้อม Fade Mask เนียนตา -->
                     <div class="vertical-marquee-container">
                         <div class="vertical-marquee-track" id="vertical-track-content">
-                            </div>
+                            <!-- เรนเดอร์ด้วย JavaScript -->
+                        </div>
                     </div>
 
                 </section>
@@ -361,7 +364,6 @@
             const track = document.getElementById('vertical-track-content');
             track.innerHTML = '';
 
-            // ทำซ้ำ 2 ชุดเพื่อให้การรันขึ้นวนลูปต่อกันแบบไร้รอยต่อ
             const listToRender = [...sampleReviews, ...sampleReviews];
 
             listToRender.forEach((rev) => {
