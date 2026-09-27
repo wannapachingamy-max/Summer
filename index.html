@@ -9,19 +9,19 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts: Kanit & Itim (ดึงแบบรองรับภาษาไทย) -->
+    <!-- Google Fonts: Prompt & Mitr -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
     
-    <!-- Config Tailwind ให้รู้จักฟอนต์ Itim และ Kanit -->
+    <!-- Config Tailwind ให้รู้จักฟอนต์ Prompt และ Mitr -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        kanit: ['Kanit', 'sans-serif'],
-                        cute: ['Itim', 'cursive', 'sans-serif']
+                        prompt: ['Prompt', 'sans-serif'],
+                        mitr: ['Mitr', 'sans-serif']
                     }
                 }
             }
@@ -29,14 +29,14 @@
     </script>
 
     <style>
-        /* บังคับใช้ฟอนต์ Kanit เป็นฟอนต์หลักทั้งหน้าเว็บ */
+        /* บังคับใช้ฟอนต์ Prompt เป็นฟอนต์หลักทั้งหน้าเว็บ */
         * {
-            font-family: 'Kanit', sans-serif !important;
+            font-family: 'Prompt', sans-serif !important;
         }
         
-        /* คลาสสำหรับส่วนที่ต้องการใช้ฟอนต์น่ารัก (Itim) */
-        .font-cute, .font-cute * {
-            font-family: 'Itim', cursive, sans-serif !important;
+        /* คลาสสำหรับส่วนหัวข้อร้านและหัวข้อเน้นที่ใช้ฟอนต์ Mitr */
+        .font-mitr, .font-mitr * {
+            font-family: 'Mitr', sans-serif !important;
         }
 
         body {
@@ -101,11 +101,11 @@
                     <span class="absolute -bottom-1 -right-1 text-sm">✨</span>
                 </div>
                 
-                <!-- ชื่อร้าน (ใช้ฟอนต์ Itim น่ารัก) -->
+                <!-- ชื่อร้าน (ใช้ฟอนต์ Mitr) -->
                 <div>
-                    <h1 class="text-3xl font-bold tracking-wider text-[#5c4a3e] flex items-center gap-1.5 font-cute">
+                    <h1 class="text-3xl font-bold tracking-wider text-[#5c4a3e] flex items-center gap-1.5 font-mitr">
                         SUMMER
-                        <span class="text-sm text-[#a38f83] font-normal font-kanit">. ♡ ˚</span>
+                        <span class="text-sm text-[#a38f83] font-normal font-prompt">. ♡ ˚</span>
                     </h1>
                     <p class="text-xs text-[#9c8678] tracking-tight">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
                 </div>
@@ -130,7 +130,7 @@
                             <i data-lucide="gamepad-2" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">౨ৎ งานป้าย Rov</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-mitr">౨ৎ งานป้าย Rov</span>
                             <span class="text-xs text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                             <i data-lucide="calendar" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">⟢ เช็คคิว</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-mitr">⟢ เช็คคิว</span>
                             <span class="text-xs text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
                             <i data-lucide="sparkles" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">🪽 ไอดีที่ยังเหลืออยู่</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
                             <span class="text-xs text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                                 <span class="w-7 h-7 rounded-full bg-[#fceee9] flex items-center justify-center text-[#e67d71]">
                                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 </span>
-                                <h2 class="text-xl font-bold text-[#5c4a3e] font-cute">Review</h2>
+                                <h2 class="text-xl font-bold text-[#5c4a3e] font-mitr">Review</h2>
                             </div>
                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#e3eae0] text-[#586851] flex items-center gap-1.5">
                                 <span class="w-2 h-2 rounded-full bg-[#6a8060] animate-pulse"></span>
@@ -209,7 +209,7 @@
                             <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ หรือรีวิวมุมมองต่าง..." class="w-full bg-[#fdfbf9] text-xs p-3 rounded-xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
 
                             <!-- ปุ่มส่งรีวิว -->
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl font-medium flex items-center justify-center gap-2 transition-all font-cute text-sm">
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl font-medium flex items-center justify-center gap-2 transition-all font-mitr text-sm">
                                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                                 <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
@@ -231,19 +231,19 @@
                 <!-- Review Button -->
                 <button onclick="scrollToReviews()" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
                     <i data-lucide="message-square-heart" class="w-5 h-5 mb-0.5"></i>
-                    <span class="text-xs font-medium font-cute">Review</span>
+                    <span class="text-xs font-medium font-mitr">Review</span>
                 </button>
 
                 <!-- Home Button (Active) -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex-1 py-1.5 flex flex-col items-center text-[#4a5442] bg-[#cbd5c0] rounded-full shadow-sm transition-all">
                     <i data-lucide="home" class="w-5 h-5 mb-0.5"></i>
-                    <span class="text-xs font-medium font-cute">HOME</span>
+                    <span class="text-xs font-medium font-mitr">HOME</span>
                 </button>
 
                 <!-- Contact Button -->
                 <button onclick="openModal('contact')" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
                     <i data-lucide="contact-2" class="w-5 h-5 mb-0.5"></i>
-                    <span class="text-xs font-medium font-cute">Contact</span>
+                    <span class="text-xs font-medium font-mitr">Contact</span>
                 </button>
             </nav>
         </footer>
@@ -299,10 +299,10 @@
                 item.innerHTML = `
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center gap-2.5">
-                            <div class="w-8 h-8 rounded-full ${rev.bg || 'bg-[#e67d71]'} text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                            <div class="w-8 h-8 rounded-full ${rev.bg || 'bg-[#e67d71]'} text-white font-bold flex items-center justify-center text-xs shadow-sm font-mitr">
                                 ${initial}
                             </div>
-                            <span class="font-bold text-sm text-[#4a3c32] font-cute">${rev.name}</span>
+                            <span class="font-bold text-sm text-[#4a3c32] font-mitr">${rev.name}</span>
                         </div>
                         <span class="text-[11px] text-[#a38f83]">${rev.time}</span>
                     </div>
@@ -373,7 +373,7 @@
             let html = '';
             if (type === 'rov') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">౨ৎ งานป้าย RoV</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1 text-base">౨ৎ งานป้าย RoV</h3>
                     <p class="text-[#786455] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
                     <div class="bg-white/80 p-3 rounded-xl border border-[#ede0d4] space-y-1">
                         <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-medium text-[#4a5442]">50 - 150 ฿</span></div>
@@ -382,7 +382,7 @@
                 `;
             } else if (type === 'queue') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">⟢ สถานะเช็คคิว</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1 text-base">⟢ สถานะเช็คคิว</h3>
                     <div class="space-y-2">
                         <div class="p-2 bg-white/80 rounded-xl flex justify-between items-center border border-[#e3eae0]">
                             <span>คิวที่ 1: คุณ Mild</span>
@@ -396,10 +396,10 @@
                 `;
             } else if (type === 'stock') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">🪽 ไอดีที่ยังเหลืออยู่</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1 text-base">🪽 ไอดีที่ยังเหลืออยู่</h3>
                     <div class="space-y-2">
                         <div class="p-2.5 bg-white/80 rounded-xl border border-[#ebdcd0]">
-                            <div class="font-medium text-[#5c4a3e] font-cute text-sm">ID RoV - สกินสเปเชียลครบ</div>
+                            <div class="font-medium text-[#5c4a3e] font-mitr text-sm">ID RoV - สกินสเปเชียลครบ</div>
                             <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
                             <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
                         </div>
@@ -407,7 +407,7 @@
                 `;
             } else if (type === 'contact') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">📮 ช่องทางการติดต่อ</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1 text-base">📮 ช่องทางการติดต่อ</h3>
                     <p class="text-[#786455] mb-3">กดเลือกช่องทางเพื่อสอบถามหรือสั่งซื้อได้เลยค่ะ</p>
                     <div class="space-y-2">
                         <a href="#" class="block p-2.5 bg-white rounded-xl text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Line Official: @SUMMER_SHOP</a>
