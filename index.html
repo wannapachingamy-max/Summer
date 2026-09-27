@@ -9,15 +9,34 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts: Kanit & Itim -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ตั้งค่า Tailwind Font Family -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        kanit: ['Kanit', 'sans-serif'],
+                        cute: ['Itim', 'cursive', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
-            font-family: 'Kanit', 'Itim', cursive, sans-serif;
+            font-family: 'Kanit', sans-serif;
             background: linear-gradient(180deg, #fbf7f4 0%, #f5ece5 50%, #efe4db 100%);
             color: #6b584c;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .font-cute {
-            font-family: 'Itim', cursive;
+            font-family: 'Itim', cursive, sans-serif;
         }
         .soft-card {
             background: rgba(255, 255, 255, 0.85);
@@ -79,7 +98,7 @@
                 <div>
                     <h1 class="text-3xl font-bold tracking-wider text-[#5c4a3e] flex items-center gap-1.5 font-cute">
                         SUMMER
-                        <span class="text-sm text-[#a38f83] font-normal">. ♡ ˚</span>
+                        <span class="text-sm text-[#a38f83] font-normal font-kanit">. ♡ ˚</span>
                     </h1>
                     <p class="text-xs text-[#9c8678] tracking-tight">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
                 </div>
@@ -149,7 +168,7 @@
                                 <span class="w-7 h-7 rounded-full bg-[#fceee9] flex items-center justify-center text-[#e67d71]">
                                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 </span>
-                                <h2 class="text-xl font-bold text-[#5c4a3e]">Review</h2>
+                                <h2 class="text-xl font-bold text-[#5c4a3e] font-cute">Review</h2>
                             </div>
                             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#e3eae0] text-[#586851] flex items-center gap-1.5">
                                 <span class="w-2 h-2 rounded-full bg-[#6a8060] animate-pulse"></span>
@@ -157,7 +176,7 @@
                             </span>
                         </div>
 
-                        <!-- ฟอร์มฝากรีวิว (ตามแบบภาพตัวอย่าง) -->
+                        <!-- ฟอร์มฝากรีวิว -->
                         <div class="bg-white/90 rounded-2xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
                             <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
                                 <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
@@ -183,13 +202,13 @@
                             <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ หรือรีวิวมุมมองต่าง..." class="w-full bg-[#fdfbf9] text-xs p-3 rounded-xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
 
                             <!-- ปุ่มส่งรีวิว -->
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition-all">
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition-all font-cute text-sm">
                                 <i data-lucide="send" class="w-3.5 h-3.5"></i>
                                 <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
                         </div>
 
-                        <!-- รายการรีวิวเรียลไทม์ (ขยายขนาดตัวหนังสือและพื้นที่) -->
+                        <!-- รายการรีวิวเรียลไทม์ -->
                         <div id="review-list" class="space-y-3.5 max-h-96 overflow-y-auto custom-scrollbar pr-1">
                             <!-- ข้อความรีวิวจะถูกโหลดขึ้นที่นี่ -->
                         </div>
@@ -347,7 +366,7 @@
             let html = '';
             if (type === 'rov') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1">౨ৎ งานป้าย RoV</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">౨ৎ งานป้าย RoV</h3>
                     <p class="text-[#786455] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
                     <div class="bg-white/80 p-3 rounded-xl border border-[#ede0d4] space-y-1">
                         <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-medium text-[#4a5442]">50 - 150 ฿</span></div>
@@ -356,24 +375,24 @@
                 `;
             } else if (type === 'queue') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1">⟢ สถานะเช็คคิว</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">⟢ สถานะเช็คคิว</h3>
                     <div class="space-y-2">
                         <div class="p-2 bg-white/80 rounded-xl flex justify-between items-center border border-[#e3eae0]">
                             <span>คิวที่ 1: คุณ Mild</span>
-                            <span class="text-[10px] bg-[#cbd5c0] text-[#4a5442] px-2 py-0.5 rounded-full">กำลังทำ</span>
+                            <span class="text-[10px] bg-[#cbd5c0] text-[#4a5442] px-2 py-0.5 rounded-full font-medium">กำลังทำ</span>
                         </div>
                         <div class="p-2 bg-white/80 rounded-xl flex justify-between items-center border border-[#eee1d8]">
                             <span>คิวที่ 2: คุณ Oat</span>
-                            <span class="text-[10px] bg-[#e8ded5] text-[#7a6759] px-2 py-0.5 rounded-full">รอคิว</span>
+                            <span class="text-[10px] bg-[#e8ded5] text-[#7a6759] px-2 py-0.5 rounded-full font-medium">รอคิว</span>
                         </div>
                     </div>
                 `;
             } else if (type === 'stock') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1">🪽 ไอดีที่ยังเหลืออยู่</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">🪽 ไอดีที่ยังเหลืออยู่</h3>
                     <div class="space-y-2">
                         <div class="p-2.5 bg-white/80 rounded-xl border border-[#ebdcd0]">
-                            <div class="font-medium text-[#5c4a3e]">ID RoV - สกินสเปเชียลครบ</div>
+                            <div class="font-medium text-[#5c4a3e] font-cute text-sm">ID RoV - สกินสเปเชียลครบ</div>
                             <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
                             <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
                         </div>
@@ -381,11 +400,11 @@
                 `;
             } else if (type === 'contact') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1">📮 ช่องทางการติดต่อ</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-cute flex items-center gap-1 text-base">📮 ช่องทางการติดต่อ</h3>
                     <p class="text-[#786455] mb-3">กดเลือกช่องทางเพื่อสอบถามหรือสั่งซื้อได้เลยค่ะ</p>
                     <div class="space-y-2">
-                        <a href="#" class="block p-2.5 bg-white rounded-xl text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9]">Line Official: @SUMMER_SHOP</a>
-                        <a href="#" class="block p-2.5 bg-white rounded-xl text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9]">Facebook Page: SUMMER ไอดีเกม</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-xl text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Line Official: @SUMMER_SHOP</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-xl text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Facebook Page: SUMMER ไอดีเกม</a>
                     </div>
                 `;
             }
