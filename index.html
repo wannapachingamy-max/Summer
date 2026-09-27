@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,209 +28,98 @@
     </script>
 
     <style>
+        /* บังคับใช้ Prompt เป็นฟอนต์หลักทั้งเว็บ */
         * {
             font-family: 'Prompt', sans-serif !important;
         }
         
+        /* บังคับใช้ Mitr เฉพาะส่วนหัวข้อ/ชื่อร้าน */
         .font-mitr, .font-mitr * {
             font-family: 'Mitr', sans-serif !important;
         }
 
         body {
-            background-color: #fbf7f4;
+            background-color: #f8f2ec;
             background-image: 
-                radial-gradient(at 0% 0%, rgba(203, 213, 192, 0.3) 0px, transparent 50%),
-                radial-gradient(at 100% 30%, rgba(240, 149, 135, 0.15) 0px, transparent 50%),
-                radial-gradient(at 20% 80%, rgba(212, 195, 183, 0.3) 0px, transparent 50%),
-                radial-gradient(at 80% 100%, rgba(203, 213, 192, 0.35) 0px, transparent 50%);
+                /* Soft warm gradient overlay for high readability */
+                linear-gradient(180deg, rgba(251, 247, 244, 0.82) 0%, rgba(245, 236, 229, 0.88) 50%, rgba(239, 228, 219, 0.92) 100%),
+                /* Subtle artistic nature, leaves & water stream motif background */
+                url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1200&auto=format&fit=crop');
             background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             color: #6b584c;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
-        /* ใบไม้ร่วง */
-        .leaf-container {
+        /* Ambient floating leaves vector pattern overlay */
+        .leaf-bg-overlay {
             position: fixed;
-            top: -10%;
-            left: 0;
-            width: 100%;
-            height: 120vh;
+            inset: 0;
             pointer-events: none;
             z-index: 0;
-            overflow: hidden;
+            opacity: 0.12;
+            background-image: radial-gradient(#8c9e82 1px, transparent 1px), radial-gradient(#d4b3a1 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
         }
-
-        .leaf {
-            position: absolute;
-            top: -20px;
-            font-size: 1.2rem;
-            opacity: 0.6;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(0) rotate(0deg) translateX(0);
-                opacity: 0;
-            }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.5; }
-            100% {
-                transform: translateY(110vh) rotate(360deg) translateX(50px);
-                opacity: 0;
-            }
-        }
-
-        .leaf:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; }
-        .leaf:nth-child(2) { left: 22%; animation-duration: 12s; animation-delay: 2s; }
-        .leaf:nth-child(3) { left: 38%; animation-duration: 8s; animation-delay: 4s; }
-        .leaf:nth-child(4) { left: 55%; animation-duration: 11s; animation-delay: 1s; }
-        .leaf:nth-child(5) { left: 72%; animation-duration: 10s; animation-delay: 5s; }
-        .leaf:nth-child(6) { left: 88%; animation-duration: 13s; animation-delay: 3s; }
-
+        
+        /* บล็อกทรงแคปซูล (Pill / Capsule Shape) */
         .capsule-card {
             background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(230, 215, 205, 0.9);
-            box-shadow: 0 4px 16px -2px rgba(168, 142, 128, 0.12);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(230, 215, 205, 0.95);
+            box-shadow: 0 4px 18px -2px rgba(168, 142, 128, 0.12);
             border-radius: 9999px !important;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .capsule-card:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px) scale(1.01);
+            background: rgba(255, 255, 255, 0.96);
+            border-color: #dfcdbf;
+            box-shadow: 0 8px 24px -4px rgba(168, 142, 128, 0.2);
         }
 
         .capsule-box {
             background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(230, 215, 205, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(230, 215, 205, 0.95);
             box-shadow: 0 8px 24px -6px rgba(168, 142, 128, 0.12);
             border-radius: 2rem;
-        }
-
-        /* กรอบแคปซูลของแถบด้านล่าง */
-        .bottom-nav-capsule {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(225, 210, 200, 0.8);
-            box-shadow: 0 8px 32px rgba(135, 110, 95, 0.15);
-            border-radius: 9999px !important;
         }
 
         .btn-gradient {
             background: linear-gradient(135deg, #f09587 0%, #e67d71 100%);
             color: white;
             box-shadow: 0 4px 12px rgba(230, 125, 113, 0.3);
+            transition: all 0.25s ease;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #e88677 0%, #d96e62 100%);
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 6px 16px rgba(230, 125, 113, 0.4);
         }
 
         @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
+        }
+
+        @keyframes floatIcon {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-4px); }
-        }
-        .animate-float {
-            animation: floatSlow 4s ease-in-out infinite;
+            50% { transform: translateY(-3px); }
         }
 
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1e9e3; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #d4c3b7; border-radius: 10px; }
-    </style>
-</head>
-<body class="min-h-screen pb-32 selection:bg-[#e6d7cd] relative">
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { opacity: 0.85; transform: scale(1.05); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
 
-    <div class="leaf-container">
-        <span class="leaf">🍃</span>
-        <span class="leaf">🍂</span>
-        <span class="leaf">🌿</span>
-        <span class="leaf">🍁</span>
-        <span class="leaf">🍃</span>
-        <span class="leaf">🍂</span>
-    </div>
-
-    <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
-        
-        <div>
-            <!-- Header ชิดซ้าย -->
-            <header class="flex items-center justify-between mb-6 pt-2 pl-1">
-                <div class="flex items-center gap-3.5">
-                    <div class="relative group flex-shrink-0">
-                        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center animate-float">
-                            <div class="w-full h-full rounded-full bg-[#fbf7f4] flex items-center justify-center overflow-hidden border border-[#eddcd0]">
-                                <span class="text-2xl">🧸</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="text-left">
-                        <h1 class="text-2xl font-bold tracking-wide text-[#5c4a3e] flex items-center gap-1.5 font-mitr leading-none">
-                            SUMMER
-                            <span class="text-xs text-[#a38f83] font-normal">. ♡ ˚</span>
-                        </h1>
-                        <p class="text-[11px] text-[#9c8678] tracking-tight mt-1">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
-                    </div>
-                </div>
-
-                <div class="px-3 py-1.5 rounded-full bg-white/80 border border-[#e3eae0] backdrop-blur-md shadow-sm flex items-center gap-2">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-[10px] font-medium text-[#4a5442] font-mitr">ร้านเปิดบริการ</span>
-                </div>
-            </header>
-
-            <!-- คำโปรย -->
-            <div class="capsule-card px-6 py-3.5 mb-5 text-xs text-[#786455] leading-relaxed relative overflow-hidden flex items-center gap-3">
-                <span class="text-base flex-shrink-0 animate-bounce">🎀</span>
-                <p class="text-xs leading-snug">
-                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกด ช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
-                </p>
-            </div>
-
-            <!-- รายการเมนูแคปซูล -->
-            <main class="space-y-3.5">
-                <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] flex-shrink-0">
-                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr">౨ৎ งานป้าย Rov</span>
-                            <span class="text-[11px] text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
-                </button>
-
-                <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] flex-shrink-0">
-                            <i data-lucide="calendar" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr">⟢ เช็คคิว</span>
-                            <span class="text-[11px] text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
-                </button>
-
-                <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3.5">
-                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] flex-shrink-0">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
-                            <span class="text-[11px] text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91]"></i>
-                </button>
-
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(12px); }
                 <!-- รีวิว -->
                 <section id="review-section" class="pt-2">
                     <div class="capsule-box p-5 border border-[#ebdcd0] shadow-sm">
@@ -247,78 +136,206 @@
                             </span>
                         </div>
 
-                        <div class="bg-white/90 rounded-3xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
-                            <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
-                                <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
-                                <span>ฝากรีวิวให้ร้าน SUMMER</span>
+                        <!-- ตารางสรุปคะแนนรีวิว 4 บล็อกตามรูปภาพ -->
+                        <div class="grid grid-cols-2 gap-3 mb-5">
+                            <!-- รีวิวทั้งหมด -->
+                            <div class="bg-white/90 rounded-2xl p-4 border border-[#ebdcd0] text-center shadow-sm flex flex-col items-center justify-center min-h-[90px]">
+                                <span id="stat-total-count" class="text-3xl font-serif text-[#6c5b52] font-normal leading-none mb-1.5">4</span>
+                                <span class="text-xs text-[#8c786c] font-mitr">รีวิวทั้งหมด</span>
                             </div>
 
-                            <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-full border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-2.5">
-
-                            <div class="flex items-center justify-between mb-2.5 px-2">
-                                <span class="text-xs text-[#8c786c]">ให้คะแนนร้าน:</span>
-                                <div id="star-rating" class="flex gap-1 text-amber-400 text-base cursor-pointer">
-                                    <span onclick="setRating(1)">★</span>
-                                    <span onclick="setRating(2)">★</span>
-                                    <span onclick="setRating(3)">★</span>
-                                    <span onclick="setRating(4)">★</span>
-                                    <span onclick="setRating(5)">★</span>
-                                </div>
+                            <!-- คะแนนเฉลี่ย -->
+                            <div class="bg-white/90 rounded-2xl p-4 border border-[#ebdcd0] text-center shadow-sm flex flex-col items-center justify-center min-h-[90px]">
+                                <span id="stat-avg-rating" class="text-3xl font-serif text-[#6c5b52] font-normal leading-none mb-1.5">5.0</span>
+                                <span class="text-xs text-[#8c786c] font-mitr">คะแนนเฉลี่ย</span>
                             </div>
 
-                            <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-2xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none"></textarea>
+                            <!-- รีวิว 5 ดาว -->
+                            <div class="bg-white/90 rounded-2xl p-4 border border-[#ebdcd0] text-center shadow-sm flex flex-col items-center justify-center min-h-[90px]">
+                                <span id="stat-5star-count" class="text-3xl font-serif text-[#6c5b52] font-normal leading-none mb-1.5">4</span>
+                                <span class="text-xs text-[#8c786c] font-mitr">รีวิว 5 ดาว</span>
+                            </div>
 
-                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 font-mitr text-xs">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
-                                <span>ส่งรีวิวเรียลไทม์</span>
-                            </button>
+                            <!-- รีวิว 1 ดาว -->
+                            <div class="bg-white/90 rounded-2xl p-4 border border-[#ebdcd0] text-center shadow-sm flex flex-col items-center justify-center min-h-[90px]">
+                                <span id="stat-1star-count" class="text-3xl font-serif text-[#6c5b52] font-normal leading-none mb-1.5">0</span>
+                                <span class="text-xs text-[#8c786c] font-mitr">รีวิว 1 ดาว</span>
+                            </div>
                         </div>
 
+                        <!-- รายการรีวิว -->
                         <div id="review-list" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-1">
                         </div>
                     </div>
                 </section>
             </main>
         </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ชื่อร้าน SUMMER ต่อข้างๆ -->
+                    <div class="text-left">
+                        <h1 class="text-2xl font-bold tracking-wide text-[#5c4a3e] flex items-center gap-1.5 font-mitr leading-none">
+                            SUMMER
+                            <span class="text-xs text-[#a38f83] font-normal animate-pulse">. ♡ ˚</span>
+                        </h1>
+                        <p class="text-[11px] text-[#9c8678] tracking-tight mt-1">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
+                    </div>
+                </div>
 
-        <!-- แถบเมนูด้านล่าง กรอบแคปซูลมน ตามรูปภาพเป๊ะๆ -->
-        <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
-            <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
+                <!-- ไฟสถานะร้านค้า (Status Light Indicator) -->
+                <div class="capsule-card px-3 py-1.5 flex items-center gap-2 border border-[#d8e6d2] bg-white/90 shadow-sm flex-shrink-0">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 animate-status-ping"></span>
+                    </span>
+                    <span class="text-[10px] font-semibold text-[#4a5442] font-mitr tracking-wide">ร้านเปิดบริการ</span>
+                </div>
+            </header>
+
+            <!-- คำโปรยอธิบาย บล็อกทรงแคปซูล -->
+            <div class="capsule-card px-6 py-3.5 mb-5 text-xs text-[#786455] leading-relaxed relative overflow-hidden flex items-center gap-3">
+                <span class="text-base flex-shrink-0 animate-float-icon">🎀</span>
+                <p class="text-xs leading-snug">
+                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกด ช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
+                </p>
+            </div>
+
+            <!-- บล็อกเมนูรายการต่างๆ (ทรงแคปซูล + มีแอนิเมชันขยับ) -->
+            <main class="space-y-3.5">
                 
-                <!-- ปุ่มซ้าย: กล่องข้อความรีวิว -->
-                <button onclick="scrollToReviews()" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white/70 flex items-center justify-center text-[#806c5f] group-hover:bg-white shadow-sm border border-[#f0e3d9] transition-all">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                <!-- 1. งานป้าย Rov -->
+                <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-full bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr group-hover:text-[#e67d71] transition-colors">౨ৎ งานป้าย Rov</span>
+                            <span class="text-[11px] text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
+                        </div>
                     </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
-                <!-- ปุ่มกลาง: Home วงกลมม่วง + ข้อความ Home ด้านล่าง -->
-                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#8c78c2] to-[#a38fe3] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
-                        <i data-lucide="home" class="w-5 h-5 fill-white/20"></i>
+                <!-- 2. เช็คคิว -->
+                <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-full bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:-rotate-6 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr group-hover:text-[#586851] transition-colors">⟢ เช็คคิว</span>
+                            <span class="text-[11px] text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
+                        </div>
                     </div>
-                    <span class="text-[10px] font-bold text-[#6b584c] mt-1 font-mitr tracking-wide">Home</span>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
-                <!-- ปุ่มขวา: บัตรประจำตัว/คอนแทค -->
-                <button onclick="openModal('contact')" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white/70 flex items-center justify-center text-[#806c5f] group-hover:bg-white shadow-sm border border-[#f0e3d9] transition-all">
-                        <i data-lucide="contact" class="w-4 h-4"></i>
+                <!-- 3. ไอดีที่ยังเหลืออยู่ -->
+                <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-3.5 flex items-center justify-between group border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-10 h-10 rounded-full bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-sm font-semibold text-[#5c4a3e] font-mitr group-hover:text-[#805e63] transition-colors">🪽 ไอดีที่ยังเหลืออยู่</span>
+                            <span class="text-[11px] text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
+                        </div>
                     </div>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1.5 transition-transform"></i>
                 </button>
 
-            </nav>
-        </footer>
+                <!-- ส่วนรีวิว (Review Section) -->
+        <section id="review-section" class="pt-2">
+            <div class="capsule-box p-5 border border-[#ebdcd0] shadow-sm">
+                
+                <!-- Review Header -->
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-full bg-[#fceee9] flex items-center justify-center text-[#e67d71]">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </span>
+                        <h2 class="text-lg font-bold text-[#5c4a3e] font-mitr">Review</h2>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-[10px] font-semibold bg-[#e3eae0] text-[#586851] flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#6a8060] animate-pulse"></span>
+                        Live Feedback
+                    </span>
+                </div>
+
+                <!-- ฟอร์มฝากรีวิว -->
+                <div class="bg-white/90 rounded-3xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
+                    <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
+                        <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
+                        <span>ฝากรีวิวให้ร้าน SUMMER</span>
+                    </div>
+
+                    <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-full border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-2.5 transition-colors">
+
+                    <div class="flex items-center justify-between mb-2.5 px-2">
+                        <span class="text-xs text-[#8c786c]">ให้คะแนนร้าน:</span>
+                        <div id="star-rating" class="flex gap-1 text-amber-400 text-base cursor-pointer">
+                            <span onclick="setRating(1)">★</span>
+                            <span onclick="setRating(2)">★</span>
+                            <span onclick="setRating(3)">★</span>
+                            <span onclick="setRating(4)">★</span>
+                            <span onclick="setRating(5)">★</span>
+                        </div>
+                    </div>
+
+                    <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ..." class="w-full bg-[#fdfbf9] text-xs px-4 py-2.5 rounded-2xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
+
+                    <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-full font-medium flex items-center justify-center gap-2 transition-all font-mitr text-xs active:scale-95">
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        <span>ส่งรีวิวเรียลไทม์</span>
+                    </button>
+                </div>
+
+                <!-- รายการรีวิวทรงแคปซูล -->
+                <div id="review-list" class="space-y-3 max-h-96 overflow-y-auto custom-scrollbar pr-1">
+                </div>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- แถบเมนูด้านล่าง (ปรับสไตล์ตามรูปภาพ 100%) -->
+<footer class="fixed bottom-0 left-0 right-0 z-40 bg-white/70 backdrop-blur-md border-t border-white/60 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+    <div class="max-w-lg mx-auto h-16 flex items-center justify-around px-6 relative">
+        
+        <!-- ปุ่มซ้าย: Review / Message Bubble -->
+        <button onclick="scrollToReviews()" class="flex flex-col items-center justify-center text-[#7c738e] hover:text-[#52446a] transition-all group">
+            <div class="w-10 h-10 rounded-full bg-[#f2eef8]/80 group-hover:bg-[#e6def2] flex items-center justify-center transition-colors shadow-xs">
+                <i data-lucide="message-square-more" class="w-5 h-5 text-[#6c5c8a]"></i>
+            </div>
+        </button>
+
+        <!-- ปุ่มกลาง: Home (ปุ่มวงกลมสีม่วงโดดเด่น + ข้อความ Home ด้านล่างตรงตามรูป) -->
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center justify-center relative -top-1 group">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-b from-[#6b5993] to-[#4d3d75] shadow-lg shadow-[#594780]/30 flex items-center justify-center group-hover:scale-105 transition-all border-2 border-white/80">
+                <i data-lucide="home" class="w-6 h-6 text-white stroke-[2.2]"></i>
+            </div>
+            <span class="text-[11px] font-medium text-[#4a3e63] font-mitr tracking-wide mt-0.5">Home</span>
+        </button>
+
+        <!-- ปุ่มขวา: Contact / ID Card -->
+        <button onclick="openModal('contact')" class="flex flex-col items-center justify-center text-[#7c738e] hover:text-[#52446a] transition-all group">
+            <div class="w-10 h-10 rounded-full bg-[#f2eef8]/80 group-hover:bg-[#e6def2] flex items-center justify-center transition-colors shadow-xs">
+                <i data-lucide="contact" class="w-5 h-5 text-[#6c5c8a]"></i>
+            </div>
+        </button>
 
     </div>
+</footer>
 
-    <!-- Modals -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#eee1d8] flex items-center justify-center text-[#6e5a4d]">
-                <i data-lucide="x" class="w-4 h-4"></i>
+<!-- Modals -->
+<div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
             </button>
-            <div id="modal-content" class="text-xs space-y-3"></div>
+            
+            <div id="modal-content" class="text-xs space-y-3">
+            </div>
         </div>
     </div>
 
@@ -330,16 +347,23 @@
         const sampleReviews = [
             { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#f59e0b]" },
             { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#e67d71]" },
-            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#829e75]" }
+            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#829e75]" },
+            { name: "คุณมินต์ VIP", rating: 5, text: "บริการประทับใจ ตอบไวมากจ้า ยอดเยี่ยมมมม ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#9b72b0]" }
         ];
 
-        function setRating(rating) {
-            currentRating = rating;
-            const stars = document.querySelectorAll('#star-rating span');
-            stars.forEach((star, index) => {
-                if (index < rating) star.classList.remove('opacity-30');
-                else star.classList.add('opacity-30');
-            });
+        function updateReviewStats() {
+            const total = sampleReviews.length;
+            const fiveStars = sampleReviews.filter(r => r.rating === 5).length;
+            const oneStars = sampleReviews.filter(r => r.rating === 1).length;
+            
+            const avg = total > 0 
+                ? (sampleReviews.reduce((sum, r) => sum + r.rating, 0) / total).toFixed(1)
+                : "0.0";
+
+            document.getElementById('stat-total-count').textContent = total;
+            document.getElementById('stat-avg-rating').textContent = avg;
+            document.getElementById('stat-5star-count').textContent = fiveStars;
+            document.getElementById('stat-1star-count').textContent = oneStars;
         }
 
         function renderReviews() {
@@ -366,33 +390,21 @@
                 `;
                 list.appendChild(item);
             });
-        }
 
-        function addReview() {
-            const nameInput = document.getElementById('user-name-input');
-            const textInput = document.getElementById('user-text-input');
-            const name = nameInput.value.trim() || "คุณลูกค้า ♡";
-            const text = textInput.value.trim();
-
-            if (text) {
-                sampleReviews.unshift({ name: name, rating: currentRating, text: text, time: "เมื่อกี้", bg: "bg-[#e67d71]" });
-                nameInput.value = '';
-                textInput.value = '';
-                setRating(5);
-                renderReviews();
-            }
+            updateReviewStats();
         }
 
         renderReviews();
-        setRating(5);
 
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
+            const container = document.getElementById('modal-container');
             const content = document.getElementById('modal-content');
+            
             let html = '';
             if (type === 'rov') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">౨ৎ งานป้าย RoV</h3>
                     <p class="text-[#786455] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
                     <div class="bg-white/80 p-3 rounded-2xl border border-[#ede0d4] space-y-1">
                         <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-medium text-[#4a5442]">50 - 150 ฿</span></div>
@@ -401,38 +413,56 @@
                 `;
             } else if (type === 'queue') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">⟢ สถานะเช็คคิว</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">⟢ สถานะเช็คคิว</h3>
                     <div class="space-y-2">
                         <div class="p-2.5 bg-white/80 rounded-full flex justify-between items-center border border-[#e3eae0] px-4">
                             <span>คิวที่ 1: คุณ Mild</span>
                             <span class="text-[10px] bg-[#cbd5c0] text-[#4a5442] px-2.5 py-0.5 rounded-full font-medium">กำลังทำ</span>
                         </div>
+                        <div class="p-2.5 bg-white/80 rounded-full flex justify-between items-center border border-[#eee1d8] px-4">
+                            <span>คิวที่ 2: คุณ Oat</span>
+                            <span class="text-[10px] bg-[#e8ded5] text-[#7a6759] px-2.5 py-0.5 rounded-full font-medium">รอคิว</span>
+                        </div>
                     </div>
                 `;
             } else if (type === 'stock') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3>
-                    <div class="p-3 bg-white/80 rounded-2xl border border-[#ebdcd0]">
-                        <div class="font-medium text-[#5c4a3e] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
-                        <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
-                        <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">🪽 ไอดีที่ยังเหลืออยู่</h3>
+                    <div class="space-y-2">
+                        <div class="p-3 bg-white/80 rounded-2xl border border-[#ebdcd0]">
+                            <div class="font-medium text-[#5c4a3e] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
+                            <div class="text-[10px] text-[#9c8678]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
+                            <div class="text-xs font-semibold text-[#6e8563] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
+                        </div>
                     </div>
                 `;
             } else if (type === 'contact') {
                 html = `
-                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr">📮 ช่องทางการติดต่อ</h3>
+                    <h3 class="font-semibold text-sm text-[#5c4a3e] mb-2 font-mitr flex items-center gap-1">📮 ช่องทางการติดต่อ</h3>
+                    <p class="text-[#786455] mb-3">กดเลือกช่องทางเพื่อสอบถามหรือสั่งซื้อได้เลยค่ะ</p>
                     <div class="space-y-2">
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc]">Line Official: @SUMMER_SHOP</a>
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc]">Facebook Page: SUMMER ไอดีเกม</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Line Official: @SUMMER_SHOP</a>
+                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-medium text-[#5c4a3e] border border-[#e6d6cc] hover:bg-[#f7efe9] transition-colors">Facebook Page: SUMMER ไอดีเกม</a>
                     </div>
                 `;
             }
+
             content.innerHTML = html;
             overlay.classList.remove('hidden');
+            setTimeout(() => {
+                container.classList.remove('scale-95', 'opacity-0');
+                container.classList.add('scale-100', 'opacity-100');
+            }, 10);
         }
 
         function closeModal() {
-            document.getElementById('modal-overlay').classList.add('hidden');
+            const overlay = document.getElementById('modal-overlay');
+            const container = document.getElementById('modal-container');
+            container.classList.remove('scale-100', 'opacity-100');
+            container.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 150);
         }
 
         function scrollToReviews() {
