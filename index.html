@@ -9,7 +9,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts: Kanit & Itim -->
-    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Kanit', 'Itim', cursive, sans-serif;
@@ -20,10 +20,10 @@
             font-family: 'Itim', cursive;
         }
         .soft-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(230, 215, 205, 0.8);
-            box-shadow: 0 8px 20px -6px rgba(168, 142, 128, 0.12);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 215, 205, 0.9);
+            box-shadow: 0 8px 24px -6px rgba(168, 142, 128, 0.15);
         }
         .sage-btn {
             background-color: #cbd5c0;
@@ -34,8 +34,17 @@
             background-color: #bfcca2;
             transform: translateY(-2px);
         }
+        .btn-gradient {
+            background: linear-gradient(135deg, #f09587 0%, #e67d71 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(230, 125, 113, 0.3);
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #e88677 0%, #d96e62 100%);
+            transform: translateY(-1px);
+        }
         .custom-scrollbar::-webkit-scrollbar {
-            width: 5px;
+            width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
             background: #f1e9e3;
@@ -47,228 +56,290 @@
         }
     </style>
 </head>
-<body class="min-h-screen pb-24 selection:bg-[#e6d7cd]">
+<body class="min-h-screen pb-28 selection:bg-[#e6d7cd]">
 
-    <!-- Container สำหรับแสดงผลหน้าจอแบบ Mobile/Desktop -->
-    <div class="max-w-md mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative">
+    <!-- Container สำหรับแสดงผลหน้าจอ -->
+    <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative">
         
         <!-- Header & Main Content -->
         <div>
             <!-- ส่วนหัว (Header) : โลโก้ + ชื่อร้าน ชิดฝั่งซ้าย -->
-            <header class="flex items-center space-x-3 mb-4 pt-2">
+            <header class="flex items-center space-x-3.5 mb-5 pt-2">
                 <!-- โลโก้ทรงกลมสไตล์ Y2K Soft Brown -->
                 <div class="relative group">
-                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#dfcecf] to-[#e8d2c4] p-0.5 shadow-sm flex items-center justify-center">
                         <div class="w-full h-full rounded-full bg-[#fbf7f4] flex items-center justify-center overflow-hidden border border-[#eddcd0]">
-                            <span class="text-2xl">🧸</span>
+                            <span class="text-3xl">🧸</span>
                         </div>
                     </div>
-                    <span class="absolute -bottom-1 -right-1 text-xs">✨</span>
+                    <span class="absolute -bottom-1 -right-1 text-sm">✨</span>
                 </div>
                 
                 <!-- ชื่อร้าน -->
                 <div>
-                    <h1 class="text-2xl font-semibold tracking-wider text-[#5c4a3e] flex items-center gap-1 font-cute">
+                    <h1 class="text-3xl font-bold tracking-wider text-[#5c4a3e] flex items-center gap-1.5 font-cute">
                         SUMMER
-                        <span class="text-xs text-[#a38f83]">. ♡ ˚</span>
+                        <span class="text-sm text-[#a38f83] font-normal">. ♡ ˚</span>
                     </h1>
-                    <p class="text-[11px] text-[#9c8678] tracking-tight">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
+                    <p class="text-xs text-[#9c8678] tracking-tight">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
                 </div>
             </header>
 
             <!-- คำโปรยอธิบาย -->
-            <div class="soft-card rounded-2xl p-3.5 mb-6 text-xs text-[#786455] leading-relaxed relative overflow-hidden">
-                <div class="absolute top-1 right-2 text-xs opacity-40">🎀</div>
-                <p class="flex items-start gap-1.5">
-                    <span>⟢</span>
-                    <span>รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกด ช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄</span>
+            <div class="soft-card rounded-2xl p-4 mb-6 text-xs text-[#786455] leading-relaxed relative overflow-hidden">
+                <div class="absolute top-2 right-2 text-sm opacity-40">🎀</div>
+                <p class="flex items-start gap-2">
+                    <span class="text-sm">⟢</span>
+                    <span class="text-xs leading-relaxed">รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกด ช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄</span>
                 </p>
             </div>
 
             <!-- บอดี้ (Body Menu Cards) -->
-            <main class="space-y-3.5">
+            <main class="space-y-4">
                 
                 <!-- 1. งานป้าย Rov -->
-                <button onclick="openModal('rov')" class="w-full soft-card hover:bg-white/90 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:scale-105 transition-transform">
-                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
+                <button onclick="openModal('rov')" class="w-full soft-card hover:bg-white/95 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-[#f0e4db] flex items-center justify-center text-[#735e50] group-hover:scale-105 transition-transform">
+                            <i data-lucide="gamepad-2" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-medium text-[#5c4a3e] font-cute">౨ৎ งานป้าย Rov</span>
-                            <span class="text-[11px] text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">౨ৎ งานป้าย Rov</span>
+                            <span class="text-xs text-[#9c8678]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
                 <!-- 2. เช็คคิว -->
-                <button onclick="openModal('queue')" class="w-full soft-card hover:bg-white/90 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:scale-105 transition-transform">
-                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                <button onclick="openModal('queue')" class="w-full soft-card hover:bg-white/95 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-[#e3eae0] flex items-center justify-center text-[#586851] group-hover:scale-105 transition-transform">
+                            <i data-lucide="calendar" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-medium text-[#5c4a3e] font-cute">⟢ เช็คคิว</span>
-                            <span class="text-[11px] text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">⟢ เช็คคิว</span>
+                            <span class="text-xs text-[#9c8678]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
                 <!-- 3. ไอดีที่ยังเหลืออยู่ -->
-                <button onclick="openModal('stock')" class="w-full soft-card hover:bg-white/90 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:scale-105 transition-transform">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                <button onclick="openModal('stock')" class="w-full soft-card hover:bg-white/95 p-4 rounded-2xl flex items-center justify-between group transition-all duration-200 border border-[#ebdcd0]">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-[#f5e6e8] flex items-center justify-center text-[#805e63] group-hover:scale-105 transition-transform">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-medium text-[#5c4a3e] font-cute">🪽 ไอดีที่ยังเหลืออยู่</span>
-                            <span class="text-[11px] text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
+                            <span class="block text-base font-semibold text-[#5c4a3e] font-cute">🪽 ไอดีที่ยังเหลืออยู่</span>
+                            <span class="text-xs text-[#9c8678]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#b39e91] group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
-                <!-- ส่วนอัพเดทเรียลไทม์ (Live Review Feed) -->
-                <section class="pt-2">
-                    <div class="flex items-center justify-between px-1 mb-2">
-                        <h2 class="text-xs font-semibold text-[#6e5a4d] flex items-center gap-1 font-cute">
-                            <span>♡</span> Review Feed 
-                            <span class="relative flex h-2 w-2 ml-1">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#829e75] opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#708b63]"></span>
-                            </span>
-                        </h2>
-                        <span class="text-[10px] text-[#a18c7f]">Real-time Updates</span>
-                    </div>
-
-                    <!-- กล่องข้อความรีวิวเรียลไทม์ -->
-                    <div class="soft-card rounded-2xl p-3 h-48 flex flex-col border border-[#ebdcd0]">
-                        <div id="review-list" class="space-y-2 overflow-y-auto custom-scrollbar pr-1 flex-1">
-                            <!-- ข้อความรีวิวจะถูกโหลดขึ้นที่นี่แบบ Real-time -->
-                        </div>
+                <!-- ส่วนอัพเดทเรียลไทม์ (Review Section แบบขยายใหญ่ + ฟอร์มตามรูป) -->
+                <section id="review-section" class="pt-3">
+                    <div class="soft-card rounded-3xl p-5 border border-[#ebdcd0] shadow-sm">
                         
-                        <!-- ฟอร์มพิมพ์รีวิวทดสอบ -->
-                        <div class="mt-2.5 pt-2 border-t border-[#eee1d8] flex gap-1.5">
-                            <input id="user-review-input" type="text" placeholder="เขียนรีวิวให้ร้านค้า... 💬" class="flex-1 bg-white/80 text-xs px-3 py-1.5 rounded-full border border-[#e3d3c8] focus:outline-none focus:border-[#a89080] text-[#6b584c] placeholder-[#beada2]">
-                            <button onclick="addReview()" class="sage-btn px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1">
-                                <span>ส่ง</span>
-                                <i data-lucide="send" class="w-3 h-3"></i>
+                        <!-- Review Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-full bg-[#fceee9] flex items-center justify-center text-[#e67d71]">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                </span>
+                                <h2 class="text-xl font-bold text-[#5c4a3e]">Review</h2>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#e3eae0] text-[#586851] flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#6a8060] animate-pulse"></span>
+                                Live Feedback
+                            </span>
+                        </div>
+
+                        <!-- ฟอร์มฝากรีวิว (ตามแบบภาพตัวอย่าง) -->
+                        <div class="bg-white/90 rounded-2xl p-4 border border-[#eee0d6] mb-5 shadow-sm">
+                            <div class="flex items-center gap-1.5 text-xs font-semibold text-[#6e5a4d] mb-3">
+                                <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#e67d71]"></i>
+                                <span>ฝากรีวิวให้ร้าน SUMMER</span>
+                            </div>
+
+                            <!-- Input ชื่อ -->
+                            <input id="user-name-input" type="text" placeholder="ชื่อ หรือ ไอดีลูกค้า..." class="w-full bg-[#fdfbf9] text-xs px-3.5 py-2.5 rounded-xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 transition-colors">
+
+                            <!-- ให้คะแนนร้าน (ดาว) -->
+                            <div class="flex items-center justify-between mb-3 px-1">
+                                <span class="text-xs text-[#8c786c]">ให้คะแนนร้าน:</span>
+                                <div id="star-rating" class="flex gap-1 text-amber-400 text-lg cursor-pointer">
+                                    <span onclick="setRating(1)">★</span>
+                                    <span onclick="setRating(2)">★</span>
+                                    <span onclick="setRating(3)">★</span>
+                                    <span onclick="setRating(4)">★</span>
+                                    <span onclick="setRating(5)">★</span>
+                                </div>
+                            </div>
+
+                            <!-- Input ข้อความรีวิว -->
+                            <textarea id="user-text-input" rows="2" placeholder="เขียนความประทับใจ การบริการ หรือรีวิวมุมมองต่าง..." class="w-full bg-[#fdfbf9] text-xs p-3 rounded-xl border border-[#e8dad0] focus:outline-none focus:border-[#e67d71] text-[#6b584c] mb-3 resize-none transition-colors"></textarea>
+
+                            <!-- ปุ่มส่งรีวิว -->
+                            <button onclick="addReview()" class="w-full btn-gradient py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                                <span>ส่งรีวิวเรียลไทม์</span>
                             </button>
                         </div>
+
+                        <!-- รายการรีวิวเรียลไทม์ (ขยายขนาดตัวหนังสือและพื้นที่) -->
+                        <div id="review-list" class="space-y-3.5 max-h-96 overflow-y-auto custom-scrollbar pr-1">
+                            <!-- ข้อความรีวิวจะถูกโหลดขึ้นที่นี่ -->
+                        </div>
+
                     </div>
                 </section>
             </main>
         </div>
 
         <!-- ส่วนท้าย (Footer Navbar) -->
-        <footer class="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-md z-40">
-            <nav class="soft-card rounded-full p-1.5 flex items-center justify-around border border-[#e6d6cc] shadow-lg">
+        <footer class="fixed bottom-3 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-lg z-40">
+            <nav class="soft-card rounded-full p-2 flex items-center justify-around border border-[#e6d6cc] shadow-xl">
                 <!-- Review Button -->
                 <button onclick="scrollToReviews()" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
-                    <i data-lucide="message-square-heart" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-cute">Review</span>
+                    <i data-lucide="message-square-heart" class="w-5 h-5 mb-0.5"></i>
+                    <span class="text-xs font-medium font-cute">Review</span>
                 </button>
 
                 <!-- Home Button (Active) -->
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex-1 py-1.5 flex flex-col items-center text-[#4a5442] bg-[#cbd5c0] rounded-full shadow-sm transition-all">
-                    <i data-lucide="home" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-cute">HOME</span>
+                    <i data-lucide="home" class="w-5 h-5 mb-0.5"></i>
+                    <span class="text-xs font-medium font-cute">HOME</span>
                 </button>
 
                 <!-- Contact Button -->
                 <button onclick="openModal('contact')" class="flex-1 py-1.5 flex flex-col items-center text-[#7a6759] hover:text-[#4a3c32] transition-colors">
-                    <i data-lucide="contact-2" class="w-4 h-4 mb-0.5"></i>
-                    <span class="text-[10px] font-medium font-cute">Contact</span>
+                    <i data-lucide="contact-2" class="w-5 h-5 mb-0.5"></i>
+                    <span class="text-xs font-medium font-cute">Contact</span>
                 </button>
             </nav>
         </footer>
 
     </div>
 
-    <!-- Modals (หน้าต่างป๊อปอัพเมนูต่างๆ) -->
+    <!-- Modals -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl transform transition-all">
+        <div class="bg-[#fbf7f4] border border-[#ebdcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#eee1d8] flex items-center justify-center text-[#6e5a4d]">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
             
             <div id="modal-content" class="text-xs space-y-3">
-                <!-- โหลดเนื้อหา Modal ตามหัวข้อที่กด -->
+                <!-- เนื้อหา Modal -->
             </div>
         </div>
     </div>
 
     <script>
-        // เริ่มต้นใช้งาน Lucide Icons
         lucide.createIcons();
+
+        let currentRating = 5;
 
         // ข้อมูลรีวิวตั้งต้น
         const sampleReviews = [
-            { name: "Minnie ♡", text: "บริการดีมากค่ะ ได้ไอดีไวมาก ตอบแชทไวสุดๆ 🧸✨", time: "เมื่อกี้" },
-            { name: "Pond_RoV", text: "งานป้ายสวยถูกใจ คิวไวกว่าที่คิดเยอะเลยครับ 🔥", time: "2 นาทีที่แล้ว" },
-            { name: "K.Fern", text: "ซื้อขายปลอดภัย แม่ค้าใจดีมีของแถมด้วย นำเสนอเลยน้า 💕", time: "5 นาทีที่แล้ว" }
+            { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#f59e0b]" },
+            { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#e67d71]" },
+            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#829e75]" }
         ];
 
-        // ฟังก์ชันโหลดรีวิว
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.querySelectorAll('#star-rating span');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('opacity-30');
+                } else {
+                    star.classList.add('opacity-30');
+                }
+            });
+        }
+
         function renderReviews() {
             const list = document.getElementById('review-list');
             list.innerHTML = '';
             sampleReviews.forEach(rev => {
+                const initial = rev.name.charAt(0);
+                const starsHtml = '★'.repeat(rev.rating);
+                
                 const item = document.createElement('div');
-                item.className = "p-2.5 rounded-xl bg-white/60 border border-[#f0e3d9] text-xs transition-all animate-fade-in";
+                item.className = "p-4 rounded-2xl bg-white/95 border border-[#f0e3d9] transition-all shadow-sm";
                 item.innerHTML = `
-                    <div class="flex justify-between items-center mb-1">
-                        <span class="font-medium text-[#5c4a3e] font-cute flex items-center gap-1">
-                            <span class="text-[10px]">🕊️</span> ${rev.name}
-                        </span>
-                        <span class="text-[9px] text-[#b39e91]">${rev.time}</span>
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-full ${rev.bg || 'bg-[#e67d71]'} text-white font-bold flex items-center justify-center text-xs shadow-sm">
+                                ${initial}
+                            </div>
+                            <span class="font-bold text-sm text-[#4a3c32] font-cute">${rev.name}</span>
+                        </div>
+                        <span class="text-[11px] text-[#a38f83]">${rev.time}</span>
                     </div>
-                    <p class="text-[#786455] text-[11px] leading-relaxed">${rev.text}</p>
+                    <div class="text-amber-400 text-xs mb-1.5 tracking-wider">${starsHtml}</div>
+                    <p class="text-[#6b584c] text-xs leading-relaxed font-normal">${rev.text}</p>
                 `;
                 list.appendChild(item);
             });
         }
 
-        // เพิ่มรีวิวใหม่
         function addReview() {
-            const input = document.getElementById('user-review-input');
-            const val = input.value.trim();
-            if (val) {
+            const nameInput = document.getElementById('user-name-input');
+            const textInput = document.getElementById('user-text-input');
+            
+            const name = nameInput.value.trim() || "คุณลูกค้า ♡";
+            const text = textInput.value.trim();
+
+            if (text) {
                 sampleReviews.unshift({
-                    name: "คุณลูกค้า ♡",
-                    text: val,
-                    time: "เมื่อกี้"
+                    name: name,
+                    rating: currentRating,
+                    text: text,
+                    time: "เมื่อกี้",
+                    bg: "bg-[#e67d71]"
                 });
-                input.value = '';
+                
+                nameInput.value = '';
+                textInput.value = '';
+                setRating(5);
                 renderReviews();
             }
         }
 
-        // ระบบจำลอง Live Feed เด้งรีวิวอัตโนมัติ
+        // Live Feed สุ่มเด้งรีวิวจำลอง
         const randomTexts = [
             "โอนไว โอนจริง ดันๆให้ร้าน SUMMER ครับ ⭐",
             "ได้ไอดีเรียบร้อยครับ ปลอดภัย 100% เลิฟเลย 💗",
-            "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨"
+            "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨",
+            "แม่ค้าตอบเร็วมาก ใส่ใจสุดๆ สั่งอีกแน่นอนครับ!"
         ];
-        const randomNames = ["Ice_cube 🍦", "Ploy_K 🌸", "Bank_Rov 🎮", "Catty 🐾"];
+        const randomNames = ["น้องไอซ์ สายหวาน", "พลอย_RoV", "แบงค์_ตัวจริง", "คุณพีร์"];
+        const colors = ["bg-[#e67d71]", "bg-[#829e75]", "bg-[#f59e0b]", "bg-[#8b72be]"];
 
         setInterval(() => {
             const randName = randomNames[Math.floor(Math.random() * randomNames.length)];
             const randText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+            const randBg = colors[Math.floor(Math.random() * colors.length)];
+            
             sampleReviews.unshift({
                 name: randName,
+                rating: 5,
                 text: randText,
-                time: "เมื่อกี้"
+                time: "เมื่อกี้",
+                bg: randBg
             });
             if (sampleReviews.length > 8) sampleReviews.pop();
             renderReviews();
-        }, 8000);
+        }, 9000);
 
         renderReviews();
+        setRating(5);
 
-        // ฟังก์ชัน Modal
+        // Modals Functions
         function openModal(type) {
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
@@ -328,7 +399,7 @@
         }
 
         function scrollToReviews() {
-            document.getElementById('review-list').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('review-section').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
