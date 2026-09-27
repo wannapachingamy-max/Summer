@@ -3,363 +3,702 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMMER 🧸⋆⁺₊⋆</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        prompt: ['Prompt', 'sans-serif'],
-                        mitr: ['Mitr', 'sans-serif'],
-                        serifNum: ['Cormorant Garamond', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>Check Q Summer - pimmuki shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { font-family: 'Prompt', sans-serif !important; }
-        .font-mitr, .font-mitr * { font-family: 'Mitr', sans-serif !important; }
-        .font-serif-num { font-family: 'Cormorant Garamond', serif !important; }
+        :root {
+            --bg-color: #fbf9f5;
+            --card-bg: #ffffff;
+            --primary-pink: #e8c5c8;
+            --primary-green: #9caf88;
+            --text-main: #5a5250;
+            --text-light: #8c827f;
+            --border-color: #f2efe9;
+            --shadow: 0 10px 30px rgba(156, 175, 136, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', sans-serif;
+        }
 
         body {
-            background-color: #f3f4f0;
-            background-image: 
-                radial-gradient(at 10% 10%, rgba(228, 235, 226, 0.9) 0px, transparent 55%),
-                radial-gradient(at 90% 90%, rgba(243, 235, 228, 0.9) 0px, transparent 60%);
-            background-attachment: fixed;
-            color: #4a4843;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 20px 15px;
         }
 
-        .text-header-title { color: #4e584f; letter-spacing: 0.05em; }
-
-        .leaf-container {
-            position: fixed; top: -10%; left: 0; width: 100%; height: 120vh; pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .leaf {
-            position: absolute; top: -20px; font-size: 1.2rem; opacity: 0.6; animation: fall linear infinite;
-        }
-        @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.5; }
-            100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
-        }
-        .leaf:nth-child(1) { left: 8%; animation-duration: 10s; animation-delay: 0s; }
-        .leaf:nth-child(2) { left: 25%; animation-duration: 13s; animation-delay: 2s; }
-        .leaf:nth-child(3) { left: 45%; animation-duration: 9s; animation-delay: 4s; }
-        .leaf:nth-child(4) { left: 70%; animation-duration: 11s; animation-delay: 1s; }
-        .leaf:nth-child(5) { left: 88%; animation-duration: 12s; animation-delay: 3s; }
-
-        .capsule-card {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(215, 222, 212, 0.9);
-            box-shadow: 0 8px 25px -4px rgba(140, 145, 135, 0.12);
-            border-radius: 9999px !important;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .capsule-card:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 12px 30px -4px rgba(140, 145, 135, 0.2);
-        }
-
-        .review-capsule-item {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(215, 222, 212, 0.9);
-            box-shadow: 0 6px 20px rgba(140, 145, 135, 0.1);
-            border-radius: 9999px !important;
+        .phone-container {
             width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border-radius: 36px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 6px solid #fff;
         }
 
-        .stat-card {
-            background: rgba(255, 255, 255, 0.88);
-            border: 1px solid rgba(215, 222, 212, 0.9);
-            border-radius: 1.25rem;
-            box-shadow: 0 4px 15px rgba(140, 145, 135, 0.06);
+        /* Header & Cover */
+        .cover-section {
+            height: 160px;
+            background: linear-gradient(135deg, #e8c5c8, #9caf88);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 50px;
         }
 
-        .bottom-nav-capsule {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(215, 222, 212, 0.9);
-            box-shadow: 0 10px 30px rgba(140, 145, 135, 0.2);
-            border-radius: 9999px !important;
+        .profile-container {
+            position: absolute;
+            bottom: -35px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            animation: floatProfile 3s ease-in-out infinite;
         }
 
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(2deg); }
+        @keyframes floatProfile {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-        .animate-float { animation: floatSlow 4s ease-in-out infinite; }
 
-        .vertical-marquee-container {
-            height: 140px; overflow: hidden; position: relative; width: 100%;
-            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f7ebd9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
         }
-        .vertical-marquee-track {
-            position: absolute; width: 100%; display: flex; flex-direction: column; gap: 12px;
-            animation: scrollVertical 16s linear infinite;
+
+        .shop-info {
+            text-align: center;
+            padding: 45px 20px 15px;
         }
-        .vertical-marquee-container:hover .vertical-marquee-track { animation-play-state: paused; }
-        @keyframes scrollVertical {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
+
+        .shop-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #4a4240;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .shop-bio {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 10px 0 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-weight: 600;
+            font-size: 16px;
+            color: #5a5250;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Music Player Widget */
+        .music-widget {
+            margin: 15px 20px;
+            background: #f7f5f0;
+            border-radius: 20px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .music-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .music-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .music-details .song-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .music-details .artist-name {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .play-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #d8c2c4;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Main Content Container */
+        .main-content {
+            padding: 0 20px 20px;
+            flex: 1;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-card {
+            background: #faf8f5;
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .month-select {
+            padding: 6px 12px;
+            border-radius: 10px;
+            border: 1px solid #e2ddd5;
+            background: #fff;
+            font-size: 12px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        /* ช่องค้นหาชื่อ */
+        .search-box {
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 12px 8px 34px;
+            border-radius: 10px;
+            border: 1px solid #e2ddd5;
+            background: #fff;
+            font-size: 12px;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 2px rgba(156, 175, 136, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 12px;
+        }
+
+        .table-title-area {
+            margin-bottom: 12px;
+        }
+
+        .table-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .table-subtitle {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* Status Legends */
+        .status-legends {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .legend-badge {
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        /* Table Design */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .queue-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .queue-table th {
+            background: #f4f1ea;
+            color: #6a605d;
+            padding: 10px 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .queue-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f7f5f0;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .queue-table tr:hover td {
+            background: #fcfbfa;
+        }
+
+        .queue-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Status Badges with Glowing Pulse Effect */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulseGlow 1.5s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
+            70% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 0 4px rgba(0, 0, 0, 0); }
+            100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+        }
+
+        .status-briefed { background: #e3edfc; color: #3b71ca; }
+        .status-briefed .status-dot { background: #3b71ca; }
+
+        .status-revision { background: #fef0d8; color: #b87a00; }
+        .status-revision .status-dot { background: #b87a00; }
+
+        .status-doing { background: #e2f7e4; color: #2e7d32; }
+        .status-doing .status-dot { background: #2e7d32; }
+
+        .status-done { background: #e8f5e9; color: #1b5e20; }
+        .status-done .status-dot { background: #1b5e20; }
+
+        .status-paid { background: #e0f2f1; color: #00695c; }
+        .status-paid .status-dot { background: #00695c; }
+
+        .status-pending { background: #ffebee; color: #c62828; }
+        .status-pending .status-dot { background: #c62828; }
+
+        /* Contact Section */
+        .contact-box {
+            margin: 5px 0 0;
+            background: #faf8f5;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .contact-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #ffffff;
+            border: 1px solid #e8e3dc;
+            padding: 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: #f2efe9;
+        }
+
+        /* 🌸 ฟอร์มเขียนรีวิว */
+        .review-form-group {
+            margin-bottom: 12px;
+        }
+
+        .review-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .review-input, .review-textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px solid #e2ddd5;
+            background: #fff;
+            font-size: 12px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .review-textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .submit-review-btn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 12px;
+            border: none;
+            background: var(--primary-green);
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .submit-review-btn:hover {
+            opacity: 0.9;
+        }
+
+        .review-card-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .review-author {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .review-text {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Navigation Tab Bar */
+        .nav-tabs {
+            display: flex;
+            padding: 10px 20px 15px;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            gap: 10px;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 10px;
+            border-radius: 14px;
+            border: none;
+            background: #f7f5f0;
+            color: var(--text-light);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .nav-tab.active {
+            background: var(--primary-green);
+            color: white;
+            box-shadow: 0 4px 10px rgba(156, 175, 136, 0.3);
+        }
+
+        /* 🌸 ปกหลัง (Footer Cover) */
+        .footer-cover {
+            height: 90px;
+            background: linear-gradient(135deg, #9caf88, #e8c5c8);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .loading-text {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 12px;
         }
     </style>
 </head>
-<body class="min-h-screen pb-32 selection:bg-[#d4ded0] relative">
+<body>
 
-    <div class="leaf-container">
-        <span class="leaf">🧸</span><span class="leaf">✨</span><span class="leaf">🤍</span><span class="leaf">🌿</span><span class="leaf">🧸</span>
+<div class="phone-container">
+    <!-- Header / Cover -->
+    <div class="cover-section">
+        <div class="profile-container">
+            <div class="profile-img">🧸</div>
+        </div>
     </div>
 
-    <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
-        <div>
-            <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
-                <div class="flex items-center gap-4">
-                    <div class="relative group flex-shrink-0">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#9bb3a0] via-[#d0dcd4] to-[#f0eae1] p-1 shadow-md flex items-center justify-center animate-float">
-                            <div class="w-full h-full rounded-full bg-[#ffffff] flex items-center justify-center overflow-hidden border-2 border-[#e2e8e3]">
-                                <span class="text-3xl">🧸</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-left">
-                        <h1 class="text-3xl font-extrabold tracking-wide text-header-title flex items-center gap-2 font-mitr leading-none">
-                            SUMMER <span class="text-sm text-[#8c7b6d] font-normal">. ♡ ˚</span>
-                        </h1>
-                        <p class="text-xs text-[#787a70] tracking-tight mt-1.5 font-medium">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
-                    </div>
-                </div>
+    <div class="shop-info">
+        <div class="shop-title">
+            <span>pimmuki shop</span> <i class="fa-solid fa-circle-check" style="color: #9caf88; font-size: 16px;"></i>
+        </div>
+        <div class="shop-bio">✨🤍 รับทำป้าย RoV สวยๆ ตรงบรีฟ 🐰ྀི</div>
+    </div>
 
-                <div class="px-3.5 py-1.5 rounded-full bg-white/90 border-2 border-[#d0dcd4] backdrop-blur-md shadow-sm flex items-center gap-2">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
-                    </span>
-                    <span class="text-[11px] font-bold text-[#4e584f] font-mitr">ร้านเปิดบริการ</span>
-                </div>
-            </header>
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-num">100</div>
+            <div class="stat-label">followers</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num" id="review-count">1</div>
+            <div class="stat-label">reviews</div>
+        </div>
+    </div>
 
-            <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#686b62] leading-relaxed">
-                <span class="text-sm flex-shrink-0 mt-0.5">🌿</span>
-                <p class="font-normal">
-                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
-                </p>
+    <!-- Music Player -->
+    <div class="music-widget">
+        <div class="music-left">
+            <div class="music-icon"><i class="fa-solid fa-music"></i></div>
+            <div class="music-details">
+                <div class="song-name">Black magic</div>
+                <div class="artist-name">Little Mix</div>
+            </div>
+        </div>
+        <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        
+        <!-- 🟢 แท็บ Main: เช็คคิวงาน -->
+        <div id="tab-main" class="tab-content active">
+            <!-- Section 1: Month Filter -->
+            <div class="section-card">
+                <div class="filter-header">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-calendar-days" style="color: #9caf88;"></i> เดือนที่กำลังรับคิวงาน:
+                    </div>
+                    <select class="month-select" id="month-selector">
+                        <option value="เมษายน 2026">เมษายน 2026 (ซัมเมอร์)</option>
+                        <option value="พฤษภาคม 2026">พฤษภาคม 2026</option>
+                        <option value="มิถุนายน 2026">มิถุนายน 2026</option>
+                    </select>
+                </div>
             </div>
 
-            <main class="space-y-4">
-                <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#d0dcd4] bg-white/60 backdrop-blur-md p-1.5 mb-2">
-                    <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
+            <!-- Section 2: Queue Table -->
+            <div class="section-card">
+                <div class="table-title-area">
+                    <div class="table-title">
+                        <i class="fa-solid fa-signs-post" style="color: #e8c5c8;"></i> คิวงานทั้งหมด
+                    </div>
+                    <div class="table-subtitle">เช็คสถานะคิวงานป้าย RoV จาก Google Sheets แบบเรียลไทม์</div>
                 </div>
 
-                <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#dfdad2] to-[#c6d4cb] flex items-center justify-center text-[#525a51] flex-shrink-0 shadow-sm">
-                            <i data-lucide="gamepad-2" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-bold text-[#4e584f] font-mitr">౨ৎ งานป้าย Rov</span>
-                            <span class="text-[11px] text-[#787a70]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#787a70]"></i>
-                </button>
-
-                <!-- ปุ่มเช็คคิว เปลี่ยนเป็นลิงก์เปิดเว็บเช็คคิวของคุณทันที -->
-                <a href="https://wannapachingamy-max.github.io/Qaummer/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#ecdcd4] to-[#d4dcd0] flex items-center justify-center text-[#525a51] flex-shrink-0 shadow-sm">
-                            <i data-lucide="calendar" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-bold text-[#4e584f] font-mitr">⟢ เช็คคิว</span>
-                            <span class="text-[11px] text-[#787a70]">ตารางคิวสถานะปัจจุบัน</span>
-                        </div>
-                    </div>
-                    <i data-lucide="external-link" class="w-5 h-5 text-[#787a70]"></i>
-                </a>
-
-                <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e4eade] to-[#d6c7be] flex items-center justify-center text-[#625950] flex-shrink-0 shadow-sm">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="block text-sm font-bold text-[#4e584f] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
-                            <span class="text-[11px] text-[#787a70]">รายการไอดีพร้อมส่งมอบ</span>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#787a70]"></i>
-                </button>
-
-                <div class="grid grid-cols-2 gap-3 my-2">
-                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#d0dcd4] bg-white/60 backdrop-blur-md p-1">
-                        <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
-                    </div>
-                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#d0dcd4] bg-white/60 backdrop-blur-md p-1">
-                        <img src="EE699540-D77C-4585-B36E-402392D54160.gif" alt="GIF ตกแต่ง 2" class="w-full h-full object-cover rounded-2xl block">
-                    </div>
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="ค้นหาชื่อลูกค้า หรือรายละเอียดคิวงาน..." onkeyup="filterQueueTable()">
                 </div>
 
-                <!-- ส่วนแสดงผลรีวิว -->
-                <section id="review-section" class="pt-4 pb-2">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                        <div class="flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-full bg-[#9fb3a0] text-white flex items-center justify-center shadow-sm">
-                                <i data-lucide="message-circle-heart" class="w-3.5 h-3.5"></i>
-                            </span>
-                            <h2 class="text-sm font-bold text-[#4e584f] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
-                        </div>
-                        <a href="review.html" class="text-[11px] text-[#9fb3a0] font-bold hover:underline font-mitr flex items-center gap-1">
-                            เขียนรีวิว <i data-lucide="external-link" class="w-3 h-3"></i>
-                        </a>
-                    </div>
+                <!-- Status Legends -->
+                <div class="status-legends">
+                    <span class="legend-badge status-briefed">บรีฟแล้ว</span>
+                    <span class="legend-badge status-revision">รอบรีฟ</span>
+                    <span class="legend-badge status-doing">กำลังทำ</span>
+                    <span class="legend-badge status-done">เสร็จแล้ว</span>
+                    <span class="legend-badge status-paid">โอนเงินแล้ว</span>
+                    <span class="legend-badge status-pending">ยังไม่เสร็จ</span>
+                </div>
 
-                    <div class="grid grid-cols-2 gap-3 mb-4">
-                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span id="stat-total" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
-                            <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิวทั้งหมด</span>
-                        </div>
-                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span id="stat-avg" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">5.0</span>
-                            <span class="text-[11px] text-[#787a70] font-prompt font-semibold">คะแนนเฉลี่ย</span>
-                        </div>
-                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span id="stat-fives" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">4</span>
-                            <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิว 5 ดาว</span>
-                        </div>
-                        <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span id="stat-ones" class="text-2xl font-serif-num text-[#4e584f] mb-0.5 font-bold">0</span>
-                            <span class="text-[11px] text-[#787a70] font-prompt font-semibold">รีวิว 1 ดาว</span>
-                        </div>
-                    </div>
+                <div class="table-container">
+                    <table class="queue-table">
+                        <thead>
+                            <tr>
+                                <th>คิวที่</th>
+                                <th>ชื่อลูกค้า / คิวงาน</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="client-queue-tbody">
+                            <tr>
+                                <td colspan="3" class="loading-text">กำลังดึงข้อมูลจาก Google Sheets...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <div class="vertical-marquee-container">
-                        <div class="vertical-marquee-track" id="vertical-track-content"></div>
-                    </div>
-                </section>
-            </main>
+            <!-- Contact Box -->
+            <div class="contact-box">
+                <div class="contact-title">- 🤍 ∞ ────── contact ────── ∞ 🤍 -</div>
+                <div class="contact-buttons">
+                    <a href="https://line.me" target="_blank" class="contact-btn">
+                        <i class="fa-solid fa-feather" style="color: #9caf88;"></i> Line Official
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="contact-btn">
+                        <i class="fa-solid fa-dove" style="color: #e8c5c8;"></i> Instagram
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <footer class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] max-w-sm z-40">
-            <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
-                <a href="review.html" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4e584f] group-hover:bg-[#d0dcd4] shadow-sm border border-[#d0dcd4] transition-all">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
+        <!-- 🩷 แท็บ Reviews: เขียนรีวิวและดูรีวิว -->
+        <div id="tab-reviews" class="tab-content">
+            <div class="section-card">
+                <div class="table-title-area">
+                    <div class="table-title">
+                        <i class="fa-solid fa-pen-nib" style="color: #e8c5c8;"></i> เขียนรีวิวความประทับใจ
                     </div>
-                </a>
+                    <div class="table-subtitle">ส่งต่อกำลังใจให้ร้าน pimmuki shop 🤍</div>
+                </div>
 
-                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#9bb3a0] via-[#d0dcd4] to-[#f0eae1] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
-                        <i data-lucide="home" class="w-5 h-5 text-[#4e584f]"></i>
+                <div class="review-form-group">
+                    <label class="review-label">ชื่อของคุณ / นามปากกา</label>
+                    <input type="text" id="reviewerName" class="review-input" placeholder="เช่น คุณมายด์">
+                </div>
+
+                <div class="review-form-group">
+                    <label class="review-label">ข้อความรีวิว</label>
+                    <textarea id="reviewText" class="review-textarea" placeholder="งานสวยตรงบรีฟมากค่ะ ทำไวสุดๆ 🌷"></textarea>
+                </div>
+
+                <button class="submit-review-btn" onclick="submitReview()">ส่งรีวิว</button>
+            </div>
+
+            <div class="section-card">
+                <div class="table-title-area">
+                    <div class="table-title">
+                        <i class="fa-solid fa-star" style="color: #e8c5c8;"></i> รีวิวทั้งหมดจากลูกค้า
                     </div>
-                    <span class="text-[10px] font-extrabold text-[#4e584f] mt-1 font-mitr tracking-wide">Home</span>
-                </button>
-
-                <a href="https://wannapachingamy-max.github.io/Contactsummer/" target="_blank" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4e584f] group-hover:bg-[#d0dcd4] shadow-sm border border-[#d0dcd4] transition-all">
-                        <i data-lucide="contact" class="w-4 h-4"></i>
+                </div>
+                <div id="reviews-list-container">
+                    <div class="review-card-item">
+                        <div class="review-author">คุณพลอย (ป้ายกิลด์ RoV) ⭐⭐⭐⭐⭐</div>
+                        <div class="review-text">งานสวยตรงปกมากค่ะ พี่แอดมินใจดีคุยง่ายมาก ได้รับคิวไวสุดๆ 💖</div>
                     </div>
-                </a>
-            </nav>
-        </footer>
-    </div>
-
-    <!-- Modal ข้อมูลร้าน (สำหรับปุ่มอื่นๆ เช่น งานป้าย หรือ ไอดีที่เหลือ) -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#f5f4f0] border-2 border-[#d0dcd4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0dcd4] flex items-center justify-center text-[#4e584f]">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-            <div id="modal-content" class="text-xs space-y-3"></div>
+                </div>
+            </div>
         </div>
+
     </div>
 
-    <script>
-        lucide.createIcons();
-
-        let sampleReviews = JSON.parse(localStorage.getItem('summer_store_reviews')) || [
-            { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#9fb3a0]" },
-            { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#87998a]" },
-            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#78887b]" },
-            { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#8c7b6d]" }
-        ];
-
-        function updateStats() {
-            const total = sampleReviews.length;
-            const sumRating = sampleReviews.reduce((acc, curr) => acc + curr.rating, 0);
-            const avg = total > 0 ? (sumRating / total).toFixed(1) : "5.0";
-            const fives = sampleReviews.filter(r => r.rating === 5).length;
-            const ones = sampleReviews.filter(r => r.rating === 1).length;
-
-            document.getElementById('stat-total').innerText = total;
-            document.getElementById('stat-avg').innerText = avg;
-            document.getElementById('stat-fives').innerText = fives;
-            document.getElementById('stat-ones').innerText = ones;
-        }
-
-        function renderVerticalMarquee() {
-            const track = document.getElementById('vertical-track-content');
-            if(!track) return;
-            track.innerHTML = '';
-            const listToRender = [...sampleReviews, ...sampleReviews];
-
-            listToRender.forEach((rev) => {
-                const initial = rev.name.charAt(0);
-                const starsHtml = '★'.repeat(rev.rating);
-                const card = document.createElement('div');
-                card.className = "review-capsule-item px-5 py-3 flex-shrink-0";
-                card.innerHTML = `
-                    <div class="flex items-center justify-between mb-1">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">${initial}</div>
-                            <span class="font-bold text-xs text-[#4e584f] font-mitr">${rev.name}</span>
-                        </div>
-                        <span class="text-[9px] text-[#7b8780] font-medium">${rev.time}</span>
-                    </div>
-                    <div class="flex items-center justify-between pl-8 gap-2">
-                        <p class="text-[#4a4843] text-xs leading-snug font-normal line-clamp-1">${rev.text}</p>
-                        <span class="text-amber-500 text-[10px] tracking-wider flex-shrink-0">${starsHtml}</span>
-                    </div>
-                `;
-                track.appendChild(card);
-            });
-            updateStats();
-        }
-
-        renderVerticalMarquee();
-
-        function openModal(type) {
-            const overlay = document.getElementById('modal-overlay');
-            const content = document.getElementById('modal-content');
-            let html = '';
-            if (type === 'rov') {
-                html = `<h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3><p class="text-[#686b62] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต สไตล์สวยหวานน่ารัก</p>`;
-            } else if (type === 'stock') {
-                html = `<h3 class="font-bold text-sm text-[#4e584f] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3><div class="p-3 bg-white rounded-2xl border border-[#d0dcd4]"><div class="font-bold text-[#4e584f] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div><div class="text-xs font-bold text-[#686b62] mt-1">ราคา 1,290 ฿</div></div>`;
-            }
-            content.innerHTML = html;
-            overlay.classList.remove('hidden');
-        }
-        function closeModal() { document.getElementById('modal-overlay').classList.add('hidden'); }
-    </script>
-</body>
-</html>
+    <!-- Bottom Navigation Tabs -->
