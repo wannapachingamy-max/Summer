@@ -41,19 +41,20 @@
             font-family: 'Cormorant Garamond', serif !important;
         }
 
+        /* ปรับโทนสีพื้นหลังให้มีกลิ่นอายสีเขียว Sage ผสมครีมละมุน */
         body {
-            background-color: #f6f0ec;
+            background-color: #f0f4f1;
             background-image: 
-                radial-gradient(at 10% 10%, rgba(244, 228, 220, 0.8) 0px, transparent 55%),
-                radial-gradient(at 90% 90%, rgba(225, 235, 228, 0.8) 0px, transparent 60%);
+                radial-gradient(at 10% 10%, rgba(225, 237, 230, 0.9) 0px, transparent 55%),
+                radial-gradient(at 90% 90%, rgba(242, 236, 230, 0.9) 0px, transparent 60%);
             background-attachment: fixed;
-            color: #4a403a;
+            color: #444c46;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
         .text-header-title {
-            color: #5c4a42;
+            color: #4a5c50;
             letter-spacing: 0.05em;
         }
 
@@ -90,10 +91,10 @@
         .leaf:nth-child(5) { left: 88%; animation-duration: 12s; animation-delay: 3s; }
 
         .capsule-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(226, 214, 206, 0.8);
-            box-shadow: 0 8px 25px -4px rgba(160, 140, 130, 0.12);
+            border: 1.5px solid rgba(205, 220, 210, 0.9);
+            box-shadow: 0 8px 25px -4px rgba(130, 150, 138, 0.12);
             border-radius: 9999px !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -101,30 +102,30 @@
         .capsule-card:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 12px 30px -4px rgba(160, 140, 130, 0.2);
+            box-shadow: 0 12px 30px -4px rgba(130, 150, 138, 0.2);
         }
 
         .review-capsule-item {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(230, 218, 210, 0.9);
-            box-shadow: 0 6px 20px rgba(160, 140, 130, 0.1);
+            border: 1.5px solid rgba(205, 220, 210, 0.9);
+            box-shadow: 0 6px 20px rgba(130, 150, 138, 0.1);
             border-radius: 9999px !important;
             width: 100%;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(230, 218, 210, 0.9);
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(205, 220, 210, 0.9);
             border-radius: 1.25rem;
-            box-shadow: 0 4px 15px rgba(160, 140, 130, 0.06);
+            box-shadow: 0 4px 15px rgba(130, 150, 138, 0.06);
         }
 
         .bottom-nav-capsule {
             background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(230, 218, 210, 0.9);
-            box-shadow: 0 10px 30px rgba(160, 140, 130, 0.2);
+            border: 2px solid rgba(205, 220, 210, 0.9);
+            box-shadow: 0 10px 30px rgba(130, 150, 138, 0.2);
             border-radius: 9999px !important;
         }
 
@@ -136,7 +137,6 @@
             animation: floatSlow 4s ease-in-out infinite;
         }
 
-        /* ปรับปรุงระบบรันขึ้นแนวตั้งให้เนียน สมูท ไม่สะดุด และใส่ Fade Mask ด้านบน/ล่าง */
         .vertical-marquee-container {
             height: 140px;
             overflow: hidden;
@@ -165,13 +165,13 @@
         }
     </style>
 </head>
-<body class="min-h-screen pb-32 selection:bg-[#e2d6ce] relative">
+<body class="min-h-screen pb-32 selection:bg-[#c5dcd0] relative">
 
     <div class="leaf-container">
         <span class="leaf">🧸</span>
         <span class="leaf">✨</span>
         <span class="leaf">🤍</span>
-        <span class="leaf">🎀</span>
+        <span class="leaf">🌿</span>
         <span class="leaf">🧸</span>
     </div>
 
@@ -181,8 +181,9 @@
             <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
                 <div class="flex items-center gap-4">
                     <div class="relative group flex-shrink-0">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#d4b5a0] via-[#e6d0c4] to-[#f4e4dc] p-1 shadow-md flex items-center justify-center animate-float">
-                            <div class="w-full h-full rounded-full bg-[#ffffff] flex items-center justify-center overflow-hidden border-2 border-[#f0e6e0]">
+                        <!-- โทนเขียว Sage สลับครีมที่โลโก้ -->
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-[#9bb8a4] via-[#c5dcd0] to-[#eaf2ed] p-1 shadow-md flex items-center justify-center animate-float">
+                            <div class="w-full h-full rounded-full bg-[#ffffff] flex items-center justify-center overflow-hidden border-2 border-[#dbe6de]">
                                 <span class="text-3xl">🧸</span>
                             </div>
                         </div>
@@ -191,24 +192,24 @@
                     <div class="text-left">
                         <h1 class="text-3xl font-extrabold tracking-wide text-header-title flex items-center gap-2 font-mitr leading-none">
                             SUMMER
-                            <span class="text-sm text-[#b08968] font-normal">. ♡ ˚</span>
+                            <span class="text-sm text-[#73927c] font-normal">. ♡ ˚</span>
                         </h1>
-                        <p class="text-xs text-[#8c7a70] tracking-tight mt-1.5 font-medium">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
+                        <p class="text-xs text-[#6a7c70] tracking-tight mt-1.5 font-medium">˚｡⋆ welcome to store 🦝 ⋆｡˚</p>
                     </div>
                 </div>
 
-                <div class="px-3.5 py-1.5 rounded-full bg-white/90 border-2 border-[#e6d0c4] backdrop-blur-md shadow-sm flex items-center gap-2">
+                <div class="px-3.5 py-1.5 rounded-full bg-white/90 border-2 border-[#c5dcd0] backdrop-blur-md shadow-sm flex items-center gap-2">
                     <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-600"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
                     </span>
-                    <span class="text-[11px] font-bold text-[#6b5b52] font-mitr">ร้านเปิดบริการ</span>
+                    <span class="text-[11px] font-bold text-[#4a5c50] font-mitr">ร้านเปิดบริการ</span>
                 </div>
             </header>
 
-            <!-- คำโปรย: แบบข้อความคำอธิบายธรรมดา ไม่มีกรอบ -->
-            <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#7c6a5e] leading-relaxed">
-                <span class="text-sm flex-shrink-0 mt-0.5">🎀</span>
+            <!-- คำโปรย -->
+            <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#586b5e] leading-relaxed">
+                <span class="text-sm flex-shrink-0 mt-0.5">🌿</span>
                 <p class="font-normal">
                     รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
                 </p>
@@ -216,54 +217,54 @@
 
             <main class="space-y-4">
                 
-                <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1.5 mb-2">
+                <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#c5dcd0] bg-white/60 backdrop-blur-md p-1.5 mb-2">
                     <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
 
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#e6d0c4] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#d4e4dc] to-[#b6d0c0] flex items-center justify-center text-[#405648] flex-shrink-0 shadow-sm">
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#5c4a42] font-mitr">౨ৎ งานป้าย Rov</span>
-                            <span class="text-[11px] text-[#8c7a70]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
+                            <span class="block text-sm font-bold text-[#4a5c50] font-mitr">౨ৎ งานป้าย Rov</span>
+                            <span class="text-[11px] text-[#6a7c70]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#6a7c70]"></i>
                 </button>
 
                 <button onclick="openModal('queue')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f4e4dc] to-[#faedcd] flex items-center justify-center text-[#7c5e50] flex-shrink-0 shadow-sm">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#d4e4dc] to-[#cbe3d4] flex items-center justify-center text-[#405648] flex-shrink-0 shadow-sm">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#5c4a42] font-mitr">⟢ เช็คคิว</span>
-                            <span class="text-[11px] text-[#8c7a70]">ตารางคิวสถานะปัจจุบัน</span>
+                            <span class="block text-sm font-bold text-[#4a5c50] font-mitr">⟢ เช็คคิว</span>
+                            <span class="text-[11px] text-[#6a7c70]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#6a7c70]"></i>
                 </button>
 
                 <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
-                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#faedcd] to-[#fefae0] flex items-center justify-center text-[#9a7b54] flex-shrink-0 shadow-sm">
+                        <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#cbe3d4] to-[#e2ede6] flex items-center justify-center text-[#4d6655] flex-shrink-0 shadow-sm">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#5c4a42] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
-                            <span class="text-[11px] text-[#8c7a70]">รายการไอดีพร้อมส่งมอบ</span>
+                            <span class="block text-sm font-bold text-[#4a5c50] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
+                            <span class="text-[11px] text-[#6a7c70]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#8c7a70]"></i>
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#6a7c70]"></i>
                 </button>
 
                 <div class="grid grid-cols-2 gap-3 my-2">
-                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#c5dcd0] bg-white/60 backdrop-blur-md p-1">
                         <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
                     </div>
-                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#e6d0c4] bg-white/60 backdrop-blur-md p-1">
+                    <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#c5dcd0] bg-white/60 backdrop-blur-md p-1">
                         <img src="EE699540-D77C-4585-B36E-402392D54160.gif" alt="GIF ตกแต่ง 2" class="w-full h-full object-cover rounded-2xl block">
                     </div>
                 </div>
@@ -273,33 +274,33 @@
                     
                     <div class="flex items-center justify-between mb-3 px-1">
                         <div class="flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-full bg-[#d4b5a0] text-white flex items-center justify-center shadow-sm">
+                            <span class="w-7 h-7 rounded-full bg-[#8fb39c] text-white flex items-center justify-center shadow-sm">
                                 <i data-lucide="message-circle-heart" class="w-3.5 h-3.5"></i>
                             </span>
-                            <h2 class="text-sm font-bold text-[#6b5b52] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
+                            <h2 class="text-sm font-bold text-[#4a5c50] font-mitr tracking-wide">รีวิวจากคุณลูกค้า</h2>
                         </div>
-                        <span class="text-[10px] text-[#9c8578] font-medium flex items-center gap-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span class="text-[10px] text-[#748a7d] font-medium flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                             Smooth Scroll
                         </span>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3 mb-4">
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">4</span>
-                            <span class="text-[11px] text-[#8c7a70] font-prompt font-semibold">รีวิวทั้งหมด</span>
+                            <span class="text-2xl font-serif-num text-[#4a5c50] mb-0.5 font-bold">4</span>
+                            <span class="text-[11px] text-[#6a7c70] font-prompt font-semibold">รีวิวทั้งหมด</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">5.0</span>
-                            <span class="text-[11px] text-[#8c7a70] font-prompt font-semibold">คะแนนเฉลี่ย</span>
+                            <span class="text-2xl font-serif-num text-[#4a5c50] mb-0.5 font-bold">5.0</span>
+                            <span class="text-[11px] text-[#6a7c70] font-prompt font-semibold">คะแนนเฉลี่ย</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">4</span>
-                            <span class="text-[11px] text-[#8c7a70] font-prompt font-semibold">รีวิว 5 ดาว</span>
+                            <span class="text-2xl font-serif-num text-[#4a5c50] mb-0.5 font-bold">4</span>
+                            <span class="text-[11px] text-[#6a7c70] font-prompt font-semibold">รีวิว 5 ดาว</span>
                         </div>
                         <div class="stat-card py-4 px-3 flex flex-col items-center justify-center text-center">
-                            <span class="text-2xl font-serif-num text-[#5c4a42] mb-0.5 font-bold">0</span>
-                            <span class="text-[11px] text-[#8c7a70] font-prompt font-semibold">รีวิว 1 ดาว</span>
+                            <span class="text-2xl font-serif-num text-[#4a5c50] mb-0.5 font-bold">0</span>
+                            <span class="text-[11px] text-[#6a7c70] font-prompt font-semibold">รีวิว 1 ดาว</span>
                         </div>
                     </div>
 
@@ -318,20 +319,20 @@
             <nav class="bottom-nav-capsule px-6 py-2.5 flex items-end justify-between relative">
                 
                 <button onclick="scrollToReviews()" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#6b5b52] group-hover:bg-[#f4e4dc] shadow-sm border border-[#e6d0c4] transition-all">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4a5c50] group-hover:bg-[#d4e4dc] shadow-sm border border-[#c5dcd0] transition-all">
                         <i data-lucide="message-square" class="w-4 h-4"></i>
                     </div>
                 </button>
 
                 <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center -mt-5 group">
-                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#d4b5a0] via-[#e6d0c4] to-[#f4e4dc] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
-                        <i data-lucide="home" class="w-5 h-5 text-[#5c4a42]"></i>
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#9bb8a4] via-[#c5dcd0] to-[#eaf2ed] text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-105 transition-all">
+                        <i data-lucide="home" class="w-5 h-5 text-[#4a5c50]"></i>
                     </div>
-                    <span class="text-[10px] font-extrabold text-[#5c4a42] mt-1 font-mitr tracking-wide">Home</span>
+                    <span class="text-[10px] font-extrabold text-[#4a5c50] mt-1 font-mitr tracking-wide">Home</span>
                 </button>
 
                 <button onclick="openModal('contact')" class="flex flex-col items-center group pb-0.5">
-                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#6b5b52] group-hover:bg-[#f4e4dc] shadow-sm border border-[#e6d0c4] transition-all">
+                    <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#4a5c50] group-hover:bg-[#d4e4dc] shadow-sm border border-[#c5dcd0] transition-all">
                         <i data-lucide="contact" class="w-4 h-4"></i>
                     </div>
                 </button>
@@ -342,8 +343,8 @@
     </div>
 
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-[#fcf8f5] border-2 border-[#e6d0c4] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#e6d0c4] flex items-center justify-center text-[#5c4a42]">
+        <div class="bg-[#f4f7f5] border-2 border-[#c5dcd0] rounded-3xl max-w-sm w-full p-5 relative shadow-xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#c5dcd0] flex items-center justify-center text-[#4a5c50]">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
             <div id="modal-content" class="text-xs space-y-3"></div>
@@ -354,10 +355,10 @@
         lucide.createIcons();
 
         const sampleReviews = [
-            { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#d4b5a0]" },
-            { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#c29b88]" },
-            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#a38675]" },
-            { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#b08968]" }
+            { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#8fb39c]" },
+            { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#7c9e88]" },
+            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#6a8c75]" },
+            { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#73927c]" }
         ];
 
         function renderVerticalMarquee() {
@@ -379,12 +380,12 @@
                             <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">
                                 ${initial}
                             </div>
-                            <span class="font-bold text-xs text-[#5c4a42] font-mitr">${rev.name}</span>
+                            <span class="font-bold text-xs text-[#4a5c50] font-mitr">${rev.name}</span>
                         </div>
-                        <span class="text-[9px] text-[#9c8578] font-medium">${rev.time}</span>
+                        <span class="text-[9px] text-[#748a7d] font-medium">${rev.time}</span>
                     </div>
                     <div class="flex items-center justify-between pl-8 gap-2">
-                        <p class="text-[#4a403a] text-xs leading-snug font-normal line-clamp-1">${rev.text}</p>
+                        <p class="text-[#444c46] text-xs leading-snug font-normal line-clamp-1">${rev.text}</p>
                         <span class="text-amber-500 text-[10px] tracking-wider flex-shrink-0">${starsHtml}</span>
                     </div>
                 `;
@@ -400,38 +401,37 @@
             let html = '';
             if (type === 'rov') {
                 html = `
-                    <h3 class="font-bold text-sm text-[#5c4a42] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
-                    <p class="text-[#7c5e50] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
-                    <div class="bg-white p-3 rounded-2xl border border-[#e6d0c4] space-y-1">
-                        <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-bold text-[#7c5e50]">50 - 150 ฿</span></div>
-                        <div class="flex justify-between"><span>ป้ายคู่ / ทีม:</span> <span class="font-bold text-[#7c5e50]">180 - 350 ฿</span></div>
+                    <h3 class="font-bold text-sm text-[#4a5c50] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3>
+                    <p class="text-[#586b5e] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต, ป้ายตกแต่งสตรีมมิ่ง สไตล์สวยหวานน่ารัก</p>
+                    <div class="bg-white p-3 rounded-2xl border border-[#c5dcd0] space-y-1">
+                        <div class="flex justify-between"><span>ป้ายเดี่ยว:</span> <span class="font-bold text-[#586b5e]">50 - 150 ฿</span></div>
+                        <div class="flex justify-between"><span>ป้ายคู่ / ทีม:</span> <span class="font-bold text-[#586b5e]">180 - 350 ฿</span></div>
                     </div>
                 `;
             } else if (type === 'queue') {
                 html = `
-                    <h3 class="font-bold text-sm text-[#5c4a42] mb-2 font-mitr">⟢ สถานะเช็คคิว</h3>
+                    <h3 class="font-bold text-sm text-[#4a5c50] mb-2 font-mitr">⟢ สถานะเช็คคิว</h3>
                     <div class="space-y-2">
-                        <div class="p-2.5 bg-white rounded-full flex justify-between items-center border border-[#e6d0c4] px-4">
+                        <div class="p-2.5 bg-white rounded-full flex justify-between items-center border border-[#c5dcd0] px-4">
                             <span>คิวที่ 1: คุณ Mild</span>
-                            <span class="text-[10px] bg-[#d4b5a0] text-white px-2.5 py-0.5 rounded-full font-bold">กำลังทำ</span>
+                            <span class="text-[10px] bg-[#8fb39c] text-white px-2.5 py-0.5 rounded-full font-bold">กำลังทำ</span>
                         </div>
                     </div>
                 `;
             } else if (type === 'stock') {
                 html = `
-                    <h3 class="font-bold text-sm text-[#5c4a42] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3>
-                    <div class="p-3 bg-white rounded-2xl border border-[#e6d0c4]">
-                        <div class="font-bold text-[#5c4a42] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
-                        <div class="text-[10px] text-[#7c5e50]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
-                        <div class="text-xs font-bold text-[#7c5e50] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
+                    <h3 class="font-bold text-sm text-[#4a5c50] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3>
+                    <div class="p-3 bg-white rounded-2xl border border-[#c5dcd0]">
+                        <div class="font-bold text-[#4a5c50] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div>
+                        <div class="text-[10px] text-[#586b5e]">รูน 90 | ฮีโร่ครบ | สกิน 180+</div>
+                        <div class="text-xs font-bold text-[#586b5e] mt-1">ราคา 1,290 ฿ (พร้อมโอนลดได้)</div>
                     </div>
                 `;
             } else if (type === 'contact') {
                 html = `
-                    <h3 class="font-bold text-sm text-[#5c4a42] mb-2 font-mitr">📮 ช่องทางการติดต่อ</h3>
+                    <h3 class="font-bold text-sm text-[#4a5c50] mb-2 font-mitr">📮 ช่องทางการติดต่อ</h3>
                     <div class="space-y-2">
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-bold text-[#5c4a42] border border-[#e6d0c4]">Line Official: @SUMMER_SHOP</a>
-                        <a href="#" class="block p-2.5 bg-white rounded-full text-center font-bold text-[#5c4a42] border border-[#e6d0c4]">Facebook Page: SUMMER ไอดีเกม</a>
+                        <a href="https://wannapachingamy-max.github.io/Contactsummer/" target="_blank" class="block p-2.5 bg-white rounded-full text-center font-bold text-[#4a5c50] border border-[#c5dcd0] hover:bg-[#d4e4dc] transition-all">🌐 เว็บไซต์ช่องทางติดต่อหลัก</a>
                     </div>
                 `;
             }
