@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMMER</title>
+    <title>SUMMER 🧸⋆⁺₊⋆</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -175,6 +175,14 @@
         <span class="leaf">🧸</span><span class="leaf">✨</span><span class="leaf">🤍</span><span class="leaf">🌿</span><span class="leaf">🧸</span>
     </div>
 
+    <!-- หน้าต่างโหลด (Loading Overlay) สวยๆ ละมุนตา -->
+    <div id="page-loader" class="fixed inset-0 bg-[#e8eaec]/80 backdrop-blur-md z-[100] hidden flex flex-col items-center justify-center transition-opacity duration-300">
+        <div class="w-16 h-16 rounded-full bg-white shadow-lg border-2 border-[#d0d7de] flex items-center justify-center animate-spin mb-3">
+            <span class="text-2xl">🧸</span>
+        </div>
+        <p class="text-xs font-bold text-[#2b2d31] font-mitr tracking-wider">กำลังพาท่านไปหน้าถัดไป...</p>
+    </div>
+
     <div class="max-w-lg mx-auto min-h-screen flex flex-col justify-between px-4 py-6 relative z-10">
         <div>
             <header class="flex items-center justify-between mb-6 pt-3 pl-1 relative">
@@ -195,7 +203,6 @@
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <!-- ปุ่มแอดมิน (ไอคอนกุญแจมุมขวาบน) -->
                     <button onclick="openAdminLogin()" title="ระบบหลังบ้านแอดมิน" class="w-9 h-9 rounded-full bg-white/95 border-2 border-[#d0d7de] flex items-center justify-center text-[#2b2d31] hover:bg-[#e1e6ec] shadow-sm transition-all cursor-pointer">
                         <i data-lucide="key-round" class="w-4 h-4"></i>
                     </button>
@@ -210,9 +217,9 @@
             </header>
 
             <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#484f58] leading-relaxed">
-                <span class="text-sm flex-shrink-0 mt-0.5"></span>
+                <span class="text-sm flex-shrink-0 mt-0.5">🌿</span>
                 <p class="font-medium">
-                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ
+                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
                 </p>
             </div>
 
@@ -227,33 +234,35 @@
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">งานป้าย Rov</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">౨ৎ งานป้าย Rov</span>
                             <span class="text-[11px] text-[#57606a]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#57606a]"></i>
                 </button>
 
-                <a href="https://wannapachingamy-max.github.io/Qaummer/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
+                <!-- ปุ่มเช็คคิว -->
+                <a href="https://wannapachingamy-max.github.io/Qaummer/" onclick="navigateWithLoader(event, this.href)" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e1e6ec] to-[#c8d0d8] flex items-center justify-center text-[#2b2d31] flex-shrink-0 shadow-sm border border-[#b8c2cc]">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">เช็คคิว</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">⟢ เช็คคิว</span>
                             <span class="text-[11px] text-[#57606a]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
                     <i data-lucide="external-link" class="w-5 h-5 text-[#57606a]"></i>
                 </a>
 
-                <a href="https://wannapachingamy-max.github.io/SummerID/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
+                <!-- ปุ่มไอดีที่ยังเหลืออยู่ -->
+                <a href="https://wannapachingamy-max.github.io/SummerID/" onclick="navigateWithLoader(event, this.href)" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e1e6ec] to-[#c8d0d8] flex items-center justify-center text-[#2b2d31] flex-shrink-0 shadow-sm border border-[#b8c2cc]">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">ไอดีที่ยังเหลืออยู่</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
                             <span class="text-[11px] text-[#57606a]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
@@ -323,7 +332,7 @@
                     <span class="text-[10px] font-extrabold text-[#2b2d31] mt-1 font-mitr tracking-wide">Home</span>
                 </button>
 
-                <a href="https://wannapachingamy-max.github.io/Contactsummer/" target="_blank" class="flex flex-col items-center group pb-0.5">
+                <a href="https://wannapachingamy-max.github.io/Contactsummer/" onclick="navigateWithLoader(event, this.href)" class="flex flex-col items-center group pb-0.5">
                     <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#2b2d31] group-hover:bg-[#e1e6ec] shadow-sm border border-[#d0d7de] transition-all">
                         <i data-lucide="contact" class="w-4 h-4"></i>
                     </div>
@@ -332,7 +341,7 @@
         </footer>
     </div>
 
-    <!-- Modal หลักสำหรับแสดงเนื้อหาต่างๆ -->
+    <!-- Modal หลัก -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f0f3f6] border-2 border-[#d0d7de] rounded-3xl max-w-sm w-full p-5 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0d7de] flex items-center justify-center text-[#2b2d31] cursor-pointer border-none">
@@ -342,10 +351,58 @@
         </div>
     </div>
 
+    <!-- ป๊อปอัพแจ้งเตือน (Custom Alert Popup) -->
+    <div id="custom-alert-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[110] hidden flex items-center justify-center p-4">
+        <div class="bg-white border-2 border-[#d0d7de] rounded-3xl max-w-xs w-full p-6 text-center shadow-2xl animate-scaleUp">
+            <div id="alert-icon-container" class="w-12 h-12 rounded-full mx-auto flex items-center justify-center mb-3 text-white text-xl shadow-md"></div>
+            <h4 id="alert-title" class="font-bold text-sm text-[#2b2d31] mb-1 font-mitr"></h4>
+            <p id="alert-message" class="text-xs text-[#57606a] mb-4"></p>
+            <button onclick="closeCustomAlert()" class="w-full py-2.5 bg-[#2b2d31] hover:bg-[#484f58] text-white rounded-xl text-xs font-bold shadow-md transition-all font-mitr tracking-wide cursor-pointer">
+                ตกลง ✨
+            </button>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
 
-        // ฐานข้อมูลรีวิวเริ่มต้น
+        // ฟังก์ชันควบคุมการเปลี่ยนหน้าพร้อมหน้าต่างโหลดสวยๆ
+        function navigateWithLoader(event, url) {
+            event.preventDefault();
+            const loader = document.getElementById('page-loader');
+            loader.classList.remove('hidden');
+            setTimeout(() => {
+                window.open(url, '_blank');
+                loader.classList.add('hidden');
+            }, 600); // หน่วงเวลา 0.6 วิ ให้เห็นอนิเมชั่นโหลดนุ่มๆ
+        }
+
+        // ระบบป๊อปอัพแจ้งเตือนสวยๆ
+        function showCustomAlert(title, message, type = 'success') {
+            const overlay = document.getElementById('custom-alert-overlay');
+            const iconContainer = document.getElementById('alert-icon-container');
+            const titleEl = document.getElementById('alert-title');
+            const msgEl = document.getElementById('alert-message');
+
+            titleEl.innerText = title;
+            msgEl.innerText = message;
+
+            if (type === 'success') {
+                iconContainer.className = "w-12 h-12 rounded-full mx-auto flex items-center justify-center mb-3 bg-emerald-500 text-white shadow-md";
+                iconContainer.innerHTML = '<i data-lucide="check" class="w-6 h-6"></i>';
+            } else {
+                iconContainer.className = "w-12 h-12 rounded-full mx-auto flex items-center justify-center mb-3 bg-rose-500 text-white shadow-md";
+                iconContainer.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            }
+
+            overlay.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeCustomAlert() {
+            document.getElementById('custom-alert-overlay').classList.add('hidden');
+        }
+
         let sampleReviews = JSON.parse(localStorage.getItem('summer_store_reviews')) || [
             { id: 1, name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#2b2d31]", pinned: false },
             { id: 2, name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#484f58]", pinned: false },
@@ -371,7 +428,6 @@
             if(!track) return;
             track.innerHTML = '';
             
-            // เรียงลำดับให้คอมเมนต์ที่ปักหมุด (pinned) ขึ้นมาแสดงด้านบนสุดเสมอ
             let sortedReviews = [...sampleReviews].sort((a, b) => (b.pinned === true) - (a.pinned === true));
             let listToRender = [...sortedReviews, ...sortedReviews];
 
@@ -468,10 +524,9 @@
 
             closeModal();
             renderVerticalMarquee();
-            alert('ส่งรีวิวเรียบร้อยแล้ว ขอบคุณมากๆ ค่า! 🤍');
+            showCustomAlert('สำเร็จ!', 'ส่งรีวิวเรียบร้อยแล้ว ขอบคุณมากๆ ค่า 🤍', 'success');
         }
 
-        // --- ระบบหลังบ้านแอดมิน ---
         function openAdminLogin() {
             const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
@@ -494,15 +549,19 @@
         function verifyAdmin(event) {
             event.preventDefault();
             const pass = document.getElementById('admin-pass').value;
-            // รหัสผ่านเริ่มต้นตั้งไว้เป็น admin1234 (สามารถเปลี่ยนตรงนี้ได้ตามต้องการ)
             if (pass === 'admin1234') {
-                openAdminDashboard();
+                closeModal();
+                showCustomAlert('สำเร็จ', 'รหัสผ่านถูกต้องค่ะ ยินดีต้อนรับท่านแอดมิน 🤍', 'success');
+                setTimeout(() => {
+                    openAdminDashboard();
+                }, 400);
             } else {
-                alert('รหัสผ่านไม่ถูกต้อง! ❌');
+                showCustomAlert('ผิดพลาด', 'รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้งค่ะ ❌', 'error');
             }
         }
 
         function openAdminDashboard() {
+            const overlay = document.getElementById('modal-overlay');
             const content = document.getElementById('modal-content');
             let reviewsHtml = '';
 
@@ -533,13 +592,14 @@
 
             content.innerHTML = `
                 <div class="flex items-center justify-between mb-2">
-                    <h3 class="font-bold text-sm text-[#2b2d31] font-mitr">🛠️ แผงควบคุมแอดมิน (จัดการรีวิว)</h3>
-                    <button onclick="closeModal()" class="text-xs text-rose-600 font-bold cursor-pointer bg-transparent border-none">ออกจากระบบ</button>
+                    <h3 class="font-bold text-sm text-[#2b2d31] font-mitr">🛠️ แผงควบคุมแอดมิน</h3>
+                    <button onclick="closeModal()" class="text-xs text-rose-600 font-bold cursor-pointer bg-transparent border-none">ปิดหน้าต่าง</button>
                 </div>
                 <div class="max-h-64 overflow-y-auto space-y-2 pr-1">
                     ${reviewsHtml}
                 </div>
             `;
+            overlay.classList.remove('hidden');
             lucide.createIcons();
         }
 
@@ -552,7 +612,7 @@
             });
             localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
             renderVerticalMarquee();
-            openAdminDashboard(); // รีเฟรชหน้าต่างแอดมิน
+            openAdminDashboard(); 
         }
 
         function deleteReview(id) {
@@ -560,7 +620,7 @@
                 sampleReviews = sampleReviews.filter(r => r.id !== id);
                 localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
                 renderVerticalMarquee();
-                openAdminDashboard(); // รีเฟรชหน้าต่างแอดมิน
+                openAdminDashboard(); 
             }
         }
     </script>
