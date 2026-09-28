@@ -366,7 +366,6 @@
     <script>
         lucide.createIcons();
 
-        // ฟังก์ชันควบคุมการเปลี่ยนหน้าพร้อมหน้าต่างโหลดสวยๆ
         function navigateWithLoader(event, url) {
             event.preventDefault();
             const loader = document.getElementById('page-loader');
@@ -377,7 +376,6 @@
             }, 600);
         }
 
-        // ระบบป๊อปอัพแจ้งเตือนสวยๆ
         function showCustomAlert(title, message, type = 'success') {
             const overlay = document.getElementById('custom-alert-overlay');
             const iconContainer = document.getElementById('alert-icon-container');
