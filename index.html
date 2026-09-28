@@ -561,7 +561,8 @@
         function verifyAdmin(event) {
             event.preventDefault();
             const pass = document.getElementById('admin-pass').value;
-            if (pass === 'admin1234') {
+            // ตรวจสอบรหัสผ่านแอดมินใหม่ที่นี่
+            if (pass === 'summer1111') {
                 closeModal();
                 showCustomAlert('สำเร็จ', 'รหัสผ่านถูกต้องค่ะ ยินดีต้อนรับท่านแอดมิน', 'success');
                 setTimeout(() => {
