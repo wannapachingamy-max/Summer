@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMMER </title>
+    <title>SUMMER 🧸⋆⁺₊⋆</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -48,7 +48,6 @@
 
         .text-header-title { color: #2b2d31; letter-spacing: 0.05em; }
 
-        /* ก้อนเมฆหมอกสีเทาจางๆ ลอยไปมา */
         .cloud-bg-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: 0; overflow: hidden;
         }
@@ -66,21 +65,15 @@
             background: rgba(240, 243, 246, 0.85);
             border-radius: 50%;
         }
-        .cloud-1 {
-            width: 160px; height: 55px; top: 12%; left: -180px; animation-duration: 35s;
-        }
+        .cloud-1 { width: 160px; height: 55px; top: 12%; left: -180px; animation-duration: 35s; }
         .cloud-1::before { width: 70px; height: 70px; top: -35px; left: 25px; }
         .cloud-1::after { width: 50px; height: 50px; top: -22px; left: 80px; }
 
-        .cloud-2 {
-            width: 200px; height: 65px; top: 58%; left: -220px; animation-duration: 45s; animation-delay: 15s;
-        }
+        .cloud-2 { width: 200px; height: 65px; top: 58%; left: -220px; animation-duration: 45s; animation-delay: 15s; }
         .cloud-2::before { width: 90px; height: 90px; top: -45px; left: 35px; }
         .cloud-2::after { width: 65px; height: 65px; top: -30px; left: 105px; }
 
-        .cloud-3 {
-            width: 140px; height: 48px; top: 82%; left: -160px; animation-duration: 30s; animation-delay: 8s;
-        }
+        .cloud-3 { width: 140px; height: 48px; top: 82%; left: -160px; animation-duration: 30s; animation-delay: 8s; }
         .cloud-3::before { width: 60px; height: 60px; top: -28px; left: 20px; }
         .cloud-3::after { width: 45px; height: 45px; top: -20px; left: 70px; }
 
@@ -172,7 +165,6 @@
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#d0d7de] relative">
 
-    <!-- ก้อนเมฆหมอกลอยไปมา -->
     <div class="cloud-bg-container">
         <div class="big-cloud cloud-1"></div>
         <div class="big-cloud cloud-2"></div>
@@ -202,23 +194,29 @@
                     </div>
                 </div>
 
-                <div class="px-3.5 py-1.5 rounded-full bg-white/95 border-2 border-[#d0d7de] backdrop-blur-md shadow-sm flex items-center gap-2">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
-                    </span>
-                    <span class="text-[11px] font-bold text-[#2b2d31] font-mitr">ร้านเปิดบริการ</span>
+                <div class="flex items-center gap-2">
+                    <!-- ปุ่มแอดมิน (ไอคอนกุญแจมุมขวาบน) -->
+                    <button onclick="openAdminLogin()" title="ระบบหลังบ้านแอดมิน" class="w-9 h-9 rounded-full bg-white/95 border-2 border-[#d0d7de] flex items-center justify-center text-[#2b2d31] hover:bg-[#e1e6ec] shadow-sm transition-all cursor-pointer">
+                        <i data-lucide="key-round" class="w-4 h-4"></i>
+                    </button>
+                    <div class="px-3.5 py-1.5 rounded-full bg-white/95 border-2 border-[#d0d7de] backdrop-blur-md shadow-sm flex items-center gap-2">
+                        <span class="relative flex h-2.5 w-2.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                        </span>
+                        <span class="text-[11px] font-bold text-[#2b2d31] font-mitr">ร้านเปิดบริการ</span>
+                    </div>
                 </div>
             </header>
 
             <div class="px-3 mb-6 flex items-start gap-2.5 text-xs text-[#484f58] leading-relaxed">
-                <span class="text-sm flex-shrink-0 mt-0.5"></span>
-                <p class="font-medium">รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ
+                <span class="text-sm flex-shrink-0 mt-0.5">🌿</span>
+                <p class="font-medium">
+                    รับซื้อขายไอดีราคาร้อน ขายไอดีเกมช่องทางการติดต่อกดช่องคอนแทคได้เลย ฝากรีวิวด้วยน้าคะเป็นกำลังใจ 🪞🪄
                 </p>
             </div>
 
             <main class="space-y-4">
-                <!-- GIF ด้านบนช่องป้าย Rov -->
                 <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#d0d7de] bg-white/80 backdrop-blur-md p-1.5 mb-2">
                     <img src="0BD18DE5-FAB3-4466-B3F4-834BED634D8C.gif" alt="GIF ตกแต่งพิเศษด้านบนป้าย Rov" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
@@ -229,41 +227,39 @@
                             <i data-lucide="gamepad-2" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">งานป้าย Rov</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">౨ৎ งานป้าย Rov</span>
                             <span class="text-[11px] text-[#57606a]">ดูเรทงานและตัวอย่างป้ายทั้งหมด</span>
                         </div>
                     </div>
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#57606a]"></i>
                 </button>
 
-                <!-- ปุ่มเช็คคิว -->
                 <a href="https://wannapachingamy-max.github.io/Qaummer/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e1e6ec] to-[#c8d0d8] flex items-center justify-center text-[#2b2d31] flex-shrink-0 shadow-sm border border-[#b8c2cc]">
                             <i data-lucide="calendar" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">เช็คคิว</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">⟢ เช็คคิว</span>
                             <span class="text-[11px] text-[#57606a]">ตารางคิวสถานะปัจจุบัน</span>
                         </div>
                     </div>
                     <i data-lucide="external-link" class="w-5 h-5 text-[#57606a]"></i>
                 </a>
 
-                <button onclick="openModal('stock')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
+                <a href="https://wannapachingamy-max.github.io/SummerID/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e1e6ec] to-[#c8d0d8] flex items-center justify-center text-[#2b2d31] flex-shrink-0 shadow-sm border border-[#b8c2cc]">
                             <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">ไอดีที่ยังเหลืออยู่</span>
+                            <span class="block text-sm font-bold text-[#2b2d31] font-mitr">🪽 ไอดีที่ยังเหลืออยู่</span>
                             <span class="text-[11px] text-[#57606a]">รายการไอดีพร้อมส่งมอบ</span>
                         </div>
                     </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-[#57606a]"></i>
-                </button>
+                    <i data-lucide="external-link" class="w-5 h-5 text-[#57606a]"></i>
+                </a>
 
-                <!-- ช่องถัดจากไอดีคงเหลือ -->
                 <div class="grid grid-cols-2 gap-3 my-2">
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#d0d7de] bg-white/80 backdrop-blur-md p-1">
                         <img src="BF7C4739-4770-4A78-AC3A-C0F9DED33E7B.gif" alt="GIF ตกแต่งช่องถัดจากไอดีคงเหลือ" class="w-full h-full object-cover rounded-2xl block">
@@ -273,7 +269,6 @@
                     </div>
                 </div>
 
-                <!-- ส่วนแสดงผลรีวิว -->
                 <section id="review-section" class="pt-4 pb-2">
                     <div class="flex items-center justify-between mb-3 px-1">
                         <div class="flex items-center gap-2">
@@ -337,7 +332,7 @@
         </footer>
     </div>
 
-    <!-- Modal สำหรับแสดงข้อมูลและฟอร์มเขียนรีวิว -->
+    <!-- Modal หลักสำหรับแสดงเนื้อหาต่างๆ -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f0f3f6] border-2 border-[#d0d7de] rounded-3xl max-w-sm w-full p-5 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0d7de] flex items-center justify-center text-[#2b2d31] cursor-pointer border-none">
@@ -350,11 +345,12 @@
     <script>
         lucide.createIcons();
 
+        // ฐานข้อมูลรีวิวเริ่มต้น
         let sampleReviews = JSON.parse(localStorage.getItem('summer_store_reviews')) || [
-            { name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#2b2d31]" },
-            { name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#484f58]" },
-            { name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#57606a]" },
-            { name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#656d76]" }
+            { id: 1, name: "คุณน้องแป้ง RoV", rating: 5, text: "ซื้อไอดีกับร้าน SUMMER โอนปุ๊บรหัสเข้าปั๊บ ไวมากแม่ แนะนำเลยค่า ✨✨", time: "5 นาทีที่แล้ว", bg: "bg-[#2b2d31]", pinned: false },
+            { id: 2, name: "น้องกอล์ฟ สายลุย", rating: 5, text: "ขายไอดีราคาร้อนกับร้านนี้ ให้ราคาดีมาก แม่ค้าพูดจาดี น่ารักครับ ❤️", time: "18 นาทีที่แล้ว", bg: "bg-[#484f58]", pinned: false },
+            { id: 3, name: "ลูกค้าประจำ #88", rating: 5, text: "เครดิตแน่น ซื้อขายสบายใจได้แน่นอนครับ ป้าย RoV ของจริง!", time: "1 ชั่วโมงที่แล้ว", bg: "bg-[#57606a]", pinned: false },
+            { id: 4, name: "น้องพลอย_RoV", rating: 5, text: "สั่งทำป้าย RoV สวยสะดุดตามากกก มีรอบหน้าอีกแน่นอนค่ะ ✨", time: "2 ชั่วโมงที่แล้ว", bg: "bg-[#656d76]", pinned: false }
         ];
 
         function updateStats() {
@@ -374,18 +370,22 @@
             const track = document.getElementById('vertical-track-content');
             if(!track) return;
             track.innerHTML = '';
-            const listToRender = [...sampleReviews, ...sampleReviews];
+            
+            // เรียงลำดับให้คอมเมนต์ที่ปักหมุด (pinned) ขึ้นมาแสดงด้านบนสุดเสมอ
+            let sortedReviews = [...sampleReviews].sort((a, b) => (b.pinned === true) - (a.pinned === true));
+            let listToRender = [...sortedReviews, ...sortedReviews];
 
             listToRender.forEach((rev) => {
                 const initial = rev.name.charAt(0);
                 const starsHtml = '★'.repeat(rev.rating);
+                const pinBadge = rev.pinned ? '<span class="text-[10px] text-amber-600 font-bold ml-1">📌 [ปักหมุด]</span>' : '';
                 const card = document.createElement('div');
                 card.className = "review-capsule-item px-5 py-3 flex-shrink-0";
                 card.innerHTML = `
                     <div class="flex items-center justify-between mb-1">
                         <div class="flex items-center gap-2.5">
                             <div class="w-6 h-6 rounded-full ${rev.bg} text-white font-bold flex items-center justify-center text-[10px] shadow-sm flex-shrink-0">${initial}</div>
-                            <span class="font-bold text-xs text-[#2b2d31] font-mitr">${rev.name}</span>
+                            <span class="font-bold text-xs text-[#2b2d31] font-mitr">${rev.name} ${pinBadge}</span>
                         </div>
                         <span class="text-[9px] text-[#57606a] font-medium">${rev.time}</span>
                     </div>
@@ -407,8 +407,6 @@
             let html = '';
             if (type === 'rov') {
                 html = `<h3 class="font-bold text-sm text-[#2b2d31] mb-2 font-mitr">౨ৎ งานป้าย RoV</h3><p class="text-[#484f58] mb-2">รับทำป้ายโปรไฟล์ RoV, ป้ายเครดิต สไตล์สวยหวานน่ารัก</p>`;
-            } else if (type === 'stock') {
-                html = `<h3 class="font-bold text-sm text-[#2b2d31] mb-2 font-mitr">🪽 ไอดีที่ยังเหลืออยู่</h3><div class="p-3 bg-white rounded-2xl border border-[#d0d7de]"><div class="font-bold text-[#2b2d31] font-mitr text-xs">ID RoV - สกินสเปเชียลครบ</div><div class="text-xs font-bold text-[#484f58] mt-1">ราคา 1,290 ฿</div></div>`;
             } else if (type === 'review-form') {
                 html = `
                     <h3 class="font-bold text-sm text-[#2b2d31] mb-3 font-mitr">✍️ เขียนรีวิวความประทับใจ</h3>
@@ -456,11 +454,13 @@
             const randomBg = bgColors[Math.floor(Math.random() * bgColors.length)];
 
             const newReview = {
+                id: Date.now(),
                 name: name,
                 rating: rating,
                 text: text,
                 time: "เมื่อสักครู่",
-                bg: randomBg
+                bg: randomBg,
+                pinned: false
             };
 
             sampleReviews.unshift(newReview);
@@ -469,6 +469,99 @@
             closeModal();
             renderVerticalMarquee();
             alert('ส่งรีวิวเรียบร้อยแล้ว ขอบคุณมากๆ ค่า! 🤍');
+        }
+
+        // --- ระบบหลังบ้านแอดมิน ---
+        function openAdminLogin() {
+            const overlay = document.getElementById('modal-overlay');
+            const content = document.getElementById('modal-content');
+            content.innerHTML = `
+                <h3 class="font-bold text-sm text-[#2b2d31] mb-3 font-mitr">🔐 เข้าสู่ระบบแอดมิน</h3>
+                <form onsubmit="verifyAdmin(event)" class="space-y-3">
+                    <div>
+                        <label class="block text-[11px] font-bold text-[#2b2d31] mb-1 font-mitr">รหัสผ่านแอดมิน</label>
+                        <input type="password" id="admin-pass" required placeholder="กรอกรหัสผ่าน..." class="w-full px-3 py-2 rounded-xl border border-[#d0d7de] bg-white text-xs text-[#2b2d31] focus:outline-none focus:border-[#2b2d31]">
+                    </div>
+                    <button type="submit" class="w-full py-2.5 bg-[#2b2d31] hover:bg-[#484f58] text-white rounded-xl text-xs font-bold shadow-md transition-all font-mitr tracking-wide cursor-pointer">
+                        เข้าสู่ระบบ 🔑
+                    </button>
+                </form>
+            `;
+            overlay.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function verifyAdmin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('admin-pass').value;
+            // รหัสผ่านเริ่มต้นตั้งไว้เป็น admin1234 (สามารถเปลี่ยนตรงนี้ได้ตามต้องการ)
+            if (pass === 'admin1234') {
+                openAdminDashboard();
+            } else {
+                alert('รหัสผ่านไม่ถูกต้อง! ❌');
+            }
+        }
+
+        function openAdminDashboard() {
+            const content = document.getElementById('modal-content');
+            let reviewsHtml = '';
+
+            if (sampleReviews.length === 0) {
+                reviewsHtml = `<p class="text-center text-gray-500 py-4">ยังไม่มีคอมเมนต์รีวิวในระบบ</p>`;
+            } else {
+                sampleReviews.forEach((rev) => {
+                    const pinText = rev.pinned ? 'ยกเลิกปักหมุด' : '📌 ปักหมุด';
+                    reviewsHtml += `
+                        <div class="bg-white p-3 rounded-xl border border-[#d0d7de] flex flex-col gap-1.5 shadow-sm">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-xs text-[#2b2d31]">${rev.name} (${rev.rating}★)</span>
+                                <span class="text-[10px] text-gray-400">${rev.time}</span>
+                            </div>
+                            <p class="text-[11px] text-gray-600 line-clamp-2">${rev.text}</p>
+                            <div class="flex items-center justify-end gap-2 mt-1">
+                                <button onclick="togglePinReview(${rev.id})" class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-lg text-[10px] font-bold cursor-pointer border-none">
+                                    ${pinText}
+                                </button>
+                                <button onclick="deleteReview(${rev.id})" class="px-2.5 py-1 bg-rose-100 text-rose-700 rounded-lg text-[10px] font-bold cursor-pointer border-none">
+                                    🗑️ ลบ
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            content.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="font-bold text-sm text-[#2b2d31] font-mitr">🛠️ แผงควบคุมแอดมิน (จัดการรีวิว)</h3>
+                    <button onclick="closeModal()" class="text-xs text-rose-600 font-bold cursor-pointer bg-transparent border-none">ออกจากระบบ</button>
+                </div>
+                <div class="max-h-64 overflow-y-auto space-y-2 pr-1">
+                    ${reviewsHtml}
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function togglePinReview(id) {
+            sampleReviews = sampleReviews.map(r => {
+                if (r.id === id) {
+                    return { ...r, pinned: !r.pinned };
+                }
+                return r;
+            });
+            localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
+            renderVerticalMarquee();
+            openAdminDashboard(); // รีเฟรชหน้าต่างแอดมิน
+        }
+
+        function deleteReview(id) {
+            if (confirm('คุณต้องการลบคอมเมนต์นี้ใช่หรือไม่?')) {
+                sampleReviews = sampleReviews.filter(r => r.id !== id);
+                localStorage.setItem('summer_store_reviews', JSON.stringify(sampleReviews));
+                renderVerticalMarquee();
+                openAdminDashboard(); // รีเฟรชหน้าต่างแอดมิน
+            }
         }
     </script>
 </body>
