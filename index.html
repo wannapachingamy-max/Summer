@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUMMER 🧸⋆⁺₊⋆</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Mitr:wght@300;400;500;600;700&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -34,7 +31,6 @@
         .font-serif-num { font-family: 'Cormorant Garamond', serif !important; }
 
         body {
-            /* โทนสีเทาหมอกหรูหราแบบภาพเรฟเฟอเรนซ์ */
             background-color: #e8eaec;
             background-image: 
                 radial-gradient(rgba(210, 215, 220, 0.5) 1.5px, transparent 1.5px),
@@ -92,7 +88,6 @@
             100% { transform: translateX(calc(100vw + 250px)); opacity: 0; }
         }
 
-        /* ตกแต่งใบไม้/ไอคอนโปรย */
         .leaf-container {
             position: fixed; top: -10%; left: 0; width: 100%; height: 120vh; pointer-events: none; z-index: 0; overflow: hidden;
         }
@@ -174,7 +169,6 @@
 </head>
 <body class="min-h-screen pb-32 selection:bg-[#d0d7de] relative">
 
-    <!-- ก้อนเมฆหมอกลอยไปมา -->
     <div class="cloud-bg-container">
         <div class="big-cloud cloud-1"></div>
         <div class="big-cloud cloud-2"></div>
@@ -222,7 +216,7 @@
 
             <main class="space-y-4">
                 <div class="w-full rounded-3xl overflow-hidden shadow-md border-2 border-[#d0d7de] bg-white/80 backdrop-blur-md p-1.5 mb-2">
-                    <img src="2D5182E6-2D73-460D-AA9B-4E6A3B7158C4.gif" alt="GIF ตกแต่งพิเศษ" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
+                    <img src="0BD18DE5-FAB3-4466-B3F4-834BED634D8C.gif" alt="GIF ตกแต่งพิเศษด้านบนป้าย Rov" class="w-full h-auto max-h-48 object-cover rounded-2xl block">
                 </div>
 
                 <button onclick="openModal('rov')" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
@@ -238,7 +232,6 @@
                     <i data-lucide="chevron-right" class="w-5 h-5 text-[#57606a]"></i>
                 </button>
 
-                <!-- ปุ่มเช็คคิว -->
                 <a href="https://wannapachingamy-max.github.io/Qaummer/" target="_blank" class="w-full capsule-card px-5 py-4 flex items-center justify-between group">
                     <div class="flex items-center space-x-4">
                         <div class="w-11 h-11 rounded-full bg-gradient-to-br from-[#e1e6ec] to-[#c8d0d8] flex items-center justify-center text-[#2b2d31] flex-shrink-0 shadow-sm border border-[#b8c2cc]">
@@ -267,14 +260,13 @@
 
                 <div class="grid grid-cols-2 gap-3 my-2">
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#d0d7de] bg-white/80 backdrop-blur-md p-1">
-                        <img src="F1090F6F-DB2D-4F4A-A801-E791E5E752EF.gif" alt="GIF ตกแต่ง 1" class="w-full h-full object-cover rounded-2xl block">
+                        <img src="BF7C4739-4770-4A78-AC3A-C0F9DED33E7B.gif" alt="GIF ตกแต่งช่องถัดจากไอดีคงเหลือ" class="w-full h-full object-cover rounded-2xl block">
                     </div>
                     <div class="w-full aspect-square rounded-3xl overflow-hidden shadow-md border-2 border-[#d0d7de] bg-white/80 backdrop-blur-md p-1">
-                        <img src="EE699540-D77C-4585-B36E-402392D54160.gif" alt="GIF ตกแต่ง 2" class="w-full h-full object-cover rounded-2xl block">
+                        <img src="att.Tzqhbn6gRRqVz4W3eKC9XNr3nY-Pg1c04bImWzd4dxw.jpeg" alt="รูปภาพตกแต่งช่องถัดจากไอดีคงเหลือ" class="w-full h-full object-cover rounded-2xl block">
                     </div>
                 </div>
 
-                <!-- ส่วนแสดงผลรีวิว -->
                 <section id="review-section" class="pt-4 pb-2">
                     <div class="flex items-center justify-between mb-3 px-1">
                         <div class="flex items-center gap-2">
@@ -338,7 +330,6 @@
         </footer>
     </div>
 
-    <!-- Modal สำหรับแสดงข้อมูลและฟอร์มเขียนรีวิว -->
     <div id="modal-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-[#f0f3f6] border-2 border-[#d0d7de] rounded-3xl max-w-sm w-full p-5 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-[#d0d7de] flex items-center justify-center text-[#2b2d31] cursor-pointer border-none">
